@@ -1,0 +1,22 @@
+# Xcode
+.DS_Store
+/build/
+DerivedData/
+
+
+# User-specific Xcode settings
+*.xcuserdatad
+xcuserdata/
+*.xcodeproj/xcuserdata/
+
+
+# Sensitive data
+secret-config.plist
+
+# Xcode project file
+YourProject.xcodeproj/
+
+# Logs and temporary files
+*.log
+*.tmp
+
