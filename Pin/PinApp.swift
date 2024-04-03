@@ -11,7 +11,7 @@ import SwiftUI
 struct PinApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AppTabView()
         }
     }
 }
