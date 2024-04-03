@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct BoutiqueMapScreen: View {
     var body: some View {

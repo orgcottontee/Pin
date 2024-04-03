@@ -13,6 +13,13 @@
 		DE635B662BBD9044005D5C8D /* BoutiqueMapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE635B652BBD9044005D5C8D /* BoutiqueMapScreen.swift */; };
 		DE635B6A2BBD90D1005D5C8D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE635B692BBD90D1005D5C8D /* Constants.swift */; };
 		DE635B6C2BBD90F3005D5C8D /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE635B6B2BBD90F3005D5C8D /* TabBarView.swift */; };
+		DE635B6E2BBDBF55005D5C8D /* NavBar+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE635B6D2BBDBF55005D5C8D /* NavBar+Helper.swift */; };
+		DE635B702BBDC4B4005D5C8D /* Font+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE635B6F2BBDC4B3005D5C8D /* Font+Ext.swift */; };
+		DE635B722BBDC4F2005D5C8D /* UniversLTStd-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE635B712BBDC4F2005D5C8D /* UniversLTStd-Light.otf */; };
+		DE635B742BBDC501005D5C8D /* Baskerville.ttc in Resources */ = {isa = PBXBuildFile; fileRef = DE635B732BBDC501005D5C8D /* Baskerville.ttc */; };
+		DE635B762BBDC51D005D5C8D /* AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE635B752BBDC51D005D5C8D /* AppFonts.swift */; };
+		DE635B782BBDC72D005D5C8D /* BoutiqueDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE635B772BBDC72D005D5C8D /* BoutiqueDetailScreen.swift */; };
+		DE635B7C2BBDEDAE005D5C8D /* BoutiqueCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE635B7B2BBDEDAE005D5C8D /* BoutiqueCellView.swift */; };
 		DEB9AC422BBCD1F300013C92 /* PinApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB9AC412BBCD1F300013C92 /* PinApp.swift */; };
 		DEB9AC462BBCD1F400013C92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEB9AC452BBCD1F400013C92 /* Assets.xcassets */; };
 		DEB9AC492BBCD1F400013C92 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEB9AC482BBCD1F400013C92 /* Preview Assets.xcassets */; };
@@ -26,6 +33,13 @@
 		DE635B652BBD9044005D5C8D /* BoutiqueMapScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoutiqueMapScreen.swift; sourceTree = "<group>"; };
 		DE635B692BBD90D1005D5C8D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DE635B6B2BBD90F3005D5C8D /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		DE635B6D2BBDBF55005D5C8D /* NavBar+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavBar+Helper.swift"; sourceTree = "<group>"; };
+		DE635B6F2BBDC4B3005D5C8D /* Font+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Ext.swift"; sourceTree = "<group>"; };
+		DE635B712BBDC4F2005D5C8D /* UniversLTStd-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UniversLTStd-Light.otf"; sourceTree = "<group>"; };
+		DE635B732BBDC501005D5C8D /* Baskerville.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Baskerville.ttc; sourceTree = "<group>"; };
+		DE635B752BBDC51D005D5C8D /* AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFonts.swift; sourceTree = "<group>"; };
+		DE635B772BBDC72D005D5C8D /* BoutiqueDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoutiqueDetailScreen.swift; sourceTree = "<group>"; };
+		DE635B7B2BBDEDAE005D5C8D /* BoutiqueCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoutiqueCellView.swift; sourceTree = "<group>"; };
 		DEB9AC3E2BBCD1F300013C92 /* Pin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEB9AC412BBCD1F300013C92 /* PinApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinApp.swift; sourceTree = "<group>"; };
 		DEB9AC452BBCD1F400013C92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -46,6 +60,7 @@
 		DEB9AC352BBCD1F300013C92 = {
 			isa = PBXGroup;
 			children = (
+				DE635B7B2BBDEDAE005D5C8D /* BoutiqueCellView.swift */,
 				DEB9AC402BBCD1F300013C92 /* Pin */,
 				DEB9AC3F2BBCD1F300013C92 /* Products */,
 			);
@@ -62,14 +77,20 @@
 		DEB9AC402BBCD1F300013C92 /* Pin */ = {
 			isa = PBXGroup;
 			children = (
+				DE635B752BBDC51D005D5C8D /* AppFonts.swift */,
+				DE635B6F2BBDC4B3005D5C8D /* Font+Ext.swift */,
+				DE635B772BBDC72D005D5C8D /* BoutiqueDetailScreen.swift */,
 				DE635B6B2BBD90F3005D5C8D /* TabBarView.swift */,
 				DEB9AC412BBCD1F300013C92 /* PinApp.swift */,
 				DE635B5F2BBD8F7D005D5C8D /* AppTabView.swift */,
 				DE635B692BBD90D1005D5C8D /* Constants.swift */,
 				DE635B612BBD8FF6005D5C8D /* ProfileScreen.swift */,
 				DE635B632BBD9035005D5C8D /* BoutiqueListScreen.swift */,
+				DE635B6D2BBDBF55005D5C8D /* NavBar+Helper.swift */,
 				DE635B652BBD9044005D5C8D /* BoutiqueMapScreen.swift */,
 				DEB9AC452BBCD1F400013C92 /* Assets.xcassets */,
+				DE635B732BBDC501005D5C8D /* Baskerville.ttc */,
+				DE635B712BBDC4F2005D5C8D /* UniversLTStd-Light.otf */,
 				DE635B5E2BBCD3F0005D5C8D /* Pin.entitlements */,
 				DEB9AC472BBCD1F400013C92 /* Preview Content */,
 			);
@@ -142,8 +163,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE635B742BBDC501005D5C8D /* Baskerville.ttc in Resources */,
 				DEB9AC492BBCD1F400013C92 /* Preview Assets.xcassets in Resources */,
 				DEB9AC462BBCD1F400013C92 /* Assets.xcassets in Resources */,
+				DE635B722BBDC4F2005D5C8D /* UniversLTStd-Light.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,10 +180,15 @@
 				DE635B662BBD9044005D5C8D /* BoutiqueMapScreen.swift in Sources */,
 				DE635B602BBD8F7D005D5C8D /* AppTabView.swift in Sources */,
 				DE635B6C2BBD90F3005D5C8D /* TabBarView.swift in Sources */,
+				DE635B6E2BBDBF55005D5C8D /* NavBar+Helper.swift in Sources */,
 				DE635B642BBD9035005D5C8D /* BoutiqueListScreen.swift in Sources */,
 				DE635B622BBD8FF6005D5C8D /* ProfileScreen.swift in Sources */,
+				DE635B762BBDC51D005D5C8D /* AppFonts.swift in Sources */,
 				DEB9AC422BBCD1F300013C92 /* PinApp.swift in Sources */,
 				DE635B6A2BBD90D1005D5C8D /* Constants.swift in Sources */,
+				DE635B782BBDC72D005D5C8D /* BoutiqueDetailScreen.swift in Sources */,
+				DE635B702BBDC4B4005D5C8D /* Font+Ext.swift in Sources */,
+				DE635B7C2BBDEDAE005D5C8D /* BoutiqueCellView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
