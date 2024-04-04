@@ -39,4 +39,16 @@ enum Constants {
             }
         }
     }
+    
+    // MARK: - App themes
+    
+    enum AppTheme: String, Identifiable, CaseIterable {
+        case system = "System"
+        case lightTheme = "Light"
+        case darkTheme = "Dark"
+
+        var id: String { self.rawValue }
+    }
+    
+    
 }

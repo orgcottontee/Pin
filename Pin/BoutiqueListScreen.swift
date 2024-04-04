@@ -78,6 +78,7 @@ struct BoutiqueListScreen: View {
                 //        }
             }
         }
+        .tint(.brandAccent)
     }
 }
 

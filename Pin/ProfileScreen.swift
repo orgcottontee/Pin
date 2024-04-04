@@ -8,12 +8,41 @@
 import SwiftUI
 
 struct ProfileScreen: View {
+    
+    @State var textInput: String = ""
+    
     var body: some View {
-        ZStack {
-            Color(.brandPrimary)
-                .ignoresSafeArea()
-            Text("Hello, settings")
+        NavigationStack {
+            ZStack {
+                Color.brandPrimary
+                    .ignoresSafeArea()
+                VStack(alignment: .leading) {
+                    Text("Know a special boutique? Let us know!")
+                        .font(.custom(BaskervilleFont.regular, size: 16))
+                        .kerning(1.5)
+                    TextField("", 
+                              text: $textInput,
+                              prompt: Text("Input suggestions here...").foregroundStyle(.brandPrimary))
+                        // TODO: Add logic and send to backend
+                    .padding()
+                    .background(Color.brandAccent)
+                    .font(.custom(UniversFont.light, size: 16))
+                    .kerning(1.2)
+                    .foregroundStyle(.brandPrimary)
+                    .autocorrectionDisabled(true)
+                    
+                    Spacer()
+                    NavigationLink(destination: SettingsScreen()) {
+                        ButtonView(buttonText: "Go to Settings")
+                    }
+                    NavigationLink(destination: FavoritesScreen()) {
+                        ButtonView(buttonText: "See your Favorite Boutiques")
+                    }
+                }
+                .padding()
+            }
         }
+        .tint(.brandAccent)
     }
 }
 

@@ -20,6 +20,9 @@
 		DE635B762BBDC51D005D5C8D /* AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE635B752BBDC51D005D5C8D /* AppFonts.swift */; };
 		DE635B782BBDC72D005D5C8D /* BoutiqueDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE635B772BBDC72D005D5C8D /* BoutiqueDetailScreen.swift */; };
 		DE635B7C2BBDEDAE005D5C8D /* BoutiqueCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE635B7B2BBDEDAE005D5C8D /* BoutiqueCellView.swift */; };
+		DE635B7E2BBE1471005D5C8D /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE635B7D2BBE1471005D5C8D /* ButtonView.swift */; };
+		DE635B802BBE1953005D5C8D /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE635B7F2BBE1953005D5C8D /* SettingsScreen.swift */; };
+		DE635B822BBE19A1005D5C8D /* FavoritesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE635B812BBE19A1005D5C8D /* FavoritesScreen.swift */; };
 		DEB9AC422BBCD1F300013C92 /* PinApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB9AC412BBCD1F300013C92 /* PinApp.swift */; };
 		DEB9AC462BBCD1F400013C92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEB9AC452BBCD1F400013C92 /* Assets.xcassets */; };
 		DEB9AC492BBCD1F400013C92 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEB9AC482BBCD1F400013C92 /* Preview Assets.xcassets */; };
@@ -40,6 +43,9 @@
 		DE635B752BBDC51D005D5C8D /* AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFonts.swift; sourceTree = "<group>"; };
 		DE635B772BBDC72D005D5C8D /* BoutiqueDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoutiqueDetailScreen.swift; sourceTree = "<group>"; };
 		DE635B7B2BBDEDAE005D5C8D /* BoutiqueCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoutiqueCellView.swift; sourceTree = "<group>"; };
+		DE635B7D2BBE1471005D5C8D /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
+		DE635B7F2BBE1953005D5C8D /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
+		DE635B812BBE19A1005D5C8D /* FavoritesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesScreen.swift; sourceTree = "<group>"; };
 		DEB9AC3E2BBCD1F300013C92 /* Pin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEB9AC412BBCD1F300013C92 /* PinApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinApp.swift; sourceTree = "<group>"; };
 		DEB9AC452BBCD1F400013C92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -60,6 +66,8 @@
 		DEB9AC352BBCD1F300013C92 = {
 			isa = PBXGroup;
 			children = (
+				DE635B812BBE19A1005D5C8D /* FavoritesScreen.swift */,
+				DE635B7D2BBE1471005D5C8D /* ButtonView.swift */,
 				DE635B7B2BBDEDAE005D5C8D /* BoutiqueCellView.swift */,
 				DEB9AC402BBCD1F300013C92 /* Pin */,
 				DEB9AC3F2BBCD1F300013C92 /* Products */,
@@ -85,6 +93,7 @@
 				DE635B5F2BBD8F7D005D5C8D /* AppTabView.swift */,
 				DE635B692BBD90D1005D5C8D /* Constants.swift */,
 				DE635B612BBD8FF6005D5C8D /* ProfileScreen.swift */,
+				DE635B7F2BBE1953005D5C8D /* SettingsScreen.swift */,
 				DE635B632BBD9035005D5C8D /* BoutiqueListScreen.swift */,
 				DE635B6D2BBDBF55005D5C8D /* NavBar+Helper.swift */,
 				DE635B652BBD9044005D5C8D /* BoutiqueMapScreen.swift */,
@@ -184,8 +193,11 @@
 				DE635B642BBD9035005D5C8D /* BoutiqueListScreen.swift in Sources */,
 				DE635B622BBD8FF6005D5C8D /* ProfileScreen.swift in Sources */,
 				DE635B762BBDC51D005D5C8D /* AppFonts.swift in Sources */,
+				DE635B822BBE19A1005D5C8D /* FavoritesScreen.swift in Sources */,
 				DEB9AC422BBCD1F300013C92 /* PinApp.swift in Sources */,
+				DE635B802BBE1953005D5C8D /* SettingsScreen.swift in Sources */,
 				DE635B6A2BBD90D1005D5C8D /* Constants.swift in Sources */,
+				DE635B7E2BBE1471005D5C8D /* ButtonView.swift in Sources */,
 				DE635B782BBDC72D005D5C8D /* BoutiqueDetailScreen.swift in Sources */,
 				DE635B702BBDC4B4005D5C8D /* Font+Ext.swift in Sources */,
 				DE635B7C2BBDEDAE005D5C8D /* BoutiqueCellView.swift in Sources */,

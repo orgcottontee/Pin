@@ -14,7 +14,7 @@ struct NavBar {
         appearance.backgroundColor = UIColor(Color.brandPrimary)
         appearance.shadowColor = .clear
         
-        let cancelButton = [NSAttributedString.Key.foregroundColor: UIColor.tintColor]
+        let cancelButton = [NSAttributedString.Key.foregroundColor: UIColor.brandAccent]
         UIBarButtonItem.appearance().setTitleTextAttributes(cancelButton, for: .normal)
         
         UINavigationBar.appearance().tintColor = .brandAccent
