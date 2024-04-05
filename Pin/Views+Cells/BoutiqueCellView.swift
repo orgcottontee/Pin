@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct BoutiqueCellView: View {
+    
+    var boutiqueLocation: PinLocation
+    
     var body: some View {
         HStack(spacing: 30) {
             Image(.squareLogo)
@@ -16,15 +19,15 @@ struct BoutiqueCellView: View {
                 .frame(width: 100, height: 100)
                 .clipShape(RoundedRectangle(cornerRadius: 6))
             Spacer()
-            BoutiqueCellWordsView(name: "Colbo",
-                                  cityState: "New York, NY")
+            BoutiqueCellWordsView(name: boutiqueLocation.name,
+                                  cityState: "\(boutiqueLocation.city), \(boutiqueLocation.state)")
         }
         .padding(.horizontal)
     }
 }
 
 #Preview {
-    BoutiqueCellView()
+    BoutiqueCellView(boutiqueLocation: PinLocation(record: MockData.boutiqueLocation))
 }
 
 fileprivate struct BoutiqueCellWordsView: View {

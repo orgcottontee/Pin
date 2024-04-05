@@ -11,6 +11,8 @@ struct BoutiqueListScreen: View {
     
     init() { NavBar.configureAppearance() }
     
+    @State private var locations: [PinLocation] = [PinLocation(record: MockData.boutiqueLocation)]
+    
     var body: some View {
         
         NavigationStack {
@@ -19,9 +21,9 @@ struct BoutiqueListScreen: View {
                     .ignoresSafeArea()
                 ScrollView {
                     LazyVStack(spacing: 40) {
-                        ForEach(0..<20) { boutique in
-                            NavigationLink(destination: BoutiqueDetailScreen()) {
-                                BoutiqueCellView()
+                        ForEach(locations, id: \.ckRecordID) { boutiqueLocation in
+                            NavigationLink(destination: BoutiqueDetailScreen(boutiqueLocation: boutiqueLocation)) {
+                                BoutiqueCellView(boutiqueLocation: boutiqueLocation)
                                     .foregroundStyle(.brandAccent)
                             }
                         }

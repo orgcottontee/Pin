@@ -22,7 +22,7 @@ struct ProfileScreen: View {
                         .kerning(1.5)
                     TextField("", 
                               text: $textInput,
-                              prompt: Text("Input suggestions here...").foregroundStyle(.brandPrimary))
+                              prompt: Text("Please share the name and location").foregroundStyle(.brandPrimary))
                         // TODO: Add logic and send to backend
                     .padding()
                     .background(Color.brandAccent)

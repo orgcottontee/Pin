@@ -50,5 +50,10 @@ enum Constants {
         var id: String { self.rawValue }
     }
     
+    // MARK: - Shorthand website link for button on Details page
+     
+    enum shortURL {
+        static let toiro = "toirokitchen.com"
+    }
     
 }
