@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SettingsScreen: View {
     
-    @AppStorage("appTheme") private var selectedAppTheme = Constants.AppTheme.system
+    @AppStorage("appTheme") private var selectedAppTheme = AppTheme.system
     
     var selectedTheme: ColorScheme? {
         switch selectedAppTheme {

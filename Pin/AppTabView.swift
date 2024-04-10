@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AppTabView: View {
     
-    @State private var selected: Constants.TabIcon = .door
+    @State private var selected: TabIcon = .door
     
     init() {
         UITabBar.appearance().isHidden = true
@@ -22,11 +22,11 @@ struct AppTabView: View {
             VStack {
                 TabView(selection: $selected) {
                     BoutiqueListScreen()
-                        .tag(Constants.TabIcon.door)
+                        .tag(TabIcon.door)
                     BoutiqueMapScreen()
-                        .tag(Constants.TabIcon.map)
+                        .tag(TabIcon.map)
                     ProfileScreen()
-                        .tag(Constants.TabIcon.profile)
+                        .tag(TabIcon.profile)
                 }
                 .tint(.brown)
                 TabBarView(selected: $selected)

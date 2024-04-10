@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BoutiqueCellView: View {
     
-    var boutiqueLocation: PinLocation
+    var boutiqueLocation: UnitedStatesBoutique
     
     var body: some View {
         HStack(spacing: 30) {
@@ -27,7 +27,7 @@ struct BoutiqueCellView: View {
 }
 
 #Preview {
-    BoutiqueCellView(boutiqueLocation: PinLocation(record: MockData.boutiqueLocation))
+    BoutiqueCellView(boutiqueLocation: UnitedStatesBoutique(record: MockData.boutiqueLocation))
 }
 
 fileprivate struct BoutiqueCellWordsView: View {

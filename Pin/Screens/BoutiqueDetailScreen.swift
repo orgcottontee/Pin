@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BoutiqueDetailScreen: View {
     
-    var boutiqueLocation: PinLocation
+    var boutiqueLocation: UnitedStatesBoutique
         
     var body: some View {
         
@@ -21,16 +21,16 @@ struct BoutiqueDetailScreen: View {
                 BoutiqueLogoView()
                 Spacer()
                 BoutiqueInfoView(address: boutiqueLocation.address,
-                                 cityStatePostalCode: "\(boutiqueLocation.city), \(boutiqueLocation.state), \(boutiqueLocation.postalCode)",
+                                 cityStatePostalCode: "\(boutiqueLocation.city), \(boutiqueLocation.state), \(boutiqueLocation.zipCode)",
                                  categories: boutiqueLocation.categories
                 )
                 ScrollView {
-                    Text(boutiqueLocation.brandStory)
+                    Text(boutiqueLocation.boutiqueStory)
                         .font(.custom(UniversFont.light, size: 16))
                 }
                 .padding(.bottom)
                 
-                Link(destination: URL(string: boutiqueLocation.websiteURL)!) { ButtonView(buttonText: Constants.shortURL.toiro) }
+                Link(destination: URL(string: boutiqueLocation.websiteURL)!) { ButtonView(buttonText: ShorthandURL.toiro) }
             }
             .padding()
         }
@@ -39,7 +39,7 @@ struct BoutiqueDetailScreen: View {
 }
 
 #Preview {
-    BoutiqueDetailScreen(boutiqueLocation: PinLocation(record: MockData.boutiqueLocation))
+    BoutiqueDetailScreen(boutiqueLocation: UnitedStatesBoutique(record: MockData.boutiqueLocation))
 }
 
 fileprivate struct BoutiqueLogoView: View {
