@@ -17,7 +17,7 @@ struct AppTabView: View {
     
     var body: some View {
         ZStack {
-            Color(.brandPrimary)
+            Color(.appPrimary)
                 .ignoresSafeArea()
             VStack {
                 TabView(selection: $selected) {

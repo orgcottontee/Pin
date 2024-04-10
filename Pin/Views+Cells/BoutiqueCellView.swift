@@ -13,7 +13,7 @@ struct BoutiqueCellView: View {
     
     var body: some View {
         HStack(spacing: 30) {
-            Image(.squareLogo)
+            Image(uiImage: boutiqueLocation.createSquareImage())
                 .resizable()
                 .scaledToFit()
                 .frame(width: 100, height: 100)

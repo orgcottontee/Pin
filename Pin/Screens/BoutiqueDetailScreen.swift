@@ -14,11 +14,11 @@ struct BoutiqueDetailScreen: View {
     var body: some View {
         
         ZStack {
-            Color(.brandPrimary)
+            Color(.appPrimary)
                 .ignoresSafeArea()
             VStack {
                 BoutiqueNameView(name: boutiqueLocation.name)
-                BoutiqueLogoView()
+                BoutiqueLogoView(image: boutiqueLocation.createSquareImage())
                 Spacer()
                 BoutiqueInfoView(address: boutiqueLocation.address,
                                  cityStatePostalCode: "\(boutiqueLocation.city), \(boutiqueLocation.state), \(boutiqueLocation.zipCode)",
@@ -44,10 +44,12 @@ struct BoutiqueDetailScreen: View {
 
 fileprivate struct BoutiqueLogoView: View {
     
+    var image: UIImage
+    
     var body: some View {
         // TODO: Can use AsyncImage
         // TODO: Can do .white in dark mode and .gray in light mode for shadow
-        Image(.sampleRec)
+        Image(uiImage: image)
             .resizable()
             .scaledToFit()
             .shadow(radius: 3)

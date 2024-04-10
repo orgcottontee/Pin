@@ -10,7 +10,7 @@ import SwiftUI
 struct FavoritesScreen: View {
     var body: some View {
         ZStack {
-            Color.brandPrimary
+            Color.appPrimary
                 .ignoresSafeArea()
             Text("Hello, here are your favorite boutiques")
                 .font(.custom(BaskervilleFont.boldItalic, size: 16))

@@ -16,23 +16,39 @@ struct TabBarView: View {
             ForEach(TabIcon.allCases, id: \.rawValue) { tab in
                 Spacer()
                 Button {
-                    selected = tab
+                    withAnimation(.easeIn(duration: 0.2)) {
+                        selected = tab
+                    }
                 } label: {
                     Image(systemName: selected == tab ? tab.selected : tab.unselected)
                         .frame(width: 60, height: 40)
                         .scaleEffect(selected == tab ? 1.40 : 1.0)
-                        .foregroundStyle(.brandAccent)
-                        .onTapGesture {
-                            withAnimation(.easeIn(duration: 0.2)) {
-                                selected = tab
-                            }
-                        }
+                        .foregroundStyle(.appAccent)
                 }
                 Spacer()
             }
         }
     }
 }
+
+//            ForEach(TabIcon.allCases, id: \.rawValue) { tab in
+//                Spacer()
+//                Button {
+//                    selected = tab
+//                } label: {
+//                    Image(systemName: selected == tab ? tab.selected : tab.unselected)
+//                        .frame(width: 60, height: 40)
+//                        .scaleEffect(selected == tab ? 1.40 : 1.0)
+//                        .foregroundStyle(.brandAccent)
+//                        .onTapGesture {
+//                            withAnimation(.easeIn(duration: 0.2)) {
+//                                selected = tab
+//                            }
+//                        }
+//                }
+//                Spacer()
+//            }
+
 
 #Preview {
     TabBarView(selected: .constant(.door))

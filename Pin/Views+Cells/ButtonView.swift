@@ -15,11 +15,11 @@ struct ButtonView: View {
         ZStack {
             Capsule()
                 .frame(height: 40)
-                .foregroundStyle(.brandAccent)
+                .foregroundStyle(.appAccent)
             Text(buttonText)
                 .font(.custom(BaskervilleFont.regular,size: 16))
                 .kerning(1.5)
-                .foregroundStyle(.brandPrimary)
+                .foregroundStyle(.appPrimary)
         }
     }
 }

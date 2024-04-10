@@ -10,28 +10,21 @@ import MapKit
 
 struct BoutiqueMapScreen: View {
     
-   @State private var camera: MapCameraPosition = .region(.init(center: CLLocationCoordinate2D(latitude: 40.721782,
-                                                                                    longitude: -73.999781),
-                                                  span: MKCoordinateSpan(latitudeDelta: 0.20,
-                                                                         longitudeDelta: 0.20)
-                                                     )
-                                               )
+    @StateObject private var viewModel = BoutiqueViewModel()
+    @EnvironmentObject private var locationManager: LocationManager
     
     var body: some View {
         ZStack {
-            Map(initialPosition: camera)
-                .ignoresSafeArea()
-        }
-        .onAppear {
-            CloudKitManager.getLocations { result in
-                switch result {
-                case .success(let locations):
-                    print(locations)
-                case .failure(let error):
-                    print(error.localizedDescription)
+            Map {
+                ForEach(locationManager.locations) { boutique in
+                    Marker(boutique.name, coordinate: boutique.location.coordinate)
                 }
             }
+            .ignoresSafeArea()
         }
+        .alert(item: $viewModel.alertItem, content: { alertItem in
+            Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
+        })
     }
 }
 

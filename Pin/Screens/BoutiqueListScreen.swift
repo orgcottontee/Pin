@@ -11,31 +11,36 @@ struct BoutiqueListScreen: View {
     
     init() { NavBar.configureAppearance() }
     
-    @State private var locations: [UnitedStatesBoutique] = [UnitedStatesBoutique(record: MockData.boutiqueLocation)]
+    @StateObject private var viewModel = BoutiqueViewModel()
+    @EnvironmentObject private var locationManager: LocationManager
     
     var body: some View {
         
         NavigationStack {
             ZStack {
-                Color(.brandPrimary)
+                Color(.appPrimary)
                     .ignoresSafeArea()
                 ScrollView {
                     LazyVStack(spacing: 40) {
-                        ForEach(locations, id: \.ckRecordID) { boutiqueLocation in
+                        ForEach(locationManager.locations) { boutiqueLocation in
                             NavigationLink(destination: BoutiqueDetailScreen(boutiqueLocation: boutiqueLocation)) {
                                 BoutiqueCellView(boutiqueLocation: boutiqueLocation)
-                                    .foregroundStyle(.brandAccent)
+                                    .foregroundStyle(.appAccent)
                             }
                         }
                     }
                 }
                 .padding()
             }
+            .alert(item: $viewModel.alertItem, content: { alertItem in
+                Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
+            })
+            .onAppear {
+                if locationManager.locations.isEmpty {
+                    viewModel.getLocations(for: locationManager)
+                }
+            }
         }
-        .tint(.brandAccent)
+        .tint(.appAccent)
     }
-}
-
-#Preview {
-    BoutiqueListScreen()
 }

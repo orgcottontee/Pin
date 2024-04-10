@@ -5,11 +5,9 @@
 //  Created by adobada on 4/3/24.
 //
 
-import Foundation
+import UIKit
 
-
-
-// MARK: - Tab icons for root screen
+// MARK: - Tab view icons
 
 enum TabIcon: String, CaseIterable, Hashable {
     case door = "door"
@@ -56,9 +54,33 @@ enum ShorthandURL {
     static let toiro = "toirokitchen.com"
 }
 
+// MARK: - Record type from CloudKit
+
 enum RecordType {
     static let USBoutique = "UnitedStatesBoutique" // Has to match the CloudKit record type name
     static let userSuggestion = "PinAppUserSuggestion"
 }
 
+// MARK: - Placeholder images {
+
+enum PlaceholderImage {
+    static let square = UIImage(resource: .appSquareLogo)
+    static let banner = UIImage(resource: .appBanner)
+    static let logo = UIImage(resource: .appLogo)
+}
+
+enum ImageDimension {
+    case square, banner, logo
+    
+    static func getPlaceHolder(for dimension: ImageDimension) -> UIImage {
+        switch dimension {
+        case .square:
+            return PlaceholderImage.square
+        case .banner:
+            return PlaceholderImage.banner
+        case .logo:
+            return PlaceholderImage.logo
+        }
+    }
+}
 

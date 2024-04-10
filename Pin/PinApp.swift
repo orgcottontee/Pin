@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct PinApp: App {
+    
+    let locationManager = LocationManager()
+    
     var body: some Scene {
         WindowGroup {
             AppTabView()
+                .environmentObject(locationManager)
         }
     }
 }

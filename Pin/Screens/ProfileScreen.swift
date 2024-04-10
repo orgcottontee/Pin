@@ -14,7 +14,7 @@ struct ProfileScreen: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color.brandPrimary
+                Color.appPrimary
                     .ignoresSafeArea()
                 VStack(alignment: .leading) {
                     Text("Know a special boutique? Let us know!")
@@ -22,13 +22,13 @@ struct ProfileScreen: View {
                         .kerning(1.5)
                     TextField("", 
                               text: $textInput,
-                              prompt: Text("Please share the name and location").foregroundStyle(.brandPrimary))
+                              prompt: Text("Please share the name and location").foregroundStyle(.appPrimary))
                         // TODO: Add logic and send to backend
                     .padding()
-                    .background(Color.brandAccent)
+                    .background(Color.appAccent)
                     .font(.custom(UniversFont.light, size: 16))
                     .kerning(1.2)
-                    .foregroundStyle(.brandPrimary)
+                    .foregroundStyle(.appAccent)
                     .autocorrectionDisabled(true)
                     
                     Spacer()
@@ -42,7 +42,7 @@ struct ProfileScreen: View {
                 .padding()
             }
         }
-        .tint(.brandAccent)
+        .tint(.appAccent)
     }
 }
 

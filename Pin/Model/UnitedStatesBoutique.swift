@@ -6,8 +6,9 @@
 //
 
 import CloudKit
+import UIKit
 
-struct UnitedStatesBoutique {
+struct UnitedStatesBoutique: Identifiable {
     
     static let kAddress = "address"
     static let kBoutiqueAsset = "boutiqueAsset"
@@ -20,7 +21,7 @@ struct UnitedStatesBoutique {
     static let kWebsiteURL = "websiteURL"
     static let kZipCode = "zipCode"
     
-    let ckRecordID: CKRecord.ID
+    let id: CKRecord.ID
     let address: String
     let boutiqueAsset: CKAsset! // Will handle nil cases with default images
     let boutiqueStory: String
@@ -34,7 +35,7 @@ struct UnitedStatesBoutique {
     
     // Create our own init that takes in a CKRecord because this is what we get back when we make a call to CloudKit. Client-side's responsibility to convert the CKRecord into our custom PinLocation
     init(record: CKRecord) {
-        ckRecordID = record.recordID
+        id = record.recordID
         address = record[UnitedStatesBoutique.kAddress] as? String ?? "N/A"
         boutiqueAsset = record[UnitedStatesBoutique.kBoutiqueAsset] as? CKAsset
         boutiqueStory = record[UnitedStatesBoutique.kBoutiqueStory] as? String ?? "N/A"
@@ -45,5 +46,10 @@ struct UnitedStatesBoutique {
         state = record[UnitedStatesBoutique.kState] as? String ?? "N/A"
         websiteURL = record[UnitedStatesBoutique.kWebsiteURL] as? String ?? "N/A"
         zipCode = record[UnitedStatesBoutique.kZipCode] as? Int ?? 00000
+    }
+    
+    func createSquareImage() -> UIImage {
+        guard let asset = boutiqueAsset else { return PlaceholderImage.square }
+        return asset.convertToImage(in: .square)
     }
 }
