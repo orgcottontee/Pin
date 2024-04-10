@@ -61,7 +61,7 @@
 		DE7666672BC7022D009C2A3D /* BoutiqueViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoutiqueViewModel.swift; sourceTree = "<group>"; };
 		DE76666A2BC70C88009C2A3D /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		DE76666C2BC72714009C2A3D /* CKAsset+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CKAsset+Ext.swift"; sourceTree = "<group>"; };
-		DEB9AC3E2BBCD1F300013C92 /* Pin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pin.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DEB9AC3E2BBCD1F300013C92 /* JingPin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JingPin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEB9AC412BBCD1F300013C92 /* PinApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinApp.swift; sourceTree = "<group>"; };
 		DEB9AC452BBCD1F400013C92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DEB9AC482BBCD1F400013C92 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -158,7 +158,7 @@
 		DEB9AC3F2BBCD1F300013C92 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DEB9AC3E2BBCD1F300013C92 /* Pin.app */,
+				DEB9AC3E2BBCD1F300013C92 /* JingPin.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -200,9 +200,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DEB9AC3D2BBCD1F300013C92 /* Pin */ = {
+		DEB9AC3D2BBCD1F300013C92 /* JingPin */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DEB9AC4C2BBCD1F400013C92 /* Build configuration list for PBXNativeTarget "Pin" */;
+			buildConfigurationList = DEB9AC4C2BBCD1F400013C92 /* Build configuration list for PBXNativeTarget "JingPin" */;
 			buildPhases = (
 				DEB9AC3A2BBCD1F300013C92 /* Sources */,
 				DEB9AC3B2BBCD1F300013C92 /* Frameworks */,
@@ -212,9 +212,9 @@
 			);
 			dependencies = (
 			);
-			name = Pin;
+			name = JingPin;
 			productName = Pin;
-			productReference = DEB9AC3E2BBCD1F300013C92 /* Pin.app */;
+			productReference = DEB9AC3E2BBCD1F300013C92 /* JingPin.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -232,7 +232,7 @@
 					};
 				};
 			};
-			buildConfigurationList = DEB9AC392BBCD1F300013C92 /* Build configuration list for PBXProject "Pin" */;
+			buildConfigurationList = DEB9AC392BBCD1F300013C92 /* Build configuration list for PBXProject "JingPin" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -245,7 +245,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DEB9AC3D2BBCD1F300013C92 /* Pin */,
+				DEB9AC3D2BBCD1F300013C92 /* JingPin */,
 			);
 		};
 /* End PBXProject section */
@@ -481,7 +481,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DEB9AC392BBCD1F300013C92 /* Build configuration list for PBXProject "Pin" */ = {
+		DEB9AC392BBCD1F300013C92 /* Build configuration list for PBXProject "JingPin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DEB9AC4A2BBCD1F400013C92 /* Debug */,
@@ -490,7 +490,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DEB9AC4C2BBCD1F400013C92 /* Build configuration list for PBXNativeTarget "Pin" */ = {
+		DEB9AC4C2BBCD1F400013C92 /* Build configuration list for PBXNativeTarget "JingPin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DEB9AC4D2BBCD1F400013C92 /* Debug */,
