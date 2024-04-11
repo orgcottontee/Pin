@@ -17,6 +17,7 @@ struct MockData {
         record[UnitedStatesBoutique.kCity] = "Los Angeles"
         record[UnitedStatesBoutique.kLocation] = CLLocation(latitude: 34.094924401599656, longitude: -118.34434975940319)
         record[UnitedStatesBoutique.kName] = "TOIRO"
+        record[UnitedStatesBoutique.kShortURL] = "shopandson.com"
         record[UnitedStatesBoutique.kState] = "California"
         record[UnitedStatesBoutique.kWebsiteURL] = "https://toirokitchen.com/"
         record[UnitedStatesBoutique.kZipCode] = 90038

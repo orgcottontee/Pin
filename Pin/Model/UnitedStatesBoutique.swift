@@ -16,19 +16,23 @@ struct UnitedStatesBoutique: Identifiable {
     static let kCategories = "categories"
     static let kCity = "city"
     static let kLocation = "location"
+    static let kLocationAsset = "locationAsset"
     static let kName = "name"
+    static let kShortURL = "shortURL"
     static let kState = "state"
     static let kWebsiteURL = "websiteURL"
     static let kZipCode = "zipCode"
     
     let id: CKRecord.ID
     let address: String
-    let boutiqueAsset: CKAsset! // Will handle nil cases with default images
+    let boutiqueAsset: CKAsset!
     let boutiqueStory: String
     let categories: [String]
     let city: String
     let location: CLLocation
+    let locationAsset: CKAsset!
     let name: String
+    let shortURL: String
     let state: String
     let websiteURL: String
     let zipCode: Int
@@ -42,14 +46,21 @@ struct UnitedStatesBoutique: Identifiable {
         categories = record[UnitedStatesBoutique.kCategories] as? [String] ?? []
         city = record[UnitedStatesBoutique.kCity] as? String ?? "N/A"
         location = record[UnitedStatesBoutique.kLocation] as? CLLocation ?? CLLocation(latitude: 0, longitude: 0)
+        locationAsset = record[UnitedStatesBoutique.kLocationAsset] as? CKAsset
         name = record[UnitedStatesBoutique.kName] as? String ?? "N/A"
+        shortURL = record[UnitedStatesBoutique.kShortURL] as? String ?? "N/A"
         state = record[UnitedStatesBoutique.kState] as? String ?? "N/A"
         websiteURL = record[UnitedStatesBoutique.kWebsiteURL] as? String ?? "N/A"
         zipCode = record[UnitedStatesBoutique.kZipCode] as? Int ?? 00000
     }
     
-    func createSquareImage() -> UIImage {
-        guard let asset = boutiqueAsset else { return PlaceholderImage.square }
-        return asset.convertToImage(in: .square)
+    func createSquareLogo() -> UIImage {
+        guard let asset = boutiqueAsset else { return PlaceholderImage.squareLogo }
+        return asset.convertToImage(in: .squareLogo)
+    }
+    
+    func createLocationImage() -> UIImage {
+        guard let asset = locationAsset else { return PlaceholderImage.locationImage }
+        return asset.convertToImage(in: .locationImage)
     }
 }

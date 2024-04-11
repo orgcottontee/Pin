@@ -48,12 +48,6 @@ enum AppTheme: String, Identifiable, CaseIterable {
     var id: String { self.rawValue }
 }
 
-// MARK: - Shorthand website link for button on Details page
-
-enum ShorthandURL {
-    static let toiro = "toirokitchen.com"
-}
-
 // MARK: - Record type from CloudKit
 
 enum RecordType {
@@ -64,22 +58,19 @@ enum RecordType {
 // MARK: - Placeholder images {
 
 enum PlaceholderImage {
-    static let square = UIImage(resource: .appSquareLogo)
-    static let banner = UIImage(resource: .appBanner)
-    static let logo = UIImage(resource: .appLogo)
+    static let squareLogo = UIImage(resource: .appSquareLogo)
+    static let locationImage = UIImage(resource: .appBanner)
 }
 
 enum ImageDimension {
-    case square, banner, logo
+    case squareLogo, locationImage
     
     static func getPlaceHolder(for dimension: ImageDimension) -> UIImage {
         switch dimension {
-        case .square:
-            return PlaceholderImage.square
-        case .banner:
-            return PlaceholderImage.banner
-        case .logo:
-            return PlaceholderImage.logo
+        case .squareLogo:
+            return PlaceholderImage.squareLogo
+        case .locationImage:
+            return PlaceholderImage.locationImage
         }
     }
 }

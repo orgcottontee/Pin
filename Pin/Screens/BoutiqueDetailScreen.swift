@@ -18,7 +18,7 @@ struct BoutiqueDetailScreen: View {
                 .ignoresSafeArea()
             VStack {
                 BoutiqueNameView(name: boutiqueLocation.name)
-                BoutiqueLogoView(image: boutiqueLocation.createSquareImage())
+                ImageView(image: boutiqueLocation.createLocationImage())
                 Spacer()
                 BoutiqueInfoView(address: boutiqueLocation.address,
                                  cityStatePostalCode: "\(boutiqueLocation.city), \(boutiqueLocation.state), \(boutiqueLocation.zipCode)",
@@ -30,7 +30,7 @@ struct BoutiqueDetailScreen: View {
                 }
                 .padding(.bottom)
                 
-                Link(destination: URL(string: boutiqueLocation.websiteURL)!) { ButtonView(buttonText: ShorthandURL.toiro) }
+                Link(destination: URL(string: boutiqueLocation.websiteURL)!) { ButtonView(buttonText: boutiqueLocation.shortURL) }
             }
             .padding()
         }
@@ -40,20 +40,6 @@ struct BoutiqueDetailScreen: View {
 
 #Preview {
     BoutiqueDetailScreen(boutiqueLocation: UnitedStatesBoutique(record: MockData.boutiqueLocation))
-}
-
-fileprivate struct BoutiqueLogoView: View {
-    
-    var image: UIImage
-    
-    var body: some View {
-        // TODO: Can use AsyncImage
-        // TODO: Can do .white in dark mode and .gray in light mode for shadow
-        Image(uiImage: image)
-            .resizable()
-            .scaledToFit()
-            .shadow(radius: 3)
-    }
 }
 
 fileprivate struct BoutiqueNameView: View {

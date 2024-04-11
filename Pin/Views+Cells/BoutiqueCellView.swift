@@ -13,11 +13,11 @@ struct BoutiqueCellView: View {
     
     var body: some View {
         HStack(spacing: 30) {
-            Image(uiImage: boutiqueLocation.createSquareImage())
+            Image(uiImage: boutiqueLocation.createSquareLogo())
                 .resizable()
                 .scaledToFit()
                 .frame(width: 100, height: 100)
-                .clipShape(RoundedRectangle(cornerRadius: 6))
+//                .clipShape(RoundedRectangle(cornerRadius: 6))
             Spacer()
             BoutiqueCellWordsView(name: boutiqueLocation.name,
                                   cityState: "\(boutiqueLocation.city), \(boutiqueLocation.state)")
