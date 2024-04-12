@@ -9,34 +9,51 @@ import SwiftUI
 
 struct ProfileScreen: View {
     
-    @State var textInput: String = ""
+    @State private var boutiqueName = ""
+    @State private var country = ""
+    @State private var website = ""
     
     var body: some View {
         NavigationStack {
             ZStack {
                 Color.appPrimary
                     .ignoresSafeArea()
-                VStack(alignment: .leading) {
-                    Text("Know a special boutique? Let us know!")
-                        .font(.custom(BaskervilleFont.regular, size: 16))
-                        .kerning(1.5)
-                    TextField("", 
-                              text: $textInput,
-                              prompt: Text("Please share the name and location").foregroundStyle(.appPrimary))
-                        // TODO: Add logic and send to backend
-                    .padding()
-                    .background(Color.appAccent)
-                    .font(.custom(UniversFont.light, size: 16))
+                VStack {
+                    Spacer()
+                    VStack(spacing: 10) {
+                        TextField("Enter Boutique Name", text: $boutiqueName)
+                            .padding(.horizontal)
+                            .autocorrectionDisabled(true)
+                        Rectangle()
+                            .frame(height: 1)
+                            .padding(.horizontal)
+                            .foregroundColor(.gray)
+                        TextField("Enter Country", text: $country)
+                            .padding(.horizontal)                            
+                            .autocorrectionDisabled(false)
+                        Rectangle()
+                            .frame(height: 1)
+                            .padding(.horizontal)
+                            .foregroundColor(.gray)
+                        TextField("Enter Website", text: $website)
+                            .padding(.horizontal)                            
+                            .autocorrectionDisabled(true)
+                        Rectangle()
+                            .frame(height: 1)
+                            .padding(.horizontal)
+                            .foregroundColor(.gray)
+                        ActionButtonView(buttonText: "Submit")
+                            .padding(.horizontal)
+                    }
+                    .font(.custom(UniversFont.light, size: 14))
                     .kerning(1.2)
-                    .foregroundStyle(.appAccent)
-                    .autocorrectionDisabled(true)
                     
                     Spacer()
                     NavigationLink(destination: SettingsScreen()) {
-                        ActionButtonView(buttonText: "Go to Settings")
+                        ActionButtonView(buttonText: "Settings")
                     }
                     NavigationLink(destination: FavoritesScreen()) {
-                        ActionButtonView(buttonText: "See your Favorite Boutiques")
+                        ActionButtonView(buttonText: "Saved Boutiques")
                     }
                 }
                 .padding()
@@ -49,3 +66,4 @@ struct ProfileScreen: View {
 #Preview {
     ProfileScreen()
 }
+

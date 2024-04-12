@@ -15,7 +15,6 @@
 		DE635B642BBD9035005D5C8D /* BoutiqueListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE635B632BBD9035005D5C8D /* BoutiqueListScreen.swift */; };
 		DE635B662BBD9044005D5C8D /* BoutiqueMapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE635B652BBD9044005D5C8D /* BoutiqueMapScreen.swift */; };
 		DE635B6A2BBD90D1005D5C8D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE635B692BBD90D1005D5C8D /* Constants.swift */; };
-		DE635B6C2BBD90F3005D5C8D /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE635B6B2BBD90F3005D5C8D /* TabBarView.swift */; };
 		DE635B6E2BBDBF55005D5C8D /* NavBar+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE635B6D2BBDBF55005D5C8D /* NavBar+Helper.swift */; };
 		DE635B702BBDC4B4005D5C8D /* Font+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE635B6F2BBDC4B3005D5C8D /* Font+Ext.swift */; };
 		DE635B722BBDC4F2005D5C8D /* UniversLTStd-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE635B712BBDC4F2005D5C8D /* UniversLTStd-Light.otf */; };
@@ -51,7 +50,6 @@
 		DE635B632BBD9035005D5C8D /* BoutiqueListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoutiqueListScreen.swift; sourceTree = "<group>"; };
 		DE635B652BBD9044005D5C8D /* BoutiqueMapScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoutiqueMapScreen.swift; sourceTree = "<group>"; };
 		DE635B692BBD90D1005D5C8D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		DE635B6B2BBD90F3005D5C8D /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		DE635B6D2BBDBF55005D5C8D /* NavBar+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavBar+Helper.swift"; sourceTree = "<group>"; };
 		DE635B6F2BBDC4B3005D5C8D /* Font+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Ext.swift"; sourceTree = "<group>"; };
 		DE635B712BBDC4F2005D5C8D /* UniversLTStd-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UniversLTStd-Light.otf"; sourceTree = "<group>"; };
@@ -106,7 +104,6 @@
 		DE635B8D2BBE4BDC005D5C8D /* Views+Cells */ = {
 			isa = PBXGroup;
 			children = (
-				DE635B6B2BBD90F3005D5C8D /* TabBarView.swift */,
 				DE635B7B2BBDEDAE005D5C8D /* BoutiqueCellView.swift */,
 				DE635B7D2BBE1471005D5C8D /* ActionButtonView.swift */,
 				DEA6AEB82BC8C477002AD595 /* OnboardingView.swift */,
@@ -284,7 +281,6 @@
 			files = (
 				DE635B662BBD9044005D5C8D /* BoutiqueMapScreen.swift in Sources */,
 				DE635B602BBD8F7D005D5C8D /* AppTabView.swift in Sources */,
-				DE635B6C2BBD90F3005D5C8D /* TabBarView.swift in Sources */,
 				DE7666682BC7022D009C2A3D /* BoutiqueViewModel.swift in Sources */,
 				DE635B6E2BBDBF55005D5C8D /* NavBar+Helper.swift in Sources */,
 				DE635B642BBD9035005D5C8D /* BoutiqueListScreen.swift in Sources */,
