@@ -75,3 +75,11 @@ enum ImageDimension {
     }
 }
 
+// MARK: - Onboarding view
+
+enum OnboardingText {
+    static let firstDescription = "Find and discover unique boutiques and concept stores anytime, anywhere."
+    static let secondDescription = "This initial release will start in the United States."
+    static let thirdDescription = "Save your favorite boutiques and share more locations with us!"
+}
+

@@ -17,10 +17,10 @@ struct BoutiqueDetailScreen: View {
             Color(.appPrimary)
                 .ignoresSafeArea()
             VStack {
-                BoutiqueNameView(name: boutiqueLocation.name)
-                ImageView(image: boutiqueLocation.createLocationImage())
+                NameView(name: boutiqueLocation.name)
+                LocationImageView(image: boutiqueLocation.createLocationImage())
                 Spacer()
-                BoutiqueInfoView(address: boutiqueLocation.address,
+                InfoView(address: boutiqueLocation.address,
                                  cityStatePostalCode: "\(boutiqueLocation.city), \(boutiqueLocation.state), \(boutiqueLocation.zipCode)",
                                  categories: boutiqueLocation.categories
                 )
@@ -30,7 +30,7 @@ struct BoutiqueDetailScreen: View {
                 }
                 .padding(.bottom)
                 
-                Link(destination: URL(string: boutiqueLocation.websiteURL)!) { ButtonView(buttonText: boutiqueLocation.shortURL) }
+                Link(destination: URL(string: boutiqueLocation.websiteURL)!) { ActionButtonView(buttonText: boutiqueLocation.shortURL) }
             }
             .padding()
         }
@@ -41,8 +41,20 @@ struct BoutiqueDetailScreen: View {
 #Preview {
     BoutiqueDetailScreen(boutiqueLocation: UnitedStatesBoutique(record: MockData.boutiqueLocation))
 }
+fileprivate struct LocationImageView: View {
+    
+    var image: UIImage
+    
+    var body: some View {
+        // TODO: Can use AsyncImage
+        Image(uiImage: image)
+            .resizable()
+            .scaledToFit()
+            .frame(width: 300)
+    }
+}
 
-fileprivate struct BoutiqueNameView: View {
+fileprivate struct NameView: View {
     
     var name: String
     
@@ -56,7 +68,7 @@ fileprivate struct BoutiqueNameView: View {
     }
 }
 
-fileprivate struct BoutiqueInfoView: View {
+fileprivate struct InfoView: View {
     
     var address: String
     var cityStatePostalCode: String

@@ -12,17 +12,13 @@ struct BoutiqueCellView: View {
     var boutiqueLocation: UnitedStatesBoutique
     
     var body: some View {
-        HStack(spacing: 30) {
-            Image(uiImage: boutiqueLocation.createSquareLogo())
-                .resizable()
-                .scaledToFit()
-                .frame(width: 100, height: 100)
-//                .clipShape(RoundedRectangle(cornerRadius: 6))
-            Spacer()
-            BoutiqueCellWordsView(name: boutiqueLocation.name,
-                                  cityState: "\(boutiqueLocation.city), \(boutiqueLocation.state)")
+        VStack(alignment: .leading) {
+            LogoView(image: boutiqueLocation.createSquareLogo(),
+                     frameWidth: 150)
+            InfoView(city: boutiqueLocation.city, state: boutiqueLocation.state)
         }
-        .padding(.horizontal)
+        .frame(width: 150)
+        .padding(.bottom, 30)
     }
 }
 
@@ -30,20 +26,19 @@ struct BoutiqueCellView: View {
     BoutiqueCellView(boutiqueLocation: UnitedStatesBoutique(record: MockData.boutiqueLocation))
 }
 
-fileprivate struct BoutiqueCellWordsView: View {
+fileprivate struct InfoView: View {
     
-    var name: String
-    var cityState: String
+    var city: String
+    var state: String
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text(name)
-                .font(.custom(BaskervilleFont.regular, size: 20))
+            Text("\(city), \(state)")
                 .lineLimit(1)
                 .minimumScaleFactor(0.75)
-            Text(cityState)
-                .font(.custom(UniversFont.light, size: 16))
+                .truncationMode(.tail)
         }
-        .kerning(1.5)
+        .font(.custom(UniversFont.light, size: 14))
+        .kerning(1.8)
     }
 }

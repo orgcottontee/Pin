@@ -13,6 +13,7 @@ final class BoutiqueViewModel: ObservableObject {
     // MARK: - Properties
     
     @Published var alertItem: AlertItem?
+    @Published var isShowingOnboardingView: Bool = true
     
     // MARK: - Actions
     

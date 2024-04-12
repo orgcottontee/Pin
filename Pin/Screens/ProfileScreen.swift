@@ -33,10 +33,10 @@ struct ProfileScreen: View {
                     
                     Spacer()
                     NavigationLink(destination: SettingsScreen()) {
-                        ButtonView(buttonText: "Go to Settings")
+                        ActionButtonView(buttonText: "Go to Settings")
                     }
                     NavigationLink(destination: FavoritesScreen()) {
-                        ButtonView(buttonText: "See your Favorite Boutiques")
+                        ActionButtonView(buttonText: "See your Favorite Boutiques")
                     }
                 }
                 .padding()

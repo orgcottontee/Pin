@@ -1,5 +1,5 @@
 //
-//  ImageView.swift
+//  LogoView.swift
 //  JingPin
 //
 //  Created by adobada on 4/11/24.
@@ -7,15 +7,16 @@
 
 import SwiftUI
 
-struct ImageView: View {
+struct LogoView: View {
     
     var image: UIImage
+    var frameWidth: CGFloat
     
     var body: some View {
-        // TODO: Can use AsyncImage
+        // TODO: Can use AsyncImage?
         Image(uiImage: image)
             .resizable()
-            .scaledToFill()
-            .shadow(radius: 3)
+            .scaledToFit()
+            .frame(width: frameWidth)
     }
 }

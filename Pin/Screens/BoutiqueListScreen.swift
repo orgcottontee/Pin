@@ -21,7 +21,7 @@ struct BoutiqueListScreen: View {
                 Color(.appPrimary)
                     .ignoresSafeArea()
                 ScrollView {
-                    LazyVStack(spacing: 40) {
+                    LazyVStack {
                         ForEach(locationManager.locations) { boutiqueLocation in
                             NavigationLink(destination: BoutiqueDetailScreen(boutiqueLocation: boutiqueLocation)) {
                                 BoutiqueCellView(boutiqueLocation: boutiqueLocation)
@@ -32,13 +32,12 @@ struct BoutiqueListScreen: View {
                 }
                 .padding()
             }
-            .alert(item: $viewModel.alertItem, content: { alertItem in
+            .sheet(isPresented: $viewModel.isShowingOnboardingView) { OnboardingView(isShowingOnboardingView: $viewModel.isShowingOnboardingView) }
+            .alert(item: $viewModel.alertItem) { alertItem in
                 Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
-            })
+            }
             .onAppear {
-                if locationManager.locations.isEmpty {
-                    viewModel.getLocations(for: locationManager)
-                }
+                if locationManager.locations.isEmpty { viewModel.getLocations(for: locationManager) }
             }
         }
         .tint(.appAccent)

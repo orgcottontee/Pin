@@ -30,17 +30,17 @@ struct SettingsScreen: View {
                 Button {
                     selectedAppTheme = .lightTheme
                 } label: {
-                    ButtonView(buttonText: "Light")
+                    ActionButtonView(buttonText: "Light")
                 }
                 Button {
                     selectedAppTheme = .darkTheme
                 } label: {
-                    ButtonView(buttonText: "Dark")
+                    ActionButtonView(buttonText: "Dark")
                 }
                 Button {
                     selectedAppTheme = .system
                 } label: {
-                    ButtonView(buttonText: "System")
+                    ActionButtonView(buttonText: "System")
                 }
             }
             .padding(.horizontal)

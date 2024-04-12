@@ -1,5 +1,5 @@
 //
-//  ButtonView.swift
+//  ActionButtonView.swift
 //  Pin
 //
 //  Created by adobada on 4/3/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ButtonView: View {
+struct ActionButtonView: View {
     
     var buttonText: String
     
@@ -25,5 +25,5 @@ struct ButtonView: View {
 }
 
 #Preview {
-    ButtonView(buttonText: "colbo.nyc")
+    ActionButtonView(buttonText: "colbo.nyc")
 }
