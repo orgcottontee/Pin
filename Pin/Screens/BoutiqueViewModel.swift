@@ -14,10 +14,12 @@ final class BoutiqueViewModel: ObservableObject {
     
     @Published var alertItem: AlertItem?
     @Published var isShowingOnboardingView: Bool = true
+    @Published var isLoading: Bool = false
     
     // MARK: - Actions
     
     func getLocations(for locationManager: LocationManager) {
+        isLoading = true
         CloudKitManager.getLocations { [self] result in
             DispatchQueue.main.async {
                 switch result {
@@ -26,6 +28,7 @@ final class BoutiqueViewModel: ObservableObject {
                 case .failure(_):
                     self.alertItem = AlertContext.unableToGetLocations
                 }
+                self.isLoading = false
             }
         }
     }

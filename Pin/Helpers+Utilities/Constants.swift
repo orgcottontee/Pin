@@ -78,8 +78,11 @@ enum ImageDimension {
 // MARK: - Onboarding view
 
 enum OnboardingText {
-    static let firstDescription = "Find and discover unique boutiques and concept stores anytime, anywhere."
-    static let secondDescription = "This initial release will start in the United States."
-    static let thirdDescription = "Save your favorite boutiques and share more locations with us!"
+    static let firstTextTitle = "Boutique Locations"
+    static let secondTextTitle = "Coverage"
+    static let thirdTextTitle = "Save and share"
+    static let firstText = "Find and discover unique boutiques and concept stores anytime, anywhere."
+    static let secondText = "This initial release will start in the United States."
+    static let thirdText = "Save your favorite boutiques and share more locations with us!"
 }
 
