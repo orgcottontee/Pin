@@ -32,7 +32,6 @@ struct BoutiqueListScreen: View {
                 }
                 .padding()
             }
-            .sheet(isPresented: $viewModel.isShowingOnboardingView) { OnboardingView(isShowingOnboardingView: $viewModel.isShowingOnboardingView) }
             .alert(item: $viewModel.alertItem) { alertItem in
                 Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
             }

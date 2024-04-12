@@ -10,6 +10,7 @@ import SwiftUI
 struct AppTabView: View {
     
     @State private var selected: TabIcon = .door
+    @AppStorage("hasSeenOnboarding") var hasSeenOnboarding: Bool = false
     
     init() {
         UITabBar.appearance().isHidden = true
@@ -19,17 +20,21 @@ struct AppTabView: View {
         ZStack {
             Color(.appPrimary)
                 .ignoresSafeArea()
-            VStack {
-                TabView(selection: $selected) {
-                    BoutiqueListScreen()
-                        .tag(TabIcon.door)
-                    BoutiqueMapScreen()
-                        .tag(TabIcon.map)
-                    ProfileScreen()
-                        .tag(TabIcon.profile)
+            if hasSeenOnboarding {
+                VStack {
+                    TabView(selection: $selected) {
+                        BoutiqueListScreen()
+                            .tag(TabIcon.door)
+                        BoutiqueMapScreen()
+                            .tag(TabIcon.map)
+                        ProfileScreen()
+                            .tag(TabIcon.profile)
+                    }
+                    .tint(.brown)
+                    TabBarView(selected: $selected)
                 }
-                .tint(.brown)
-                TabBarView(selected: $selected)
+            } else {
+                OnboardingView(hasSeenOnboarding: $hasSeenOnboarding)
             }
         }
     }

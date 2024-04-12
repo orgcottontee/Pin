@@ -10,36 +10,37 @@ import SwiftUI
 struct OnboardingView: View {
     
     @Environment(\.colorScheme) var colorScheme
-    @Binding var isShowingOnboardingView: Bool
+    @Binding var hasSeenOnboarding: Bool
     
     var body: some View {
-        VStack {
-            HStack {
+        ZStack {
+            Color.appPrimary
+                .ignoresSafeArea()
+            VStack {
+                Spacer()
+                LogoView(image: colorScheme == .dark ? .lightAppLogo : .darkAppLogo,
+                         frameWidth: 200)
+                .padding(.bottom)
+                VStack(alignment: .leading) {
+                    InfoView(title: "Boutique Locations", description: OnboardingText.firstDescription)
+                    InfoView(title: "Coverage", description: OnboardingText.secondDescription)
+                    InfoView(title: "Create and share", description: OnboardingText.thirdDescription)
+                }
                 Spacer()
                 Button {
-                    isShowingOnboardingView = false
+                    hasSeenOnboarding = true
                 } label: {
-                    DismissButtonView()
+                    ActionButtonView(buttonText: "Let's go!")
                 }
             }
             .padding()
-            Spacer()
-            LogoView(image: colorScheme == .dark ? .lightAppLogo : .darkAppLogo,
-                     frameWidth: 200)
-            .padding(.bottom)
-            VStack(alignment: .leading) {
-                InfoView(title: "Boutique Locations", description: OnboardingText.firstDescription)
-                InfoView(title: "Coverage", description: OnboardingText.secondDescription)
-                InfoView(title: "Create and share", description: OnboardingText.thirdDescription)
-            }
-            Spacer()
         }
     }
 }
 
-#Preview {
-    OnboardingView(isShowingOnboardingView: .constant(true))
-}
+//#Preview {
+//    OnboardingView(isShowingOnboardingView: .constant(true))
+//}
 
 fileprivate struct InfoView: View {
     
@@ -55,19 +56,5 @@ fileprivate struct InfoView: View {
         }
         .kerning(1.5)
         .padding()
-    }
-}
-
-fileprivate struct DismissButtonView: View {
-    var body: some View {
-        ZStack {
-            Circle()
-                .frame(width: 30, height: 30)
-                .foregroundStyle(.appAccent)
-            Image(systemName: "xmark")
-                .foregroundStyle(.appPrimary)
-                .imageScale(.small)
-                .frame(width: 44, height: 44)
-        }
     }
 }
