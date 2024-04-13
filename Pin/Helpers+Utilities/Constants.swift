@@ -52,7 +52,7 @@ enum AppTheme: String, Identifiable, CaseIterable {
 
 enum RecordType {
     static let USBoutique = "UnitedStatesBoutique" // Has to match the CloudKit record type name
-    static let userSuggestion = "PinAppUserSuggestion"
+    static let userSubmission = "UserBoutiqueSubmission"
 }
 
 // MARK: - Placeholder images {
@@ -93,3 +93,4 @@ enum ProfileScreenButton {
     static let favorites = "Your Boutiques"
     static let submission = "Submit a Boutique"
 }
+

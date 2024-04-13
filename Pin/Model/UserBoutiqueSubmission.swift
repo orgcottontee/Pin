@@ -6,6 +6,7 @@
 //
 
 import CloudKit
+import Foundation
 
 struct UserBoutiqueSubmission {
     
@@ -13,10 +14,21 @@ struct UserBoutiqueSubmission {
     static let kCountry = "country"
     static let kWebsite = "website"
     
-    let recordID: CKRecord.ID?
+    var id: CKRecord.ID?
     let name: String
     let country: String
     let website: String
+    
+}
+
+extension UserBoutiqueSubmission {
+    init?(record: CKRecord) {
+        guard let name = record[UserBoutiqueSubmission.kName] as? String,
+              let country = record[UserBoutiqueSubmission.kCountry] as? String,
+              let website = record[UserBoutiqueSubmission.kWebsite] as? String else { return nil }
+        
+        self.init(id: record.recordID, name: name, country: country, website: website)
+    }
 }
 
 extension UserBoutiqueSubmission {

@@ -9,14 +9,29 @@ import SwiftUI
 
 struct ProfileScreen: View {
     
+    @AppStorage("appTheme") var selectedAppTheme = AppTheme.system
+    
+    var selectedTheme: ColorScheme? {
+        switch selectedAppTheme {
+        case .lightTheme:
+            return .light
+        case .darkTheme:
+            return .dark
+        case .system:
+            return nil
+        }
+    }
+    
     var body: some View {
         NavigationStack {
             ZStack {
                 Color.appPrimary
                     .ignoresSafeArea()
                 VStack {
-                    NavigationLink(destination: SettingsScreen()) {
-                        ActionButtonView(buttonText: ProfileScreenButton.settings)
+                    HStack {
+                        Button { selectedAppTheme = .lightTheme} label: { ActionButtonView(buttonText: "Light") }
+                        Button { selectedAppTheme = .darkTheme } label: { ActionButtonView(buttonText: "Dark") }
+                        Button { selectedAppTheme = .system } label: { ActionButtonView(buttonText: "System") }
                     }
                     NavigationLink(destination: FavoritesScreen()) {
                         ActionButtonView(buttonText: ProfileScreenButton.favorites)
@@ -25,7 +40,7 @@ struct ProfileScreen: View {
                         ActionButtonView(buttonText: ProfileScreenButton.submission)
                     }
                 }
-                .padding()
+                .preferredColorScheme(selectedTheme)
             }
         }
         .tint(.appAccent)
