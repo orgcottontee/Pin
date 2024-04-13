@@ -13,8 +13,9 @@ struct TextFieldSubmissionStyle: ViewModifier {
         content
             .font(.custom(UniversFont.light, size: 14))
             .kerning(1.2)
-            .padding(.horizontal)
             .autocorrectionDisabled(true)
+            .padding(.horizontal)
+            .padding(.top, 20)
         Rectangle()
             .frame(height: 1)
             .padding(.horizontal)

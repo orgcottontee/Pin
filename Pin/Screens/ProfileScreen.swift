@@ -29,15 +29,15 @@ struct ProfileScreen: View {
                     .ignoresSafeArea()
                 VStack {
                     HStack {
-                        Button { selectedAppTheme = .lightTheme} label: { ActionButtonView(buttonText: "Light") }
-                        Button { selectedAppTheme = .darkTheme } label: { ActionButtonView(buttonText: "Dark") }
-                        Button { selectedAppTheme = .system } label: { ActionButtonView(buttonText: "System") }
+                        Button { selectedAppTheme = .lightTheme} label: { ActionButtonView(buttonText: AppTheme.lightTheme.rawValue) }
+                        Button { selectedAppTheme = .darkTheme } label: { ActionButtonView(buttonText: AppTheme.darkTheme.rawValue) }
+                        Button { selectedAppTheme = .system } label: { ActionButtonView(buttonText: AppTheme.system.rawValue) }
                     }
                     NavigationLink(destination: FavoritesScreen()) {
-                        ActionButtonView(buttonText: ProfileScreenButton.favorites)
+                        ActionButtonView(buttonText: ProfileScreenConstant.favoritesButton)
                     }
                     NavigationLink(destination: UserSubmissionScreen()) {
-                        ActionButtonView(buttonText: ProfileScreenButton.submission)
+                        ActionButtonView(buttonText: ProfileScreenConstant.submissionFormButton)
                     }
                 }
                 .preferredColorScheme(selectedTheme)

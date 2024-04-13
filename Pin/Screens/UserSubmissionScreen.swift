@@ -10,12 +10,12 @@ import CloudKit
 
 struct UserSubmissionScreen: View {
     
-    @FocusState private var focusTextfield: FocusTextField?
+    @FocusState private var focusedTextField: FocusTextField?
     @State private var boutiqueName = ""
     @State private var country = ""
     @State private var website = ""
     @StateObject private var manager = UserSubmissionManager()
-    @State private var hasSubmitted: Bool = false
+    @State private var alertItem: AlertItem?
     
     enum FocusTextField {
         case name, country, website
@@ -25,46 +25,59 @@ struct UserSubmissionScreen: View {
         ZStack {
             Color.appPrimary
                 .ignoresSafeArea()
-            VStack(spacing: 10) {
+            VStack(alignment: .leading) {
                 Spacer()
-                Text("We're always looking to expand our collection for you. Please share boutiques you'd like us to add:")
+                Text(SubmissionScreenConstant.instructions)
                     .font(.custom(BaskervilleFont.regular, size: 14))
-                    .kerning(1.5)
-                    .padding()
-                TextField("Enter Boutique Name", text: $boutiqueName)
-                    .focused($focusTextfield, equals: .name)
-                    .onSubmit { focusTextfield = .country }
+                    .kerning(1.2)
+                    .padding(.horizontal)
+                TextField(SubmissionScreenConstant.namePlaceholder, text: $boutiqueName)
+                    .focused($focusedTextField, equals: .name)
+                    .onSubmit { focusedTextField = .country }
                     .submitLabel(.next)
                     .createCustomTextfield()
-                TextField("Enter Country", text: $country)
-                    .focused($focusTextfield, equals: .country)
-                    .onSubmit { focusTextfield = .website }
+                TextField(SubmissionScreenConstant.countryPlaceholder, text: $country)
+                    .focused($focusedTextField, equals: .country)
+                    .onSubmit { focusedTextField = .website }
                     .submitLabel(.next)
                     .createCustomTextfield()
-                TextField("Enter Website", text: $website)
-                    .focused($focusTextfield, equals: .website)
+                    .autocorrectionDisabled(false)
+                TextField(SubmissionScreenConstant.websitePlaceholder, text: $website)
+                    .focused($focusedTextField, equals: .website)
                     .submitLabel(.done)
-                    .onSubmit { submitSubmission() }
+                    .onSubmit { focusedTextField = nil }
                     .createCustomTextfield()
-                
+                Spacer()
                 Button {
+                    submitSubmission()
                     let submission = UserBoutiqueSubmission(name: boutiqueName, country: country, website: website)
                     Task {
                         try await manager.addUserSubmission(submission: submission)
                     }
-                    hasSubmitted = true
                 } label: {
                     ActionButtonView(buttonText: "Submit")
-                        .padding(.vertical)
+                        .padding(.bottom)
                 }
             }
-            .padding(.horizontal)
         }
+        .onTapGesture { focusedTextField = nil }
+        .alert(item: $alertItem) { alertItem in
+            Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
+        }
+    }
+    
+    func isCompletedForm() -> Bool {
+         guard !boutiqueName.isEmpty, !country.isEmpty, !website.isEmpty else { return false }
+         return true
     }
     
     func submitSubmission() {
         // Add logic to send to CloudKit
-        focusTextfield = nil
+        focusedTextField = nil
+        guard isCompletedForm() else {
+            alertItem = AlertContext.incompleteForm
+            return
+        }
     }
 }
 

@@ -16,4 +16,5 @@ struct AlertItem: Identifiable {
 
 struct AlertContext {
     static let unableToGetLocations = AlertItem(title: Text("Locations Error"), message: Text("Unable to retrieve locations at this time. Please try again later."), dismissButton: .default(Text("Ok")))
+    static let incompleteForm = AlertItem(title: Text("Incomplete Form"), message: Text("Please fill in all fields to submit your response."), dismissButton: .default(Text("Ok")))
 }

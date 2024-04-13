@@ -7,55 +7,59 @@
 
 import UIKit
 
-// MARK: - Tab view icons
+// MARK: - SCREENS
 
-enum TabIcon: String, CaseIterable, Hashable {
-    case door = "door"
-    case map = "map"
-    case profile = "person"
-    
-    var selected: String {
-        switch self {
-        case .door:
-            return "door.left.hand.open"
-        case .map:
-            return "mappin"
-        case .profile:
-            return "person.fill"
-            
-        }
-    }
-    
-    var unselected: String {
-        switch self {
-        case .door:
-            return "door.left.hand.closed"
-        case .map:
-            return "map"
-        case .profile:
-            return "person"
-        }
-    }
+// MARK: Onboarding view
+
+enum OnboardingTextConstant {
+    static let titleOne = "Boutique Locations"
+    static let titleTwo = "Coverage"
+    static let titleThree = "Save and share"
+    static let firstText = "Find and discover unique boutiques and concept stores anytime, anywhere."
+    static let secondText = "This initial release will start in the United States."
+    static let thirdText = "Save your favorite boutiques and share more locations with us!"
 }
 
-// MARK: - App themes
+// MARK: Boutique list screen
 
-enum AppTheme: String, Identifiable, CaseIterable {
+// MARK: Boutique detail screen
+
+// MARK: Maps screen
+
+// MARK: Profile screen
+
+enum ProfileScreenConstant {
+    static let favoritesButton = "Your Boutiques"
+    static let submissionFormButton = "Submit a Boutique"
+}
+
+// MARK: Submission form screen
+
+enum SubmissionScreenConstant {
+    static let instructions = "We're always looking to expand our collection for you. Please share special boutiques you'd like us to add:"
+    static let namePlaceholder = "Enter Boutique Name"
+    static let countryPlaceholder = "Enter Boutique Country"
+    static let websitePlaceholder = "Enter Boutique Website"
+}
+
+// MARK: - UTILITIES
+
+// MARK: App theme
+
+enum AppTheme: String {
     case system = "System"
     case lightTheme = "Light"
     case darkTheme = "Dark"
-    
-    var id: String { self.rawValue }
 }
 
-// MARK: - Record type from CloudKit
+// MARK: CloudKit record type
 
 enum RecordType {
     static let USBoutique = "UnitedStatesBoutique" // Has to match the CloudKit record type name
     static let userSubmission = "UserBoutiqueSubmission"
 }
 
-// MARK: - Placeholder images {
+// MARK: Placeholder images
 
 enum PlaceholderImage {
     static let squareLogo = UIImage(resource: .appSquareLogo)
@@ -73,24 +77,5 @@ enum ImageDimension {
             return PlaceholderImage.locationImage
         }
     }
-}
-
-// MARK: - Onboarding view
-
-enum OnboardingText {
-    static let firstTextTitle = "Boutique Locations"
-    static let secondTextTitle = "Coverage"
-    static let thirdTextTitle = "Save and share"
-    static let firstText = "Find and discover unique boutiques and concept stores anytime, anywhere."
-    static let secondText = "This initial release will start in the United States."
-    static let thirdText = "Save your favorite boutiques and share more locations with us!"
-}
-
-// MARK: - Profile screen
-
-enum ProfileScreenButton {
-    static let settings = "Settings"
-    static let favorites = "Your Boutiques"
-    static let submission = "Submit a Boutique"
 }
 

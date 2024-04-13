@@ -22,9 +22,9 @@ struct OnboardingView: View {
                          frameWidth: 200)
                 .padding(.bottom)
                 VStack(alignment: .leading) {
-                    InfoView(title: OnboardingText.firstTextTitle, description: OnboardingText.firstText)
-                    InfoView(title: OnboardingText.secondTextTitle, description: OnboardingText.secondText)
-                    InfoView(title: OnboardingText.thirdTextTitle, description: OnboardingText.secondText)
+                    InfoView(title: OnboardingTextConstant.titleOne, description: OnboardingTextConstant.firstText)
+                    InfoView(title: OnboardingTextConstant.titleTwo, description: OnboardingTextConstant.secondText)
+                    InfoView(title: OnboardingTextConstant.titleThree, description: OnboardingTextConstant.secondText)
                 }
                 Spacer()
                 Button {
