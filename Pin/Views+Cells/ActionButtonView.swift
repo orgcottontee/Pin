@@ -16,6 +16,7 @@ struct ActionButtonView: View {
             Capsule()
                 .frame(height: 40)
                 .foregroundStyle(.appAccent)
+                .padding(.horizontal)
             Text(buttonText)
                 .font(.custom(BaskervilleFont.regular,size: 16))
                 .kerning(1.5)

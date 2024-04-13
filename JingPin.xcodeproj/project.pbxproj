@@ -33,11 +33,14 @@
 		DEB9AC462BBCD1F400013C92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEB9AC452BBCD1F400013C92 /* Assets.xcassets */; };
 		DEB9AC492BBCD1F400013C92 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEB9AC482BBCD1F400013C92 /* Preview Assets.xcassets */; };
 		DEC2752A2BC05B77001912FC /* UnitedStatesBoutique.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC275292BC05B77001912FC /* UnitedStatesBoutique.swift */; };
-		DEC2752C2BC0611F001912FC /* UserSuggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC2752B2BC0611F001912FC /* UserSuggestion.swift */; };
 		DEC2752E2BC06408001912FC /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC2752D2BC06408001912FC /* MockData.swift */; };
 		DEC9B6892BC8C5F70036183F /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC9B6882BC8C5F70036183F /* LogoView.swift */; };
 		DEC9B68D2BC8E6B90036183F /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC9B68C2BC8E6B90036183F /* LoadingView.swift */; };
 		DEC9B68F2BC8E6EC0036183F /* fabricFlowing.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DEC9B68E2BC8E6EC0036183F /* fabricFlowing.mp4 */; };
+		DEC9B6912BC9F0C20036183F /* UserBoutiqueSubmission.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC9B6902BC9F0C20036183F /* UserBoutiqueSubmission.swift */; };
+		DEC9B6932BCA01B40036183F /* UserSubmissionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC9B6922BCA01B40036183F /* UserSubmissionScreen.swift */; };
+		DEC9B6952BCA02500036183F /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC9B6942BCA02500036183F /* View+Ext.swift */; };
+		DEC9B6972BCA02B30036183F /* CustomViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC9B6962BCA02B30036183F /* CustomViewModifiers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,11 +72,14 @@
 		DEB9AC452BBCD1F400013C92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DEB9AC482BBCD1F400013C92 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DEC275292BC05B77001912FC /* UnitedStatesBoutique.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitedStatesBoutique.swift; sourceTree = "<group>"; };
-		DEC2752B2BC0611F001912FC /* UserSuggestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSuggestion.swift; sourceTree = "<group>"; };
 		DEC2752D2BC06408001912FC /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		DEC9B6882BC8C5F70036183F /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
 		DEC9B68C2BC8E6B90036183F /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		DEC9B68E2BC8E6EC0036183F /* fabricFlowing.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = fabricFlowing.mp4; sourceTree = "<group>"; };
+		DEC9B6902BC9F0C20036183F /* UserBoutiqueSubmission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBoutiqueSubmission.swift; sourceTree = "<group>"; };
+		DEC9B6922BCA01B40036183F /* UserSubmissionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSubmissionScreen.swift; sourceTree = "<group>"; };
+		DEC9B6942BCA02500036183F /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
+		DEC9B6962BCA02B30036183F /* CustomViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewModifiers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +103,7 @@
 				DE635B812BBE19A1005D5C8D /* FavoritesScreen.swift */,
 				DE635B7F2BBE1953005D5C8D /* SettingsScreen.swift */,
 				DE7666672BC7022D009C2A3D /* BoutiqueViewModel.swift */,
+				DEC9B6922BCA01B40036183F /* UserSubmissionScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -109,6 +116,7 @@
 				DEA6AEB82BC8C477002AD595 /* OnboardingView.swift */,
 				DEC9B6882BC8C5F70036183F /* LogoView.swift */,
 				DEC9B68C2BC8E6B90036183F /* LoadingView.swift */,
+				DEC9B6962BCA02B30036183F /* CustomViewModifiers.swift */,
 			);
 			path = "Views+Cells";
 			sourceTree = "<group>";
@@ -143,6 +151,7 @@
 				DE635B6F2BBDC4B3005D5C8D /* Font+Ext.swift */,
 				DE49DC8D2BC6F61D00202654 /* CKRecord+Ext.swift */,
 				DE76666C2BC72714009C2A3D /* CKAsset+Ext.swift */,
+				DEC9B6942BCA02500036183F /* View+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -200,8 +209,8 @@
 			isa = PBXGroup;
 			children = (
 				DEC275292BC05B77001912FC /* UnitedStatesBoutique.swift */,
-				DEC2752B2BC0611F001912FC /* UserSuggestion.swift */,
 				DEC2752D2BC06408001912FC /* MockData.swift */,
+				DEC9B6902BC9F0C20036183F /* UserBoutiqueSubmission.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -279,6 +288,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEC9B6952BCA02500036183F /* View+Ext.swift in Sources */,
+				DEC9B6932BCA01B40036183F /* UserSubmissionScreen.swift in Sources */,
+				DEC9B6972BCA02B30036183F /* CustomViewModifiers.swift in Sources */,
 				DE635B662BBD9044005D5C8D /* BoutiqueMapScreen.swift in Sources */,
 				DE635B602BBD8F7D005D5C8D /* AppTabView.swift in Sources */,
 				DE7666682BC7022D009C2A3D /* BoutiqueViewModel.swift in Sources */,
@@ -292,9 +304,9 @@
 				DE635B822BBE19A1005D5C8D /* FavoritesScreen.swift in Sources */,
 				DEC9B6892BC8C5F70036183F /* LogoView.swift in Sources */,
 				DE4007EA2BC239F9002BD9D0 /* CloudKitManager.swift in Sources */,
-				DEC2752C2BC0611F001912FC /* UserSuggestion.swift in Sources */,
 				DEB9AC422BBCD1F300013C92 /* PinApp.swift in Sources */,
 				DE76666D2BC72714009C2A3D /* CKAsset+Ext.swift in Sources */,
+				DEC9B6912BC9F0C20036183F /* UserBoutiqueSubmission.swift in Sources */,
 				DE635B802BBE1953005D5C8D /* SettingsScreen.swift in Sources */,
 				DE635B6A2BBD90D1005D5C8D /* Constants.swift in Sources */,
 				DE635B7E2BBE1471005D5C8D /* ActionButtonView.swift in Sources */,

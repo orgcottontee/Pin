@@ -86,3 +86,10 @@ enum OnboardingText {
     static let thirdText = "Save your favorite boutiques and share more locations with us!"
 }
 
+// MARK: - Profile screen
+
+enum ProfileScreenButton {
+    static let settings = "Settings"
+    static let favorites = "Your Boutiques"
+    static let submission = "Submit a Boutique"
+}
