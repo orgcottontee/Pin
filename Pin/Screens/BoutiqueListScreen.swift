@@ -46,3 +46,8 @@ struct BoutiqueListScreen: View {
         .tint(.appAccent)
     }
 }
+
+#Preview {
+    BoutiqueListScreen()
+        .environmentObject(LocationManager())
+}

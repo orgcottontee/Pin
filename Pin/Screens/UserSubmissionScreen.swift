@@ -56,7 +56,7 @@ struct UserSubmissionScreen: View {
                     }
                 } label: {
                     ActionButtonView(buttonText: "Submit")
-                        .padding(.bottom)
+                        .padding(.bottom)
                 }
             }
         }

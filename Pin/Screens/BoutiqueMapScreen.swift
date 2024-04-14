@@ -30,4 +30,5 @@ struct BoutiqueMapScreen: View {
 
 #Preview {
     BoutiqueMapScreen()
+        .environmentObject(LocationManager())
 }
