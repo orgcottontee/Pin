@@ -49,12 +49,9 @@ fileprivate struct InfoView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text(title)
-                .font(.custom(BaskervilleFont.regular, size: 20))
-            Text(description)
-                .font(.custom(UniversFont.light, size: 14))
+            Text(title).applyJPSubheader()
+            Text(description).applyJPBody()
         }
-        .kerning(1.5)
         .padding()
     }
 }

@@ -23,10 +23,7 @@ struct BoutiqueListScreen: View {
                 ZStack {
                     Color(.appPrimary).ignoresSafeArea()
                     VStack {
-                        Text("BOUTIQUES")
-                            .font(.custom(BaskervilleFont.italic, size: 30))
-                            .kerning(1.5)
-                            .padding()
+                        Text(ListScreenHeader.text).applyJPHeader()
                         ScrollView {
                             LazyVStack {
                                 ForEach(locationManager.locations) { boutiqueLocation in

@@ -114,7 +114,6 @@
 				DEA6AEB82BC8C477002AD595 /* OnboardingView.swift */,
 				DEC9B6882BC8C5F70036183F /* LogoView.swift */,
 				DEC9B68C2BC8E6B90036183F /* LoadingView.swift */,
-				DEC9B6962BCA02B30036183F /* CustomViewModifiers.swift */,
 			);
 			path = "Views+Cells";
 			sourceTree = "<group>";
@@ -128,6 +127,7 @@
 				DE635B6D2BBDBF55005D5C8D /* NavBar+Helper.swift */,
 				DE635B752BBDC51D005D5C8D /* AppFonts.swift */,
 				DE49DC8F2BC6FFC300202654 /* AlertItem.swift */,
+				DEC9B6962BCA02B30036183F /* CustomViewModifiers.swift */,
 			);
 			path = "Helpers+Utilities";
 			sourceTree = "<group>";

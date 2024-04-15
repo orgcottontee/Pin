@@ -9,7 +9,18 @@ import SwiftUI
 
 struct FavoritesScreen: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Color.appPrimary.ignoresSafeArea()
+            VStack {
+                Text("Your saved boutiques")
+                    .applyJPHeader()
+                List(0..<3) { index in
+                    Text("Item \(index)")
+                        .applyJPBody()
+                }
+                .scrollContentBackground(.hidden)
+            }
+        }
     }
 }
 

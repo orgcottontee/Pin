@@ -15,7 +15,7 @@ struct BoutiqueCellView: View {
         
             VStack(alignment: .leading) {
                 LogoView(image: boutiqueLocation.createSquareLogo(),
-                         frameWidth: 300)
+                         frameWidth: 160)
                 .clipShape(RoundedRectangle(cornerRadius: 4))
 
                 HStack {
@@ -41,10 +41,8 @@ fileprivate struct CityView: View {
     var city: String
     
     var body: some View {
-        
         Text("\(city),")
-            .font(.custom(UniversFont.light, size: 14))
-            .kerning(1.8)
+            .applyJPBody()
     }
 }
 
@@ -53,10 +51,8 @@ fileprivate struct StateView: View {
     var state: String
     
     var body: some View {
-        
         Text("\(state)")
-            .font(.custom(UniversFont.light, size: 14))
-            .kerning(1.8)
+            .applyJPBody()
             .minimumScaleFactor(0.75)
             .truncationMode(.tail)
     }

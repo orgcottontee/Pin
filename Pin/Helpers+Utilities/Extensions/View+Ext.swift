@@ -9,8 +9,23 @@ import SwiftUI
 
 extension View {
     
-    func createCustomTextfield() -> some View {
-        self.modifier(TextFieldSubmissionStyle())
+    func applyJPTextfield() -> some View {
+        modifier(JPTextfieldStyle())
+    }
+    
+    func applyJPHeader() -> some View {
+        modifier(JPHeaderStyle())
+    }
+    
+    func applyJPSubheader() -> some View {
+        modifier(JPSubheaderStyle())
+    }
+    
+    func applyJPBody() -> some View {
+        modifier(JPBodyStyle())
+    }
+    
+    func applyJPFootnote() -> some View {
+        modifier(JPFootnoteStyle())
     }
 }
-

@@ -22,6 +22,10 @@ enum OnboardingTextConstant {
 
 // MARK: Boutique list screen
 
+enum ListScreenHeader {
+    static let text = "BOUTIQUES"
+}
+
 enum USState: String, CaseIterable {
   case allStates
   case california = "CA"
@@ -77,20 +81,6 @@ enum AppTheme: String {
     case darkTheme = "Dark"
 }
 
-// MARK: CloudKit record type
-
-enum RecordType {
-    static let USBoutique = "UnitedStatesBoutique" // Has to match the CloudKit record type name
-    static let userSubmission = "UserBoutiqueSubmission"
-}
-
-// MARK: Placeholder images
-
-enum PlaceholderImage {
-    static let squareLogo = UIImage(resource: .appSquareLogo)
-    static let locationImage = UIImage(resource: .appBanner)
-}
-
 enum ImageDimension {
     case squareLogo, locationImage
     
@@ -103,4 +93,20 @@ enum ImageDimension {
         }
     }
 }
+
+// MARK: Placeholder images
+
+enum PlaceholderImage {
+    static let squareLogo = UIImage(resource: .appSquareLogo)
+    static let locationImage = UIImage(resource: .appBanner)
+}
+
+// MARK: CloudKit record type
+
+enum RecordType {
+    static let USBoutique = "UnitedStatesBoutique" // Has to match the CloudKit record type name
+    static let userSubmission = "UserBoutiqueSubmission"
+}
+
+
 

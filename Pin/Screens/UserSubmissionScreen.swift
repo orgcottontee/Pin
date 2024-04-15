@@ -21,25 +21,24 @@ struct UserSubmissionScreen: View {
             VStack(alignment: .leading) {
                 Spacer()
                 Text(SubmissionScreenConstant.instructions)
-                    .font(.custom(BaskervilleFont.regular, size: 14))
-                    .kerning(1.2)
+                    .applyJPBody()                    
                     .padding(.horizontal)
                 TextField(SubmissionScreenConstant.namePlaceholder, text: $viewModel.boutiqueName)
                     .focused($focusedTextField, equals: .name)
                     .onSubmit { focusedTextField = .country }
                     .submitLabel(.next)
-                    .createCustomTextfield()
+                    .applyJPTextfield()
                 TextField(SubmissionScreenConstant.countryPlaceholder, text: $viewModel.country)
                     .focused($focusedTextField, equals: .country)
                     .onSubmit { focusedTextField = .website }
                     .submitLabel(.next)
-                    .createCustomTextfield()
+                    .applyJPTextfield()
                     .autocorrectionDisabled(false)
                 TextField(SubmissionScreenConstant.websitePlaceholder, text: $viewModel.website)
                     .focused($focusedTextField, equals: .website)
                     .submitLabel(.done)
                     .onSubmit { focusedTextField = nil }
-                    .createCustomTextfield()
+                    .applyJPTextfield()
                 Spacer()
                 Button {
                     Task {

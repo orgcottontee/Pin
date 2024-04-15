@@ -18,9 +18,8 @@ struct ActionButtonView: View {
                 .foregroundStyle(.appAccent)
                 .padding(.horizontal)
             Text(buttonText)
-                .font(.custom(BaskervilleFont.regular,size: 16))
-                .kerning(1.5)
                 .foregroundStyle(.appPrimary)
+                .applyJPBody()
         }
     }
 }

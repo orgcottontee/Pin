@@ -77,9 +77,7 @@ fileprivate struct NameView: View {
     var body: some View {
         HStack {
             Spacer()
-            Text(name)
-                .font(.custom(BaskervilleFont.italic, size: 26))
-                .kerning(1.5)
+            Text(name).applyJPSubheader()
         }
     }
 }
@@ -110,8 +108,7 @@ fileprivate struct FullAddressView: View {
                 Text(address)
                 Text(cityStatePostalCode)
             }
-            .font(.custom(UniversFont.light, size: 14))
-            .kerning(1.5)
+            .applyJPBody()
             Spacer()
         }
     }
@@ -122,9 +119,7 @@ fileprivate struct AboutDetailView: View {
     var aboutText: String
     
     var body: some View {
-        Text(aboutText)
-            .font(.custom(UniversFont.light, size: 14))
-            .kerning(1.5)
+        Text(aboutText).applyJPBody()
     }
 }
 
@@ -133,16 +128,12 @@ fileprivate struct CategoryView: View {
     var categories: [String]
    
     var body: some View {
-        
         HStack {
             VStack(alignment: .leading) {
                 ForEach(categories, id: \.self) { category in
                     HStack {
-                        Image(systemName: "square.fill")
-                            .font(.system(size: 4))
-                        Text(category)
-                            .font(.custom(UniversFont.light, size: 14))
-                            .kerning(1.5)
+                        Image(systemName: "square.fill").font(.system(size: 4))
+                        Text(category).applyJPBody()
                     }
                 }
             }

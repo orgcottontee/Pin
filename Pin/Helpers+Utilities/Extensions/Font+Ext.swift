@@ -8,13 +8,13 @@
 import SwiftUI
 
 extension Font {
-    static func custom(_ font: BaskervilleFont, size: CGFloat) -> SwiftUI.Font {
-        SwiftUI.Font.custom(font.rawValue, size: size)
+    static func custom(_ name: BaskervilleFont, size: CGFloat, relativeTo: TextStyle) -> SwiftUI.Font {
+        SwiftUI.Font.custom(name.rawValue, size: size, relativeTo: relativeTo)
     }
 }
 
 extension Font {
-    static func custom(_ font: UniversFont, size: CGFloat) -> SwiftUI.Font {
-        SwiftUI.Font.custom(font.rawValue, size: size)
+    static func custom(_ name: UniversFont, size: CGFloat, relativeTo: TextStyle) -> SwiftUI.Font {
+        SwiftUI.Font.custom(name.rawValue, size: size, relativeTo: relativeTo)
     }
 }
