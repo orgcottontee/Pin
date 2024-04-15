@@ -91,14 +91,11 @@ final class UserSubmissionManager: ObservableObject {
     
     private let container = CKContainer.default().publicCloudDatabase
     @Published private var submissionDictionary: [CKRecord.ID: UserBoutiqueSubmission] = [:]
-    var submissions: [UserBoutiqueSubmission] {
-        submissionDictionary.values.compactMap { $0 }
-    }
     
     func addUserSubmission(submission: UserBoutiqueSubmission) async throws {
         let _ = try await container.save(submission.record)
     }
-    // This will pull all submissions from every user since it is in the public database. I still need it in the public so I can see it and add to the app. How can I simplify it so that it just persists the boutique name text in a list? Maybe I can use userdefaults for this and when they save an existing boutique from CloudKit in their favorites
+    // populateSubmissions will pull all submissions from every user since it is in the public database. I still need it in the public so I can see it and add to the app. How can I simplify it so that it just persists the boutique name text in a list? Maybe I can use userdefaults for this and when they save an existing boutique from CloudKit in their favorites
     
     func populateSubmissions() async throws {
         

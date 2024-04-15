@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import CloudKit
 
 struct BoutiqueDetailScreen: View {
     
     var boutiqueLocation: UnitedStatesBoutique
+    @State private var isFavorite = false
+    @StateObject private var manager = FavoritesManager()
     
     var body: some View {
         
@@ -22,6 +25,18 @@ struct BoutiqueDetailScreen: View {
                 HStack {
                     FullAddressView(address: boutiqueLocation.address,
                                     cityStatePostalCode: "\(boutiqueLocation.city), \(boutiqueLocation.state), \(boutiqueLocation.zipCode)")
+                    Button {
+                        withAnimation { isFavorite.toggle() }
+                        let favorited = UnitedStatesBoutique(record: boutiqueLocation.record)
+                        Task {
+                            try await manager.addFavoritedBoutiques(favorited: favorited)
+                        }
+                    } label: {
+                        Label("", systemImage: isFavorite ? "heart.fill": "heart")
+                            .foregroundStyle(.favorited)
+                            .frame(width: 40, height: 40)
+                    }
+                    .contentTransition(.symbolEffect(.replace))
                 }
                 .padding(.bottom)
             
@@ -42,6 +57,17 @@ struct BoutiqueDetailScreen: View {
 
 #Preview {
     BoutiqueDetailScreen(boutiqueLocation: UnitedStatesBoutique(record: MockData.boutiqueLocation))
+}
+
+@MainActor
+final class FavoritesManager: ObservableObject {
+    
+    private let container = CKContainer.default().privateCloudDatabase
+    @Published private var favoritedDictionary: [CKRecord.ID: UnitedStatesBoutique] = [:]
+    
+    func addFavoritedBoutiques(favorited: UnitedStatesBoutique) async throws {
+        let _ = try await container.save(favorited.record)
+    }
 }
 
 fileprivate struct NameView: View {

@@ -23,11 +23,11 @@
 		DE635B782BBDC72D005D5C8D /* BoutiqueDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE635B772BBDC72D005D5C8D /* BoutiqueDetailScreen.swift */; };
 		DE635B7C2BBDEDAE005D5C8D /* BoutiqueCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE635B7B2BBDEDAE005D5C8D /* BoutiqueCellView.swift */; };
 		DE635B7E2BBE1471005D5C8D /* ActionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE635B7D2BBE1471005D5C8D /* ActionButtonView.swift */; };
-		DE635B822BBE19A1005D5C8D /* FavoritesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE635B812BBE19A1005D5C8D /* FavoritesScreen.swift */; };
 		DE7666682BC7022D009C2A3D /* BoutiqueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7666672BC7022D009C2A3D /* BoutiqueViewModel.swift */; };
 		DE76666B2BC70C88009C2A3D /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE76666A2BC70C88009C2A3D /* LocationManager.swift */; };
 		DE76666D2BC72714009C2A3D /* CKAsset+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE76666C2BC72714009C2A3D /* CKAsset+Ext.swift */; };
 		DE81C7C72BCB542D003F4E58 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = DE81C7C62BCB542D003F4E58 /* PrivacyInfo.xcprivacy */; };
+		DE81C7D42BCCD559003F4E58 /* FavoritesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE81C7D32BCCD559003F4E58 /* FavoritesScreen.swift */; };
 		DEA6AEB92BC8C477002AD595 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA6AEB82BC8C477002AD595 /* OnboardingView.swift */; };
 		DEB9AC422BBCD1F300013C92 /* PinApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB9AC412BBCD1F300013C92 /* PinApp.swift */; };
 		DEB9AC462BBCD1F400013C92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEB9AC452BBCD1F400013C92 /* Assets.xcassets */; };
@@ -60,11 +60,11 @@
 		DE635B772BBDC72D005D5C8D /* BoutiqueDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoutiqueDetailScreen.swift; sourceTree = "<group>"; };
 		DE635B7B2BBDEDAE005D5C8D /* BoutiqueCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoutiqueCellView.swift; sourceTree = "<group>"; };
 		DE635B7D2BBE1471005D5C8D /* ActionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButtonView.swift; sourceTree = "<group>"; };
-		DE635B812BBE19A1005D5C8D /* FavoritesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesScreen.swift; sourceTree = "<group>"; };
 		DE7666672BC7022D009C2A3D /* BoutiqueViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoutiqueViewModel.swift; sourceTree = "<group>"; };
 		DE76666A2BC70C88009C2A3D /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		DE76666C2BC72714009C2A3D /* CKAsset+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CKAsset+Ext.swift"; sourceTree = "<group>"; };
 		DE81C7C62BCB542D003F4E58 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		DE81C7D32BCCD559003F4E58 /* FavoritesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesScreen.swift; sourceTree = "<group>"; };
 		DEA6AEB82BC8C477002AD595 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		DEB9AC3E2BBCD1F300013C92 /* JingPin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JingPin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEB9AC412BBCD1F300013C92 /* PinApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinApp.swift; sourceTree = "<group>"; };
@@ -98,8 +98,8 @@
 				DE635B632BBD9035005D5C8D /* BoutiqueListScreen.swift */,
 				DE635B612BBD8FF6005D5C8D /* ProfileScreen.swift */,
 				DE635B772BBDC72D005D5C8D /* BoutiqueDetailScreen.swift */,
-				DE635B812BBE19A1005D5C8D /* FavoritesScreen.swift */,
 				DEC9B6922BCA01B40036183F /* UserSubmissionScreen.swift */,
+				DE81C7D32BCCD559003F4E58 /* FavoritesScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -305,8 +305,8 @@
 				DE76666B2BC70C88009C2A3D /* LocationManager.swift in Sources */,
 				DEC9B68D2BC8E6B90036183F /* LoadingView.swift in Sources */,
 				DE635B762BBDC51D005D5C8D /* AppFonts.swift in Sources */,
+				DE81C7D42BCCD559003F4E58 /* FavoritesScreen.swift in Sources */,
 				DE49DC902BC6FFC300202654 /* AlertItem.swift in Sources */,
-				DE635B822BBE19A1005D5C8D /* FavoritesScreen.swift in Sources */,
 				DEC9B6892BC8C5F70036183F /* LogoView.swift in Sources */,
 				DE4007EA2BC239F9002BD9D0 /* CloudKitManager.swift in Sources */,
 				DEB9AC422BBCD1F300013C92 /* PinApp.swift in Sources */,

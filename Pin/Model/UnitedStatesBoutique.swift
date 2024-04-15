@@ -64,3 +64,11 @@ struct UnitedStatesBoutique: Identifiable, Hashable {
         return asset.convertToImage(in: .locationImage)
     }
 }
+
+extension UnitedStatesBoutique {
+    var record: CKRecord {
+        let record = CKRecord(recordType: "FavoritedBoutiques")
+        record[UnitedStatesBoutique.kName] = name
+        return record
+    }
+}
