@@ -28,6 +28,7 @@
 		DE76666D2BC72714009C2A3D /* CKAsset+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE76666C2BC72714009C2A3D /* CKAsset+Ext.swift */; };
 		DE81C7C72BCB542D003F4E58 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = DE81C7C62BCB542D003F4E58 /* PrivacyInfo.xcprivacy */; };
 		DE81C7D42BCCD559003F4E58 /* FavoritesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE81C7D32BCCD559003F4E58 /* FavoritesScreen.swift */; };
+		DE81C7D62BCD6FAA003F4E58 /* UserSubmissionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE81C7D52BCD6FAA003F4E58 /* UserSubmissionViewModel.swift */; };
 		DEA6AEB92BC8C477002AD595 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA6AEB82BC8C477002AD595 /* OnboardingView.swift */; };
 		DEB9AC422BBCD1F300013C92 /* PinApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB9AC412BBCD1F300013C92 /* PinApp.swift */; };
 		DEB9AC462BBCD1F400013C92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEB9AC452BBCD1F400013C92 /* Assets.xcassets */; };
@@ -65,6 +66,7 @@
 		DE76666C2BC72714009C2A3D /* CKAsset+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CKAsset+Ext.swift"; sourceTree = "<group>"; };
 		DE81C7C62BCB542D003F4E58 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		DE81C7D32BCCD559003F4E58 /* FavoritesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesScreen.swift; sourceTree = "<group>"; };
+		DE81C7D52BCD6FAA003F4E58 /* UserSubmissionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSubmissionViewModel.swift; sourceTree = "<group>"; };
 		DEA6AEB82BC8C477002AD595 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		DEB9AC3E2BBCD1F300013C92 /* JingPin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JingPin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEB9AC412BBCD1F300013C92 /* PinApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinApp.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				DE7666672BC7022D009C2A3D /* BoutiqueViewModel.swift */,
+				DE81C7D52BCD6FAA003F4E58 /* UserSubmissionViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				DEC9B6932BCA01B40036183F /* UserSubmissionScreen.swift in Sources */,
 				DEC9B6972BCA02B30036183F /* CustomViewModifiers.swift in Sources */,
 				DE635B662BBD9044005D5C8D /* BoutiqueMapScreen.swift in Sources */,
+				DE81C7D62BCD6FAA003F4E58 /* UserSubmissionViewModel.swift in Sources */,
 				DE635B602BBD8F7D005D5C8D /* AppTabView.swift in Sources */,
 				DE7666682BC7022D009C2A3D /* BoutiqueViewModel.swift in Sources */,
 				DE635B6E2BBDBF55005D5C8D /* NavBar+Helper.swift in Sources */,
