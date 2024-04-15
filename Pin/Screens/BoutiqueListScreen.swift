@@ -21,19 +21,28 @@ struct BoutiqueListScreen: View {
                 LoadingView()
             } else {
                 ZStack {
-                    Color(.appPrimary)
-                        .ignoresSafeArea()
-                    ScrollView {
-                        LazyVStack {
-                            ForEach(locationManager.locations) { boutiqueLocation in
-                                NavigationLink(destination: BoutiqueDetailScreen(boutiqueLocation: boutiqueLocation)) {
-                                    BoutiqueCellView(boutiqueLocation: boutiqueLocation)
-                                        .foregroundStyle(.appAccent)
+                    Color(.appPrimary).ignoresSafeArea()
+                    VStack {
+                        Text("BOUTIQUES")
+                            .font(.custom(BaskervilleFont.italic, size: 30))
+                            .kerning(1.5)
+                            .padding()
+                        ScrollView {
+                            LazyVStack {
+                                ForEach(locationManager.locations) { boutiqueLocation in
+                                    NavigationLink(value: boutiqueLocation) {
+                                        BoutiqueCellView(boutiqueLocation: boutiqueLocation)
+                                            .foregroundStyle(.appAccent)
+                                    }
                                 }
                             }
                         }
+                        .padding()
+                        .navigationDestination(for: UnitedStatesBoutique.self) { boutique in
+                            BoutiqueDetailScreen(boutiqueLocation: boutique)
+                        // TODO: Filter by state, search bar
+                        }
                     }
-                    .padding()
                 }
                 .alert(item: $viewModel.alertItem) { alertItem in
                     Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)

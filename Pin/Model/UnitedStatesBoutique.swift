@@ -8,7 +8,7 @@
 import CloudKit
 import UIKit
 
-struct UnitedStatesBoutique: Identifiable {
+struct UnitedStatesBoutique: Identifiable, Hashable {
     
     static let kAddress = "address"
     static let kBoutiqueAsset = "boutiqueAsset"

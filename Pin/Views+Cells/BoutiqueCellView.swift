@@ -15,7 +15,9 @@ struct BoutiqueCellView: View {
         
             VStack(alignment: .leading) {
                 LogoView(image: boutiqueLocation.createSquareLogo(),
-                         frameWidth: 150)
+                         frameWidth: 300)
+                .clipShape(RoundedRectangle(cornerRadius: 4))
+
                 HStack {
                     VStack(alignment: .leading) {
                         CityView(city: boutiqueLocation.city)

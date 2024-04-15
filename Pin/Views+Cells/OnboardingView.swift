@@ -14,17 +14,17 @@ struct OnboardingView: View {
     
     var body: some View {
         ZStack {
-            Color.appPrimary
-                .ignoresSafeArea()
+            Color.appPrimary.ignoresSafeArea()
             VStack {
                 Spacer()
                 LogoView(image: colorScheme == .dark ? .lightAppLogo : .darkAppLogo,
                          frameWidth: 200)
                 .padding(.bottom)
+                Spacer()
                 VStack(alignment: .leading) {
                     InfoView(title: OnboardingTextConstant.titleOne, description: OnboardingTextConstant.firstText)
                     InfoView(title: OnboardingTextConstant.titleTwo, description: OnboardingTextConstant.secondText)
-                    InfoView(title: OnboardingTextConstant.titleThree, description: OnboardingTextConstant.secondText)
+                    InfoView(title: OnboardingTextConstant.titleThree, description: OnboardingTextConstant.thirdText)
                 }
                 Spacer()
                 Button {
@@ -38,9 +38,9 @@ struct OnboardingView: View {
     }
 }
 
-//#Preview {
-//    OnboardingView(isShowingOnboardingView: .constant(true))
-//}
+#Preview {
+    OnboardingView(hasSeenOnboarding: .constant(true))
+}
 
 fileprivate struct InfoView: View {
     
@@ -50,9 +50,9 @@ fileprivate struct InfoView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text(title)
-                .font(.custom(BaskervilleFont.bold, size: 18))
+                .font(.custom(BaskervilleFont.regular, size: 20))
             Text(description)
-                .font(.custom(BaskervilleFont.regular, size: 16))
+                .font(.custom(UniversFont.light, size: 14))
         }
         .kerning(1.5)
         .padding()

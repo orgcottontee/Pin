@@ -15,12 +15,37 @@ enum OnboardingTextConstant {
     static let titleOne = "Boutique Locations"
     static let titleTwo = "Coverage"
     static let titleThree = "Save and share"
-    static let firstText = "Find and discover unique boutiques and concept stores anytime, anywhere."
-    static let secondText = "This initial release will start in the United States."
-    static let thirdText = "Save your favorite boutiques and share more locations with us!"
+    static let firstText = "Discover unique boutiques and concept stores anytime, anywhere."
+    static let secondText = "This initial release will feature locations in the United States."
+    static let thirdText = "Save your favorite boutiques and share your favorite locations for us to add to the list."
 }
 
 // MARK: Boutique list screen
+
+enum USState: String, CaseIterable {
+  case allStates
+  case california = "CA"
+  case colorado = "CO"
+  case illinois = "IL"
+  case michigan = "MI"
+  case minnesota = "MN"
+  case newYork = "NY"
+  case oregon = "OR"
+  case pennsylvania = "PA"
+  case washington = "WA"
+  case wisconsin = "WI"
+
+  var id: String { self.rawValue }
+
+  var stateAbbreviation: String {
+    switch self {
+    case .allStates:
+      return "All"
+    default:
+      return self.rawValue
+    }
+  }
+}
 
 // MARK: Boutique detail screen
 

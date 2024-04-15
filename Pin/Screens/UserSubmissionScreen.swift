@@ -8,6 +8,8 @@
 import SwiftUI
 import CloudKit
 
+// TODO: Refactor & create alert if submission suceeds and/or fails
+
 struct UserSubmissionScreen: View {
     
     @FocusState private var focusedTextField: FocusTextField?
@@ -23,8 +25,7 @@ struct UserSubmissionScreen: View {
     
     var body: some View {
         ZStack {
-            Color.appPrimary
-                .ignoresSafeArea()
+            Color.appPrimary.ignoresSafeArea()
             VStack(alignment: .leading) {
                 Spacer()
                 Text(SubmissionScreenConstant.instructions)

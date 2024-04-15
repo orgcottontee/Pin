@@ -25,8 +25,7 @@ struct ProfileScreen: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color.appPrimary
-                    .ignoresSafeArea()
+                Color.appPrimary.ignoresSafeArea()
                 VStack {
                     HStack {
                         Button { selectedAppTheme = .lightTheme} label: { ActionButtonView(buttonText: AppTheme.lightTheme.rawValue) }

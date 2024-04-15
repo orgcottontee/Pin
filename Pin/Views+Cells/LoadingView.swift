@@ -15,9 +15,7 @@ struct LoadingView: View {
     
     var body: some View {
         ZStack {
-            Color(.appPrimary)
-                .ignoresSafeArea()
-            
+            Color(.appPrimary).ignoresSafeArea()
             LogoView(image: colorScheme == .dark ? .lightAppLogo : .darkAppLogo,
                      frameWidth: 50)
                 .scaleEffect(isAnimating ? 1.1 : 1)

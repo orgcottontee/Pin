@@ -18,6 +18,5 @@ struct LogoView: View {
             .resizable()
             .scaledToFit()
             .frame(width: frameWidth)
-            .clipShape(RoundedRectangle(cornerRadius: 6))
     }
 }

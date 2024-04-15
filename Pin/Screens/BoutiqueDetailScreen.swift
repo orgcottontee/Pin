@@ -14,8 +14,7 @@ struct BoutiqueDetailScreen: View {
     var body: some View {
         
         ZStack {
-            Color(.appPrimary)
-                .ignoresSafeArea()
+            Color(.appPrimary).ignoresSafeArea()
             VStack(alignment: .leading) {
                 NameView(name: boutiqueLocation.name)
                 LocationImageView(image: boutiqueLocation.createLocationImage())
@@ -33,7 +32,7 @@ struct BoutiqueDetailScreen: View {
                 }
                 
                 CategoryView(categories: boutiqueLocation.categories)
-                Link(destination: URL(string: boutiqueLocation.websiteURL)!) { ActionButtonView(buttonText: boutiqueLocation.shortURL) }
+                Link(destination: URL(string: boutiqueLocation.websiteURL)!) { ActionButtonView(buttonText: "Visit \(boutiqueLocation.shortURL)") }
             }
             .padding()
         }
@@ -69,7 +68,7 @@ fileprivate struct LocationImageView: View {
             .resizable()
             .scaledToFit()
             .frame(width: 360)
-            .clipShape(RoundedRectangle(cornerRadius: 6))
+            .clipShape(RoundedRectangle(cornerRadius: 4))
             .padding(.bottom)
     }
 }
