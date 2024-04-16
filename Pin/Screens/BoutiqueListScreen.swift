@@ -37,7 +37,7 @@ struct BoutiqueListScreen: View {
                         }
                         .padding()
                         .navigationDestination(for: UnitedStatesBoutique.self) { boutique in
-                            BoutiqueDetailScreen(boutiqueLocation: boutique)
+                            BoutiqueDetailScreen(viewModel: BoutiqueDetailViewModel(boutiqueLocation: boutique))
                         // TODO: Filter by state, search bar
                         }
                     }

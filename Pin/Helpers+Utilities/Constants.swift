@@ -53,6 +53,10 @@ enum USState: String, CaseIterable {
 
 // MARK: Boutique detail screen
 
+enum NavigateIcon {
+    static let sfSymbol = "location.square.fill"
+}
+
 // MARK: Maps screen
 
 // MARK: Profile screen

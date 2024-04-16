@@ -42,7 +42,7 @@ struct UserSubmissionScreen: View {
                 Spacer()
                 Button {
                     Task {
-                        try await viewModel.submitSubmission()
+                        viewModel.submitSubmission()
                     }
                 } label: {
                     ActionButtonView(buttonText: "Submit")

@@ -10,29 +10,36 @@ import CloudKit
 
 struct BoutiqueDetailScreen: View {
     
-    var boutiqueLocation: UnitedStatesBoutique
+    @ObservedObject var viewModel: BoutiqueDetailViewModel
     
     var body: some View {
         ZStack {
             Color(.appPrimary).ignoresSafeArea()
             VStack(alignment: .leading) {
-                NameView(name: boutiqueLocation.name)
-                BannerImageView(image: boutiqueLocation.createBannerImage())
+                NameView(name: viewModel.boutiqueLocation.name)
+                BannerImageView(image: viewModel.boutiqueLocation.createBannerImage())
                 Spacer()
                 HStack {
-                    FullAddressView(address: boutiqueLocation.address,
-                                    cityStatePostalCode: "\(boutiqueLocation.city), \(boutiqueLocation.state), \(boutiqueLocation.zipCode)")
+                    FullAddressView(address: viewModel.boutiqueLocation.address,
+                                    cityStatePostalCode: "\(viewModel.boutiqueLocation.city), \(viewModel.boutiqueLocation.state), \(viewModel.boutiqueLocation.zipCode)")
+                    Button {
+                        viewModel.navigateToBoutique()
+                    } label: {
+                        Image(systemName: NavigateIcon.sfSymbol)
+                            .applyJPSubheader()
+                            .frame(width: 40, height: 40)
+                    }
                 }
                 .padding(.bottom)
             
                 ScrollView {
                     VStack(alignment: .leading) {
-                        AboutDetailView(aboutText: boutiqueLocation.boutiqueStory)
+                        AboutDetailView(aboutText: viewModel.boutiqueLocation.boutiqueStory)
                     }
                 }
                 
-                CategoryView(categories: boutiqueLocation.categories)
-                Link(destination: URL(string: boutiqueLocation.websiteURL)!) { ActionButtonView(buttonText: "Visit \(boutiqueLocation.shortURL)") }
+                FooterView(categories: viewModel.boutiqueLocation.categories)
+                SafariView(showSafari: $viewModel.showSafari, title: "Visit \(viewModel.boutiqueLocation.shortURL)", url: viewModel.boutiqueLocation.websiteURL)
             }
             .padding()
         }
@@ -41,7 +48,7 @@ struct BoutiqueDetailScreen: View {
 }
 
 #Preview {
-    BoutiqueDetailScreen(boutiqueLocation: UnitedStatesBoutique(record: MockData.boutiqueLocation))
+    BoutiqueDetailScreen(viewModel: BoutiqueDetailViewModel(boutiqueLocation: UnitedStatesBoutique(record: MockData.boutiqueLocation)))
 }
 
 fileprivate struct NameView: View {
@@ -82,22 +89,21 @@ fileprivate struct AboutDetailView: View {
     }
 }
 
-fileprivate struct CategoryView: View {
+fileprivate struct FooterView: View {
     
     var categories: [String]
    
     var body: some View {
-        HStack {
-            VStack(alignment: .leading) {
-                ForEach(categories, id: \.self) { category in
-                    HStack {
-                        Image(systemName: "square.fill").font(.system(size: 4))
-                        Text(category).applyJPBody()
-                    }
+        VStack(alignment: .leading) {
+            ForEach(categories, id: \.self) { category in
+                HStack {
+                    Image(systemName: "square.fill").font(.system(size: 4))
+                    Text(category).applyJPBody()
+                    
+                    
                 }
             }
-            .padding(.vertical)
-            Spacer()
         }
+        .padding(.vertical)
     }
 }
