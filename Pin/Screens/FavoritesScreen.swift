@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FavoritesScreen: View {
-    
+        
     var body: some View {
         ZStack {
             Color.appPrimary.ignoresSafeArea()
@@ -20,8 +20,8 @@ struct FavoritesScreen: View {
                     Text("Item \(index)")
                         .applyJPBody()
                 }
-                .scrollContentBackground(.hidden)
             }
+            .scrollContentBackground(.hidden)
         }
     }
 }

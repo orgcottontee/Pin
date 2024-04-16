@@ -45,6 +45,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DE0B4D8C2BCEBB0000E9CE9D /* JingPin-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "JingPin-Info.plist"; sourceTree = "<group>"; };
 		DE4007E92BC239F9002BD9D0 /* CloudKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
 		DE49DC8D2BC6F61D00202654 /* CKRecord+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CKRecord+Ext.swift"; sourceTree = "<group>"; };
 		DE49DC8F2BC6FFC300202654 /* AlertItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertItem.swift; sourceTree = "<group>"; };
@@ -168,6 +169,7 @@
 		DEB9AC352BBCD1F300013C92 = {
 			isa = PBXGroup;
 			children = (
+				DE0B4D8C2BCEBB0000E9CE9D /* JingPin-Info.plist */,
 				DE81C7C62BCB542D003F4E58 /* PrivacyInfo.xcprivacy */,
 				DEB9AC402BBCD1F300013C92 /* Pin */,
 				DEB9AC3F2BBCD1F300013C92 /* Products */,
@@ -466,6 +468,7 @@
 				DEVELOPMENT_TEAM = G4B5B4UZY6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "JingPin-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -496,6 +499,7 @@
 				DEVELOPMENT_TEAM = G4B5B4UZY6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "JingPin-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

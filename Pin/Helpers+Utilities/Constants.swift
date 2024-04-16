@@ -84,8 +84,8 @@ enum AppTheme: String {
 enum ImageDimension {
     case squareLogo, bannerImage
     
-    static func getPlaceHolder(for dimension: ImageDimension) -> UIImage {
-        switch dimension {
+    var placeholder: UIImage {
+        switch self {
         case .squareLogo:
             return PlaceholderImage.squareLogo
         case .bannerImage:
@@ -106,6 +106,7 @@ enum PlaceholderImage {
 enum RecordType {
     static let USBoutique = "UnitedStatesBoutique" // Has to match the CloudKit record type name
     static let userSubmission = "UserBoutiqueSubmission"
+//    static let favoriteBoutique = "FavoriteBoutique"
 }
 
 

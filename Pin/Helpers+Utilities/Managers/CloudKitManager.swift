@@ -15,22 +15,13 @@ final class CloudKitManager {
     
     let container = CKContainer.default()
     
-    static func getLocations(completed: @escaping (Result<[UnitedStatesBoutique], Error>) -> Void) {
+    func getBoutiqueLocations() async throws -> [UnitedStatesBoutique] {
         let sortByName = NSSortDescriptor(key: UnitedStatesBoutique.kName, ascending: true)
         let query = CKQuery(recordType: RecordType.USBoutique, predicate: NSPredicate(value: true))
         query.sortDescriptors = [sortByName]
-    
         
-        CKContainer.default().publicCloudDatabase.perform(query, inZoneWith: nil) { records, error in
-            guard error == nil else {
-                completed(.failure(error!))
-                return
-            }
-            guard let records = records  else { return }
-            
-            let boutiqueLocations = records.map { $0.convertToUnitedStatesBoutique() }
-            
-            completed(.success(boutiqueLocations))
-        }
+        let (matchResults, _) = try await container.publicCloudDatabase.records(matching: query)
+        let records = matchResults.compactMap { _, result in try? result.get() }
+        return records.map(UnitedStatesBoutique.init)
     }
 }

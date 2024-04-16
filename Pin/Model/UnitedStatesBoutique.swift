@@ -37,7 +37,7 @@ struct UnitedStatesBoutique: Identifiable, Hashable {
     let websiteURL: String
     let zipCode: Int
     
-    // Create our own init that takes in a CKRecord because this is what we get back when we make a call to CloudKit. Client-side's responsibility to convert the CKRecord into our custom PinLocation
+    // Create our own init that takes in a CKRecord because this is what we get back when we make a call to CloudKit. Client-side's responsibility to convert the CKRecord into our custom model
     init(record: CKRecord) {
         id = record.recordID
         address = record[UnitedStatesBoutique.kAddress] as? String ?? "N/A"
@@ -55,20 +55,20 @@ struct UnitedStatesBoutique: Identifiable, Hashable {
     }
     
     func createSquareLogo() -> UIImage {
-        guard let asset = boutiqueAsset else { return PlaceholderImage.squareLogo }
-        return asset.convertToImage(in: .squareLogo)
+        guard let boutiqueAsset else { return PlaceholderImage.squareLogo }
+        return boutiqueAsset.converToImage(in: .squareLogo)
     }
     
     func createBannerImage() -> UIImage {
-        guard let asset = locationAsset else { return PlaceholderImage.bannerImage }
-        return asset.convertToImage(in: .bannerImage)
+        guard let locationAsset else { return PlaceholderImage.bannerImage }
+        return locationAsset.converToImage(in: .bannerImage)
     }
 }
 
-extension UnitedStatesBoutique {
-    var record: CKRecord {
-        let record = CKRecord(recordType: "FavoritedBoutiques")
-        record[UnitedStatesBoutique.kName] = name
-        return record
-    }
-}
+//extension UnitedStatesBoutique {
+//    var record: CKRecord {
+//        let record = CKRecord(recordType: "FavoriteBoutique")
+//        record[UnitedStatesBoutique.kName] = name
+//       return record
+//    }
+//}

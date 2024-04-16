@@ -18,18 +18,17 @@ final class BoutiqueViewModel: ObservableObject {
     
     // MARK: - Actions
     
+    @MainActor
     func getLocations(for locationManager: LocationManager) {
-        isLoading = true
-        CloudKitManager.getLocations { [self] result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let locations):
-                    locationManager.locations = locations
-                case .failure(_):
-                    self.alertItem = AlertContext.unableToGetLocations
-                }
-                self.isLoading = false
+        Task {
+            do {
+                isLoading = true
+                locationManager.locations = try await CloudKitManager.shared.getBoutiqueLocations()
+            } catch {
+                alertItem = AlertContext.unableToGetLocations
+                print(error.localizedDescription)
             }
+            isLoading = false
         }
     }
 }
