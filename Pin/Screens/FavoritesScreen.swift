@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct FavoritesScreen: View {
+    
     var body: some View {
         ZStack {
             Color.appPrimary.ignoresSafeArea()
             VStack {
+                BannerImageView(image: .appBanner)
                 Text("Your saved boutiques")
                     .applyJPHeader()
                 List(0..<3) { index in

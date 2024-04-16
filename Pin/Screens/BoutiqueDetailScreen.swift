@@ -20,7 +20,7 @@ struct BoutiqueDetailScreen: View {
             Color(.appPrimary).ignoresSafeArea()
             VStack(alignment: .leading) {
                 NameView(name: boutiqueLocation.name)
-                LocationImageView(image: boutiqueLocation.createLocationImage())
+                BannerImageView(image: boutiqueLocation.createBannerImage())
                 Spacer()
                 HStack {
                     FullAddressView(address: boutiqueLocation.address,
@@ -79,21 +79,6 @@ fileprivate struct NameView: View {
             Spacer()
             Text(name).applyJPSubheader()
         }
-    }
-}
-
-fileprivate struct LocationImageView: View {
-    
-    var image: UIImage
-    
-    var body: some View {
-        // TODO: Can use AsyncImage?
-        Image(uiImage: image)
-            .resizable()
-            .scaledToFit()
-            .frame(width: 360)
-            .clipShape(RoundedRectangle(cornerRadius: 4))
-            .padding(.bottom)
     }
 }
 

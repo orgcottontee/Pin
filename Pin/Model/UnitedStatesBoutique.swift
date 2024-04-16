@@ -59,9 +59,9 @@ struct UnitedStatesBoutique: Identifiable, Hashable {
         return asset.convertToImage(in: .squareLogo)
     }
     
-    func createLocationImage() -> UIImage {
-        guard let asset = locationAsset else { return PlaceholderImage.locationImage }
-        return asset.convertToImage(in: .locationImage)
+    func createBannerImage() -> UIImage {
+        guard let asset = locationAsset else { return PlaceholderImage.bannerImage }
+        return asset.convertToImage(in: .bannerImage)
     }
 }
 

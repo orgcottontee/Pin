@@ -24,6 +24,7 @@ struct BoutiqueListScreen: View {
                     Color(.appPrimary).ignoresSafeArea()
                     VStack {
                         Text(ListScreenHeader.text).applyJPHeader()
+                            .padding(.vertical)
                         ScrollView {
                             LazyVStack {
                                 ForEach(locationManager.locations) { boutiqueLocation in
