@@ -20,15 +20,21 @@ final class BoutiqueViewModel: ObservableObject {
     
     @MainActor
     func getLocations(for locationManager: LocationManager) {
+        
+        showLoadingView()
+        
         Task {
             do {
-                isLoading = true
                 locationManager.locations = try await CloudKitManager.shared.getBoutiqueLocations()
+                hideLoadingView()
             } catch {
+                hideLoadingView()
                 alertItem = AlertContext.unableToGetLocations
                 print(error.localizedDescription)
             }
-            isLoading = false
         }
     }
+    
+    private func showLoadingView() { return isLoading = true }
+    private func hideLoadingView() { return isLoading = false }
 }

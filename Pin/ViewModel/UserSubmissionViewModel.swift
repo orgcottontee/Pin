@@ -18,40 +18,40 @@ final class UserSubmissionViewModel: ObservableObject {
     @Published var country: String = ""
     @Published var website: String = ""
     @Published var alertItem: AlertItem?
+    @Published var isLoading: Bool = false
     private let container: CKDatabase = CKContainer.default().publicCloudDatabase
-  
-//    private var submissionDictionary: [CKRecord.ID: UserBoutiqueSubmission] = [:]
-       
+    
     // MARK: - Actions
     
     private func isCompletedForm() -> Bool {
-        guard !boutiqueName.isEmpty, 
-                !country.isEmpty,
-                !website.isEmpty else { return false }
+        guard !boutiqueName.isEmpty,
+              !country.isEmpty,
+              !website.isEmpty else { return false }
         return true
     }
     
-    func submitSubmission() async throws {
+    @MainActor
+    func submitSubmission() {
         guard isCompletedForm() else {
             alertItem = AlertContext.incompleteForm
             return
         }
-        let submission = UserBoutiqueSubmission(name: boutiqueName, country: country, website: website)
-        try await container.save(submission.record)
+        
+        Task {
+            do {
+                let submission = UserBoutiqueSubmission(name: boutiqueName, country: country, website: website)
+                try await container.save(submission.record)
+                showLoadingView()
+                alertItem = AlertContext.submissionSuccess
+                hideLoadingView()
+            } catch {
+                hideLoadingView()
+                alertItem = AlertContext.submissionFail
+            }
+        }
     }
     
+    private func showLoadingView() { isLoading = true }
+    private func hideLoadingView() { isLoading = false }
     
-    // TODO: - populateSubmissions will pull all submissions from every user since it is in the public database. I still need it in the public so I can see it and add to the app. How can I simplify it so that it just persists the boutique name text in a list? Maybe I can use userdefaults for this and when they save an existing boutique from CloudKit in their favorites
-    
-//    func populateSubmissions() async throws {
-//        
-//        let query = CKQuery(recordType: RecordType.userSubmission, predicate: NSPredicate(value: true))
-//        query.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
-//        let result = try await container.records(matching: query)
-//        let records = result.matchResults.compactMap { try? $0.1.get() }
-//        
-//        records.forEach { record in
-//            submissionDictionary[record.recordID] = UserBoutiqueSubmission(record: record)
-//        }
-//    }
 }

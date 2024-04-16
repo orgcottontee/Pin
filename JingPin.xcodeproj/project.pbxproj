@@ -169,9 +169,9 @@
 		DEB9AC352BBCD1F300013C92 = {
 			isa = PBXGroup;
 			children = (
+				DEB9AC402BBCD1F300013C92 /* Pin */,
 				DE0B4D8C2BCEBB0000E9CE9D /* JingPin-Info.plist */,
 				DE81C7C62BCB542D003F4E58 /* PrivacyInfo.xcprivacy */,
-				DEB9AC402BBCD1F300013C92 /* Pin */,
 				DEB9AC3F2BBCD1F300013C92 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -187,15 +187,15 @@
 		DEB9AC402BBCD1F300013C92 /* Pin */ = {
 			isa = PBXGroup;
 			children = (
-				DE635B5E2BBCD3F0005D5C8D /* Pin.entitlements */,
-				DEC9B6982BCA09D50036183F /* ViewModel */,
-				DE635B8F2BBE4C32005D5C8D /* Assets */,
 				DEB9AC412BBCD1F300013C92 /* PinApp.swift */,
 				DE635B5F2BBD8F7D005D5C8D /* AppTabView.swift */,
+				DE635B5E2BBCD3F0005D5C8D /* Pin.entitlements */,
+				DE635B8C2BBE4BB1005D5C8D /* Screens */,
+				DE635B8D2BBE4BDC005D5C8D /* Views+Cells */,
+				DEC9B6982BCA09D50036183F /* ViewModel */,
 				DEC275282BC05B66001912FC /* Model */,
 				DE635B8E2BBE4C11005D5C8D /* Helpers+Utilities */,
-				DE635B8D2BBE4BDC005D5C8D /* Views+Cells */,
-				DE635B8C2BBE4BB1005D5C8D /* Screens */,
+				DE635B8F2BBE4C32005D5C8D /* Assets */,
 				DEB9AC472BBCD1F400013C92 /* Preview Content */,
 			);
 			path = Pin;

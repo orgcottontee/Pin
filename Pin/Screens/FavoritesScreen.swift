@@ -20,8 +20,8 @@ struct FavoritesScreen: View {
                     Text("Item \(index)")
                         .applyJPBody()
                 }
+                .scrollContentBackground(.hidden)
             }
-            .scrollContentBackground(.hidden)
         }
     }
 }
