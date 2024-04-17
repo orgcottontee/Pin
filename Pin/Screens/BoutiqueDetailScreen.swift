@@ -74,7 +74,7 @@ fileprivate struct FullAddressView: View {
                 Text(address)
                 Text(cityStatePostalCode)
             }
-            .applyJPBody()
+            .applyJPBody(.appAccent)
             Spacer()
         }
     }
@@ -85,7 +85,7 @@ fileprivate struct AboutDetailView: View {
     var aboutText: String
     
     var body: some View {
-        Text(aboutText).applyJPBody()
+        Text(aboutText).applyJPBody(.appAccent)
     }
 }
 
@@ -98,7 +98,7 @@ fileprivate struct FooterView: View {
             ForEach(categories, id: \.self) { category in
                 HStack {
                     Image(systemName: "square.fill").font(.system(size: 4))
-                    Text(category).applyJPBody()
+                    Text(category).applyJPBody(.appAccent)
                     
                     
                 }

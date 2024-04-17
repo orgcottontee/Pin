@@ -21,7 +21,7 @@ struct UserSubmissionScreen: View {
             VStack(alignment: .leading) {
                 Spacer()
                 Text(SubmissionScreenConstant.instructions)
-                    .applyJPBody()                    
+                    .applyJPBody(.appAccent)
                     .padding(.horizontal)
                 TextField(SubmissionScreenConstant.namePlaceholder, text: $viewModel.boutiqueName)
                     .focused($focusedTextField, equals: .name)

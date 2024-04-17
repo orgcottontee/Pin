@@ -10,7 +10,7 @@ import SwiftUI
 struct JPTextfieldStyle: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .applyJPBody()
+            .applyJPBody(.appAccent)
             .autocorrectionDisabled(true)
             .padding(.horizontal)
             .padding(.top, 20)
@@ -22,13 +22,17 @@ struct JPTextfieldStyle: ViewModifier {
 }
 
 struct JPHeaderStyle: ViewModifier {
+    
+    var color: Color
+    
     func body(content: Content) -> some View {
         content
             .font(.custom(BaskervilleFont.italic, size: 30, relativeTo: .largeTitle))
             .kerning(1.2)
-            .foregroundStyle(.appAccent)
+            .foregroundStyle(color)
     }
 }
+
 
 struct JPSubheaderStyle: ViewModifier {
     func body(content: Content) -> some View {
@@ -40,11 +44,14 @@ struct JPSubheaderStyle: ViewModifier {
 }
                   
 struct JPBodyStyle: ViewModifier {
+    
+    var color: Color
+    
     func body(content: Content) -> some View {
         content
             .font(.custom(UniversFont.light, size: 16, relativeTo: .body))
             .kerning(1.2)
-            .foregroundStyle(.appAccent)
+            .foregroundStyle(color)
     }
 }
 

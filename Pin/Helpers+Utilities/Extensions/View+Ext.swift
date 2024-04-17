@@ -13,16 +13,16 @@ extension View {
         modifier(JPTextfieldStyle())
     }
     
-    func applyJPHeader() -> some View {
-        modifier(JPHeaderStyle())
+    func applyJPHeader(_ color: Color) -> some View {
+        modifier(JPHeaderStyle(color: color))
     }
     
     func applyJPSubheader() -> some View {
         modifier(JPSubheaderStyle())
     }
     
-    func applyJPBody() -> some View {
-        modifier(JPBodyStyle())
+    func applyJPBody(_ color: Color) -> some View {
+        modifier(JPBodyStyle(color: color))
     }
     
     func applyJPFootnote() -> some View {

@@ -21,16 +21,13 @@ struct BoutiqueListScreen: View {
                 LoadingView()
             } else {
                 ZStack {
-                    Color(.appPrimary).ignoresSafeArea()
+                    Color(.listScreenBackground).ignoresSafeArea()
                     VStack {
-                        Text(ListScreenHeader.text).applyJPHeader()
-                            .padding(.vertical)
                         ScrollView {
                             LazyVStack {
                                 ForEach(locationManager.locations) { boutiqueLocation in
                                     NavigationLink(value: boutiqueLocation) {
                                         BoutiqueCellView(boutiqueLocation: boutiqueLocation)
-                                            .foregroundStyle(.appAccent)
                                     }
                                 }
                             }

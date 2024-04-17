@@ -14,6 +14,7 @@ struct PinApp: App {
     
     var body: some Scene {
         WindowGroup {
+ //           ShapesView()
             AppTabView()
                 .environmentObject(locationManager)
         }

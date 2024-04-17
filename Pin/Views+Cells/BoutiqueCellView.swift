@@ -13,22 +13,19 @@ struct BoutiqueCellView: View {
     
     var body: some View {
         
-            VStack(alignment: .leading) {
+        VStack {
+            ZStack(alignment: .topTrailing) {
                 LogoView(image: boutiqueLocation.createSquareLogo(),
-                         frameWidth: 160)
-                .clipShape(RoundedRectangle(cornerRadius: 4))
-
-                HStack {
-                    VStack(alignment: .leading) {
-                        CityView(city: boutiqueLocation.city)
-                        StateView(state: boutiqueLocation.state)
-                    }
-                    Spacer()
-                }
-                .frame(width: 150)
+                         frameWidth: 250)
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+                // TODO: Add logic to only show a filled heart icon if they've liked that boutique. Don't show an outline-only heart since they can't click it - they'll be sent to detail screen when they click anywhere on the Logo image 
+                Image(systemName: "heart")
+                    .foregroundStyle(.favorited)
+                    .padding()
             }
-            .padding(.bottom, 30)
-        
+            CityStateView(city: boutiqueLocation.city, state: boutiqueLocation.state)
+        }
+        .padding(.bottom, 30)
     }
 }
 
@@ -36,25 +33,21 @@ struct BoutiqueCellView: View {
     BoutiqueCellView(boutiqueLocation: UnitedStatesBoutique(record: MockData.boutiqueLocation))
 }
 
-fileprivate struct CityView: View {
+fileprivate struct CityStateView: View {
     
     var city: String
-    
-    var body: some View {
-        Text("\(city),")
-            .applyJPBody()
-    }
-}
-
-fileprivate struct StateView: View {
-    
     var state: String
     
     var body: some View {
-        Text("\(state)")
-            .applyJPBody()
-            .minimumScaleFactor(0.75)
-            .truncationMode(.tail)
+        ZStack {
+            RoundedRectangle(cornerRadius: 10)
+                .fill(.gray).opacity(0.1)
+                .frame(width: 250, height: 50)
+            Text("\(city), \(state)")
+                .applyJPBody(.listScreenAccent)
+                .lineLimit(1)
+                .minimumScaleFactor(0.75)
+                .truncationMode(.tail)
+        }
     }
 }
-

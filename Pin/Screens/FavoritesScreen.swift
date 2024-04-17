@@ -15,10 +15,10 @@ struct FavoritesScreen: View {
             VStack {
                 BannerImageView(image: .appBanner)
                 Text("Your saved boutiques")
-                    .applyJPHeader()
+                    .applyJPHeader(.appAccent)
                 List(0..<3) { index in
                     Text("Item \(index)")
-                        .applyJPBody()
+                        .applyJPBody(.appAccent)
                 }
                 .scrollContentBackground(.hidden)
             }

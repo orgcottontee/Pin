@@ -50,7 +50,7 @@ fileprivate struct InfoView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text(title).applyJPSubheader()
-            Text(description).applyJPBody()
+            Text(description).applyJPBody(.appAccent)
         }
         .padding()
     }
