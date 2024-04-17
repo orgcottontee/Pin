@@ -15,11 +15,11 @@ struct ActionButtonView: View {
         ZStack {
             Capsule()
                 .frame(height: 40)
-                .foregroundStyle(.appAccent)
+                .foregroundStyle(.accent)
                 .padding(.horizontal)
             Text(buttonText)
-                .foregroundStyle(.appPrimary)
-                .applyJPBody(.appAccent)
+                .foregroundStyle(.appBackground)
+                .applyJPBody(.accent)
         }
     }
 }

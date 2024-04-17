@@ -10,18 +10,24 @@ import SwiftUI
 struct AppTabView: View {
     
     @AppStorage("hasSeenOnboarding") var hasSeenOnboarding: Bool = false
+    @State private var selectedTab: Tab = .boutiqueList
+    
+    enum Tab { case boutiqueList, boutiqueMap, profile }
     
     var body: some View {
         if hasSeenOnboarding {
-            TabView {
+            TabView(selection: $selectedTab) {
                 BoutiqueListScreen()
                     .tabItem { Label("", systemImage: "hanger") }
+                    .tag(Tab.boutiqueList)
                 BoutiqueMapScreen()
                     .tabItem { Label("", systemImage: "mappin") }
+                    .tag(Tab.boutiqueMap)
                 ProfileScreen()
                     .tabItem { Label("", systemImage: "person") }
+                    .tag(Tab.profile)
             }
-            .tint(.appAccent)
+            .tint(selectedTab == .boutiqueList ? .mainScreenAccent : .accent)
         } else {
             OnboardingView(hasSeenOnboarding: $hasSeenOnboarding)
         }
@@ -30,4 +36,5 @@ struct AppTabView: View {
 
 #Preview {
     AppTabView()
+        .environmentObject(LocationManager())
 }

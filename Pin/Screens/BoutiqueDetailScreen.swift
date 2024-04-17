@@ -14,7 +14,7 @@ struct BoutiqueDetailScreen: View {
     
     var body: some View {
         ZStack {
-            Color(.appPrimary).ignoresSafeArea()
+            Color(.appBackground).ignoresSafeArea()
             VStack(alignment: .leading) {
                 NameView(name: viewModel.boutiqueLocation.name)
                 BannerImageView(image: viewModel.boutiqueLocation.createBannerImage())
@@ -25,7 +25,7 @@ struct BoutiqueDetailScreen: View {
                     Button {
                         viewModel.navigateToBoutique()
                     } label: {
-                        Image(systemName: NavigateIcon.sfSymbol)
+                        Image(systemName: DetailScreenConstant.navigateIcon)
                             .applyJPSubheader()
                             .frame(width: 40, height: 40)
                     }
@@ -74,7 +74,7 @@ fileprivate struct FullAddressView: View {
                 Text(address)
                 Text(cityStatePostalCode)
             }
-            .applyJPBody(.appAccent)
+            .applyJPBody(.accent)
             Spacer()
         }
     }
@@ -85,7 +85,7 @@ fileprivate struct AboutDetailView: View {
     var aboutText: String
     
     var body: some View {
-        Text(aboutText).applyJPBody(.appAccent)
+        Text(aboutText).applyJPBody(.accent)
     }
 }
 
@@ -98,7 +98,7 @@ fileprivate struct FooterView: View {
             ForEach(categories, id: \.self) { category in
                 HStack {
                     Image(systemName: "square.fill").font(.system(size: 4))
-                    Text(category).applyJPBody(.appAccent)
+                    Text(category).applyJPBody(.accent)
                     
                     
                 }

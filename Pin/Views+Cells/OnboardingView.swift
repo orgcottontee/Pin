@@ -9,17 +9,19 @@ import SwiftUI
 
 struct OnboardingView: View {
     
-    @Environment(\.colorScheme) var colorScheme
+//    @Environment(\.colorScheme) var colorScheme
     @Binding var hasSeenOnboarding: Bool
     
     var body: some View {
         ZStack {
-            Color.appPrimary.ignoresSafeArea()
+            Color.appBackground.ignoresSafeArea()
             VStack {
                 Spacer()
-                LogoView(image: colorScheme == .dark ? .lightAppLogo : .darkAppLogo,
-                         frameWidth: 200)
-                .padding(.bottom)
+                ZStack {
+                    LogoView(image: .appLogo,
+                             frameWidth: 200)
+                    .padding(.bottom)
+                }
                 Spacer()
                 VStack(alignment: .leading) {
                     InfoView(title: OnboardingTextConstant.titleOne, description: OnboardingTextConstant.firstText)
@@ -50,7 +52,7 @@ fileprivate struct InfoView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text(title).applyJPSubheader()
-            Text(description).applyJPBody(.appAccent)
+            Text(description).applyJPBody(.accent)
         }
         .padding()
     }

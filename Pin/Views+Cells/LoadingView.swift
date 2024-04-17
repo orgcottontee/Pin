@@ -11,12 +11,12 @@ import AVKit
 struct LoadingView: View {
     
     @State private var isAnimating = false
-    @Environment(\.colorScheme) var colorScheme
+//    @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         ZStack {
-            Color(.appPrimary).ignoresSafeArea()
-            LogoView(image: colorScheme == .dark ? .lightAppLogo : .darkAppLogo,
+            Color(.appBackground).ignoresSafeArea()
+            LogoView(image: .appLogo,
                      frameWidth: 50)
                 .scaleEffect(isAnimating ? 1.1 : 1)
         }

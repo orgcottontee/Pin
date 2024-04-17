@@ -21,7 +21,7 @@ struct BoutiqueListScreen: View {
                 LoadingView()
             } else {
                 ZStack {
-                    Color(.listScreenBackground).ignoresSafeArea()
+                    Color(.mainScreenBackground).ignoresSafeArea()
                     VStack {
                         ScrollView {
                             LazyVStack {
@@ -47,7 +47,7 @@ struct BoutiqueListScreen: View {
                 }
             }
         }
-        .tint(.appAccent)
+        .tint(.accent)
     }
 }
 

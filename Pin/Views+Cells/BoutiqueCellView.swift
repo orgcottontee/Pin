@@ -18,7 +18,7 @@ struct BoutiqueCellView: View {
                 LogoView(image: boutiqueLocation.createSquareLogo(),
                          frameWidth: 250)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
-                // TODO: Add logic to only show a filled heart icon if they've liked that boutique. Don't show an outline-only heart since they can't click it - they'll be sent to detail screen when they click anywhere on the Logo image 
+                // TODO: Add logic to only show a filled heart icon if they've liked that boutique. Don't show an outline-only heart since they can't click it - they'll be sent to detail screen when they click anywhere on the Logo image
                 Image(systemName: "heart")
                     .foregroundStyle(.favorited)
                     .padding()
@@ -44,7 +44,7 @@ fileprivate struct CityStateView: View {
                 .fill(.gray).opacity(0.1)
                 .frame(width: 250, height: 50)
             Text("\(city), \(state)")
-                .applyJPBody(.listScreenAccent)
+                .applyJPBody(.mainScreenAccent)
                 .lineLimit(1)
                 .minimumScaleFactor(0.75)
                 .truncationMode(.tail)

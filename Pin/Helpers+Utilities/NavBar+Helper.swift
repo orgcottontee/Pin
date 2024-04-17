@@ -11,13 +11,13 @@ struct NavBar {
     
     static func configureAppearance() {
         let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = UIColor(Color.appPrimary)
+        appearance.backgroundColor = UIColor(Color.appBackground)
         appearance.shadowColor = .clear
         
-        let cancelButton = [NSAttributedString.Key.foregroundColor: UIColor.appAccent]
+        let cancelButton = [NSAttributedString.Key.foregroundColor: UIColor.accent]
         UIBarButtonItem.appearance().setTitleTextAttributes(cancelButton, for: .normal)
         
-        UINavigationBar.appearance().tintColor = .appAccent
+        UINavigationBar.appearance().tintColor = .accent
         UINavigationBar.appearance().standardAppearance = appearance
         UINavigationBar.appearance().compactAppearance = appearance
         UINavigationBar.appearance().scrollEdgeAppearance = appearance

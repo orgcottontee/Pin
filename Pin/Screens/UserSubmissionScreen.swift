@@ -17,11 +17,11 @@ struct UserSubmissionScreen: View {
 
     var body: some View {
         ZStack {
-            Color.appPrimary.ignoresSafeArea()
+            Color.appBackground.ignoresSafeArea()
             VStack(alignment: .leading) {
                 Spacer()
                 Text(SubmissionScreenConstant.instructions)
-                    .applyJPBody(.appAccent)
+                    .applyJPBody(.accent)
                     .padding(.horizontal)
                 TextField(SubmissionScreenConstant.namePlaceholder, text: $viewModel.boutiqueName)
                     .focused($focusedTextField, equals: .name)

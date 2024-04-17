@@ -11,17 +11,19 @@ struct FavoritesScreen: View {
         
     var body: some View {
         ZStack {
-            Color.appPrimary.ignoresSafeArea()
+            Color.appBackground.ignoresSafeArea()
             VStack {
-                BannerImageView(image: .appBanner)
-                Text("Your saved boutiques")
-                    .applyJPHeader(.appAccent)
+                LogoView(image: .appLogo, frameWidth: 80)
+                    .shadow(color: .accent, radius: 1, x: 0, y: 1)
+                Text(FavoritesScreenConstant.header)
+                    .applyJPHeader(.accent)
                 List(0..<3) { index in
                     Text("Item \(index)")
-                        .applyJPBody(.appAccent)
+                        .applyJPBody(.accent)
                 }
                 .scrollContentBackground(.hidden)
             }
+            .padding()
         }
     }
 }

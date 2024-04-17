@@ -22,8 +22,8 @@ enum OnboardingTextConstant {
 
 // MARK: Boutique list screen
 
-enum ListScreenHeader {
-    static let text = "BOUTIQUES"
+enum ListScreenConstant {
+    static let header = "BOUTIQUES"
 }
 
 enum USState: String, CaseIterable {
@@ -53,8 +53,8 @@ enum USState: String, CaseIterable {
 
 // MARK: Boutique detail screen
 
-enum NavigateIcon {
-    static let sfSymbol = "location.square.fill"
+enum DetailScreenConstant {
+    static let navigateIcon = "location.square.fill"
 }
 
 // MARK: Maps screen
@@ -64,6 +64,12 @@ enum NavigateIcon {
 enum ProfileScreenConstant {
     static let favoritesButton = "Your Boutiques"
     static let submissionFormButton = "Submit a Boutique"
+}
+
+// MARK: Favorites screen
+
+enum FavoritesScreenConstant {
+    static let header = "Your Boutiques"
 }
 
 // MARK: Submission form screen
