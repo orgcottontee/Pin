@@ -17,7 +17,7 @@ final class BoutiqueDetailViewModel: ObservableObject {
         self.boutiqueLocation = boutiqueLocation
     }
     
-    func navigateToBoutique() {
+    func openMaps() {
         let placemark = MKPlacemark(coordinate: boutiqueLocation.location.coordinate)
         let mapItem = MKMapItem(placemark: placemark)
         mapItem.name = boutiqueLocation.name

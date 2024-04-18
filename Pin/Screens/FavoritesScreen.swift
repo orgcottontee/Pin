@@ -6,8 +6,12 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct FavoritesScreen: View {
+    
+    @Environment(\.modelContext) private var modelContext
+    @Query private var favoriteBoutiques: [FavoriteBoutique] = []
         
     var body: some View {
         ZStack {
@@ -17,13 +21,27 @@ struct FavoritesScreen: View {
                     .shadow(color: .accent, radius: 1, x: 0, y: 1)
                 Text(FavoritesScreenConstant.header)
                     .applyJPHeader(.accent)
-                List(0..<3) { index in
-                    Text("Item \(index)")
-                        .applyJPBody(.accent)
+                List {
+                    ForEach(favoriteBoutiques) { boutique in
+                        HStack {
+                            Text(boutique.name)
+                            Text(boutique.city)
+                            Text(boutique.state)
+                            Text(boutique.website)
+                        }
+                    }
+                    .onDelete(perform: removeFromFavorites(_:))
                 }
                 .scrollContentBackground(.hidden)
             }
             .padding()
+        }
+    }
+    
+    func removeFromFavorites(_ indexSet: IndexSet) {
+        for index in indexSet {
+            let boutique = favoriteBoutiques[index]
+            modelContext.delete(boutique)
         }
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct PinApp: App {
@@ -17,5 +18,6 @@ struct PinApp: App {
             AppTabView()
                 .environmentObject(locationManager)
         }
+        .modelContainer(for: FavoriteBoutique.self)
     }
 }

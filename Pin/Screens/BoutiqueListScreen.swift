@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct BoutiqueListScreen: View {
     
     init() { NavBar.configureAppearance() }
     
+    @Environment(\.modelContext) private var modelContext
     @StateObject private var viewModel = BoutiqueViewModel()
     @EnvironmentObject private var locationManager: BoutiqueManager
     
