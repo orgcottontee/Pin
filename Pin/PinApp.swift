@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct PinApp: App {
     
-    let locationManager = LocationManager()
+    let locationManager = BoutiqueManager()
     
     var body: some Scene {
         WindowGroup {

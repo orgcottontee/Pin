@@ -19,7 +19,7 @@ final class BoutiqueViewModel: ObservableObject {
     // MARK: - Actions
     
     @MainActor
-    func getLocations(for locationManager: LocationManager) {
+    func getLocations(for locationManager: BoutiqueManager) {
         
         showLoadingView()
         

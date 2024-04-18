@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class LocationManager: ObservableObject {
+final class BoutiqueManager: ObservableObject {
     
     @Published var locations: [UnitedStatesBoutique] = []
 }

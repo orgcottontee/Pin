@@ -12,7 +12,7 @@ struct BoutiqueListScreen: View {
     init() { NavBar.configureAppearance() }
     
     @StateObject private var viewModel = BoutiqueViewModel()
-    @EnvironmentObject private var locationManager: LocationManager
+    @EnvironmentObject private var locationManager: BoutiqueManager
     
     var body: some View {
         
@@ -22,21 +22,19 @@ struct BoutiqueListScreen: View {
             } else {
                 ZStack {
                     Color(.mainScreenBackground).ignoresSafeArea()
-                    VStack {
-                        ScrollView {
-                            LazyVStack {
-                                ForEach(locationManager.locations) { boutiqueLocation in
-                                    NavigationLink(value: boutiqueLocation) {
-                                        BoutiqueCellView(boutiqueLocation: boutiqueLocation)
-                                    }
+                    ScrollView {
+                        LazyVStack {
+                            ForEach(locationManager.locations) { boutiqueLocation in
+                                NavigationLink(value: boutiqueLocation) {
+                                    BoutiqueCellView(boutiqueLocation: boutiqueLocation)
                                 }
                             }
                         }
-                        .padding()
-                        .navigationDestination(for: UnitedStatesBoutique.self) { boutique in
-                            BoutiqueDetailScreen(viewModel: BoutiqueDetailViewModel(boutiqueLocation: boutique))
+                    }
+                    .padding()
+                    .navigationDestination(for: UnitedStatesBoutique.self) { boutique in
+                        BoutiqueDetailScreen(viewModel: BoutiqueDetailViewModel(boutiqueLocation: boutique))
                         // TODO: Filter by state, search bar
-                        }
                     }
                 }
                 .alert(item: $viewModel.alertItem) { alertItem in
@@ -53,5 +51,5 @@ struct BoutiqueListScreen: View {
 
 #Preview {
     BoutiqueListScreen()
-        .environmentObject(LocationManager())
+        .environmentObject(BoutiqueManager())
 }
