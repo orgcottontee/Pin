@@ -6,18 +6,16 @@
 //
 
 import SwiftUI
-import SwiftData
 
 @main
 struct PinApp: App {
     
-    let locationManager = BoutiqueManager()
+    let boutiqueManager = BoutiqueManager()
     
     var body: some Scene {
         WindowGroup {
             AppTabView()
-                .environmentObject(locationManager)
+                .environmentObject(boutiqueManager)
         }
-        .modelContainer(for: FavoriteBoutique.self)
     }
 }

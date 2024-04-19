@@ -63,6 +63,8 @@ struct UnitedStatesBoutique: Identifiable, Hashable {
         guard let locationAsset else { return PlaceholderImage.bannerImage }
         return locationAsset.converToImage(in: .bannerImage)
     }
+    
+    
 }
 
 //extension UnitedStatesBoutique {

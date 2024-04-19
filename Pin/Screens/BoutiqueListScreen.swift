@@ -7,14 +7,14 @@
 
 import SwiftUI
 import SwiftData
+import CloudKit
 
 struct BoutiqueListScreen: View {
     
     init() { NavBar.configureAppearance() }
     
-    @Environment(\.modelContext) private var modelContext
     @StateObject private var viewModel = BoutiqueViewModel()
-    @EnvironmentObject private var locationManager: BoutiqueManager
+    @EnvironmentObject private var boutiqueManager: BoutiqueManager
     
     var body: some View {
         
@@ -26,7 +26,7 @@ struct BoutiqueListScreen: View {
                     Color(.mainScreenBackground).ignoresSafeArea()
                     ScrollView {
                         LazyVStack {
-                            ForEach(locationManager.locations) { boutiqueLocation in
+                            ForEach(boutiqueManager.locations) { boutiqueLocation in
                                 NavigationLink(value: boutiqueLocation) {
                                     BoutiqueCellView(boutiqueLocation: boutiqueLocation)
                                 }
@@ -43,7 +43,7 @@ struct BoutiqueListScreen: View {
                     Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
                 }
                 .onAppear {
-                    if locationManager.locations.isEmpty { viewModel.getLocations(for: locationManager) }
+                    if boutiqueManager.locations.isEmpty { viewModel.getLocations(for: boutiqueManager) }
                 }
             }
         }

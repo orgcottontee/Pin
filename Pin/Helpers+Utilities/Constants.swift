@@ -55,6 +55,8 @@ enum USState: String, CaseIterable {
 
 enum DetailScreenConstant {
     static let navigateIcon = "location.square.fill"
+    static let heart = "heart"
+    static let favorited = "heart.fill"
 }
 
 // MARK: Maps screen
@@ -116,7 +118,7 @@ enum PlaceholderImage {
 enum RecordType {
     static let USBoutique = "UnitedStatesBoutique" // Has to match the CloudKit record type name
     static let userSubmission = "UserBoutiqueSubmission"
-//    static let favoriteBoutique = "FavoriteBoutique"
+    static let favoriteBoutique = "FavoriteBoutique"
 }
 
 

@@ -10,9 +10,8 @@ import SwiftData
 
 struct FavoritesScreen: View {
     
-    @Environment(\.modelContext) private var modelContext
-    @Query private var favoriteBoutiques: [FavoriteBoutique] = []
-        
+    @State private var isShowingSafari: Bool = false
+    
     var body: some View {
         ZStack {
             Color.appBackground.ignoresSafeArea()
@@ -21,27 +20,8 @@ struct FavoritesScreen: View {
                     .shadow(color: .accent, radius: 1, x: 0, y: 1)
                 Text(FavoritesScreenConstant.header)
                     .applyJPHeader(.accent)
-                List {
-                    ForEach(favoriteBoutiques) { boutique in
-                        HStack {
-                            Text(boutique.name)
-                            Text(boutique.city)
-                            Text(boutique.state)
-                            Text(boutique.website)
-                        }
-                    }
-                    .onDelete(perform: removeFromFavorites(_:))
-                }
-                .scrollContentBackground(.hidden)
             }
             .padding()
-        }
-    }
-    
-    func removeFromFavorites(_ indexSet: IndexSet) {
-        for index in indexSet {
-            let boutique = favoriteBoutiques[index]
-            modelContext.delete(boutique)
         }
     }
 }

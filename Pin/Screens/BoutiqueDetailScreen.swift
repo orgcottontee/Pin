@@ -11,8 +11,6 @@ import SwiftData
 struct BoutiqueDetailScreen: View {
     
     @ObservedObject var viewModel: BoutiqueDetailViewModel
-    @Environment(\.modelContext) private var modelContext
-    @Query var favoriteBoutiques: [FavoriteBoutique] = []
     
     var body: some View {
         ZStack {
@@ -27,20 +25,20 @@ struct BoutiqueDetailScreen: View {
                     Button {
                         viewModel.openMaps()
                     } label: {
-                        Image(systemName: DetailScreenConstant.navigateIcon)
-                            .applyJPSubheader()
-                            .frame(width: 40, height: 40)
+                        SFSymbolView(icon: DetailScreenConstant.navigateIcon)
                     }
                     Button {
-                       addToFavorite()
+                        // TODO: add action
                     } label: {
-                        Image(systemName: "heart")
+                        Image(systemName: viewModel.isFavorited ? DetailScreenConstant.favorited : DetailScreenConstant.heart)
                             .applyJPSubheader()
                             .frame(width: 40, height: 40)
                     }
+                    .contentTransition(.symbolEffect(.replace))
+                    
                 }
                 .padding(.bottom)
-            
+                
                 ScrollView {
                     VStack(alignment: .leading) {
                         AboutDetailView(aboutText: viewModel.boutiqueLocation.boutiqueStory)
@@ -53,28 +51,10 @@ struct BoutiqueDetailScreen: View {
             .padding()
         }
     }
-    func addToFavorite() {
-        
-        let id = viewModel.boutiqueLocation.id.recordName
-        let name = viewModel.boutiqueLocation.name
-        let city = viewModel.boutiqueLocation.city
-        let state = viewModel.boutiqueLocation.state
-        let website = viewModel.boutiqueLocation.websiteURL
-        
-        let boutique = FavoriteBoutique(id: id, name: name, city: city, state: state, website: website)
-
-        if favoriteBoutiques.contains(where: { $0.id == id }) {
-           print("already added")
-        } else {
-            modelContext.insert(boutique)
-            print("successfully added")
-        }
-    }
 }
 
 #Preview {
-    BoutiqueDetailScreen(viewModel: BoutiqueDetailViewModel(boutiqueLocation: UnitedStatesBoutique(record: MockData.boutiqueLocation)))
-    
+    BoutiqueDetailScreen(viewModel: BoutiqueDetailViewModel(boutiqueLocation: viewModel.boutiqueLocation))
 }
 
 fileprivate struct NameView: View {
@@ -118,7 +98,7 @@ fileprivate struct AboutDetailView: View {
 fileprivate struct FooterView: View {
     
     var categories: [String]
-   
+    
     var body: some View {
         VStack(alignment: .leading) {
             ForEach(categories, id: \.self) { category in

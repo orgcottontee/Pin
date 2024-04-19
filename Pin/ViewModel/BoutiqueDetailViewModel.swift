@@ -10,8 +10,9 @@ import MapKit
 
 final class BoutiqueDetailViewModel: ObservableObject {
     
-    var boutiqueLocation: UnitedStatesBoutique
+    let boutiqueLocation: UnitedStatesBoutique
     @Published var showSafari: Bool = false
+    @Published var isFavorited: Bool = false
     
     init(boutiqueLocation: UnitedStatesBoutique) {
         self.boutiqueLocation = boutiqueLocation

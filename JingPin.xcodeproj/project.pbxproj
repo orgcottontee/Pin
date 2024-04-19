@@ -34,6 +34,7 @@
 		DE81C7D42BCCD559003F4E58 /* FavoritesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE81C7D32BCCD559003F4E58 /* FavoritesScreen.swift */; };
 		DE81C7D62BCD6FAA003F4E58 /* UserSubmissionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE81C7D52BCD6FAA003F4E58 /* UserSubmissionViewModel.swift */; };
 		DE81C7D82BCDB4FD003F4E58 /* BannerImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE81C7D72BCDB4FD003F4E58 /* BannerImageView.swift */; };
+		DE9EC87D2BD2C86C009F8252 /* SFSymbolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9EC87C2BD2C86C009F8252 /* SFSymbolView.swift */; };
 		DEA6AEB92BC8C477002AD595 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA6AEB82BC8C477002AD595 /* OnboardingView.swift */; };
 		DEB9AC422BBCD1F300013C92 /* PinApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB9AC412BBCD1F300013C92 /* PinApp.swift */; };
 		DEB9AC462BBCD1F400013C92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEB9AC452BBCD1F400013C92 /* Assets.xcassets */; };
@@ -78,6 +79,7 @@
 		DE81C7D32BCCD559003F4E58 /* FavoritesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesScreen.swift; sourceTree = "<group>"; };
 		DE81C7D52BCD6FAA003F4E58 /* UserSubmissionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSubmissionViewModel.swift; sourceTree = "<group>"; };
 		DE81C7D72BCDB4FD003F4E58 /* BannerImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerImageView.swift; sourceTree = "<group>"; };
+		DE9EC87C2BD2C86C009F8252 /* SFSymbolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbolView.swift; sourceTree = "<group>"; };
 		DEA6AEB82BC8C477002AD595 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		DEB9AC3E2BBCD1F300013C92 /* JingPin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JingPin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEB9AC412BBCD1F300013C92 /* PinApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinApp.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 		DE635B8D2BBE4BDC005D5C8D /* Views+Cells */ = {
 			isa = PBXGroup;
 			children = (
+				DE9EC87C2BD2C86C009F8252 /* SFSymbolView.swift */,
 				DE635B7B2BBDEDAE005D5C8D /* BoutiqueCellView.swift */,
 				DE635B7D2BBE1471005D5C8D /* ActionButtonView.swift */,
 				DEA6AEB82BC8C477002AD595 /* OnboardingView.swift */,
@@ -179,7 +182,6 @@
 		DEB9AC352BBCD1F300013C92 = {
 			isa = PBXGroup;
 			children = (
-				DE5EB06E2BD0A08B00D8B332 /* FavoriteBoutique.swift */,
 				DEB9AC402BBCD1F300013C92 /* Pin */,
 				DE0B4D8C2BCEBB0000E9CE9D /* JingPin-Info.plist */,
 				DE81C7C62BCB542D003F4E58 /* PrivacyInfo.xcprivacy */,
@@ -223,6 +225,7 @@
 		DEC275282BC05B66001912FC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DE5EB06E2BD0A08B00D8B332 /* FavoriteBoutique.swift */,
 				DEC275292BC05B77001912FC /* UnitedStatesBoutique.swift */,
 				DEC2752D2BC06408001912FC /* MockData.swift */,
 				DEC9B6902BC9F0C20036183F /* UserBoutiqueSubmission.swift */,
@@ -332,6 +335,7 @@
 				DE49DC902BC6FFC300202654 /* AlertItem.swift in Sources */,
 				DEC9B6892BC8C5F70036183F /* LogoView.swift in Sources */,
 				DE4007EA2BC239F9002BD9D0 /* CloudKitManager.swift in Sources */,
+				DE9EC87D2BD2C86C009F8252 /* SFSymbolView.swift in Sources */,
 				DEB9AC422BBCD1F300013C92 /* PinApp.swift in Sources */,
 				DE76666D2BC72714009C2A3D /* CKAsset+Ext.swift in Sources */,
 				DEC9B6912BC9F0C20036183F /* UserBoutiqueSubmission.swift in Sources */,
