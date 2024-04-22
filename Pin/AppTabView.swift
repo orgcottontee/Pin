@@ -30,7 +30,8 @@ struct AppTabView: View {
                     .tabItem { Label("", systemImage: "person") }
                     .tag(Tab.profile)
             }
-            .tint(selectedTab == .boutiqueList ? .mainScreenAccent : .accent)
+            
+            .tint(selectedTab == .boutiqueList ? .tabIcon : .accent)
         } else {
             OnboardingView(hasSeenOnboarding: $hasSeenOnboarding)
         }
