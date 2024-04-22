@@ -11,6 +11,9 @@ import SwiftData
 struct BoutiqueDetailScreen: View {
     
     @ObservedObject var viewModel: BoutiqueDetailViewModel
+    @Environment(\.modelContext) private var modelContext
+    @Query private var favoriteBoutiques: [FavoriteBoutique]
+    @State private var path = [FavoriteBoutique]()
     
     var body: some View {
         ZStack {
@@ -28,7 +31,9 @@ struct BoutiqueDetailScreen: View {
                         SFSymbolView(icon: DetailScreenConstant.navigateIcon)
                     }
                     Button {
-                        // TODO: add action
+                        Task {
+                            toggleToFavorite()
+                        }
                     } label: {
                         Image(systemName: viewModel.isFavorited ? DetailScreenConstant.favorited : DetailScreenConstant.heart)
                             .applyJPSubheader()
@@ -51,10 +56,23 @@ struct BoutiqueDetailScreen: View {
             .padding()
         }
     }
+    
+    func toggleToFavorite() {
+        
+        let boutiqueID = viewModel.boutiqueLocation.id.recordName
+        let favorite = FavoriteBoutique(boutiqueID: boutiqueID, favoritedAt: .now, name: viewModel.boutiqueLocation.name)
+       
+        if favoriteBoutiques.contains(where: { $0.boutiqueID == boutiqueID }) {
+           print("already added")
+        } else {
+            modelContext.insert(favorite)
+            print("successfully added")
+        }
+    }
 }
 
 #Preview {
-    BoutiqueDetailScreen(viewModel: BoutiqueDetailViewModel(boutiqueLocation: viewModel.boutiqueLocation))
+    BoutiqueDetailScreen(viewModel: BoutiqueDetailViewModel(boutiqueLocation: UnitedStatesBoutique(record: MockData.boutiqueLocation)))
 }
 
 fileprivate struct NameView: View {

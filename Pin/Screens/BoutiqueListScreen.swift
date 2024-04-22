@@ -43,7 +43,7 @@ struct BoutiqueListScreen: View {
                     Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
                 }
                 .onAppear {
-                    if boutiqueManager.locations.isEmpty { viewModel.getLocations(for: boutiqueManager) }
+                    if boutiqueManager.locations.isEmpty { viewModel.getUSBoutiques(for: boutiqueManager) }
                 }
             }
         }

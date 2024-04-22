@@ -15,7 +15,7 @@ final class CloudKitManager {
     
     let container = CKContainer.default()
     
-    func getBoutiqueLocations() async throws -> [UnitedStatesBoutique] {
+    func fetchUSBoutiques() async throws -> [UnitedStatesBoutique] {
         
         let sortByName = NSSortDescriptor(key: UnitedStatesBoutique.kName, ascending: true)
         let query = CKQuery(recordType: RecordType.USBoutique, predicate: NSPredicate(value: true))
@@ -24,18 +24,5 @@ final class CloudKitManager {
         let (matchResults, _) = try await container.publicCloudDatabase.records(matching: query)
         let records = matchResults.compactMap { _, result in try? result.get() }
         return records.map(UnitedStatesBoutique.init)
-    }
-    
-    
-    func getFavoriteBoutiques() async throws -> [FavoriteBoutique] {
-        
-        let sortByName = NSSortDescriptor(key: FavoriteBoutique.kName, ascending: true)
-        let query = CKQuery(recordType: RecordType.favoriteBoutique, predicate: NSPredicate(value: true))
-        query.sortDescriptors = [sortByName]
-        
-        let (matchResults, _) = try await container.privateCloudDatabase.records(matching: query)
-        let records = matchResults.compactMap { _, result in try? result.get() }
-        return records.map (FavoriteBoutique.init)
-
     }
 }

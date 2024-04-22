@@ -26,14 +26,11 @@ struct ProfileScreen: View {
         NavigationStack {
             ZStack {
                 Color.appBackground.ignoresSafeArea()
-                VStack {
+                VStack(spacing: 50) {
                     HStack {
                         Button { selectedAppTheme = .lightTheme} label: { ActionButtonView(buttonText: AppTheme.lightTheme.rawValue) }
                         Button { selectedAppTheme = .darkTheme } label: { ActionButtonView(buttonText: AppTheme.darkTheme.rawValue) }
                         Button { selectedAppTheme = .system } label: { ActionButtonView(buttonText: AppTheme.system.rawValue) }
-                    }
-                    NavigationLink(destination: FavoritesScreen()) {
-                        ActionButtonView(buttonText: ProfileScreenConstant.favoritesButton)
                     }
                     NavigationLink(destination: UserSubmissionScreen()) {
                         ActionButtonView(buttonText: ProfileScreenConstant.submissionFormButton)

@@ -12,7 +12,7 @@ struct AppTabView: View {
     @AppStorage("hasSeenOnboarding") var hasSeenOnboarding: Bool = false
     @State private var selectedTab: Tab = .boutiqueList
     
-    enum Tab { case boutiqueList, boutiqueMap, profile }
+    enum Tab { case boutiqueList, boutiqueMap, favoriteScreen, profile }
     
     var body: some View {
         if hasSeenOnboarding {
@@ -23,6 +23,9 @@ struct AppTabView: View {
                 BoutiqueMapScreen()
                     .tabItem { Label("", systemImage: "mappin") }
                     .tag(Tab.boutiqueMap)
+                FavoritesScreen()
+                    .tabItem { Label("", systemImage: "heart.fill") }
+                    .tag(Tab.favoriteScreen)
                 ProfileScreen()
                     .tabItem { Label("", systemImage: "person") }
                     .tag(Tab.profile)

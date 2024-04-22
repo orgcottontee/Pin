@@ -18,11 +18,6 @@ struct BoutiqueCellView: View {
                 LogoView(image: boutiqueLocation.createSquareLogo(),
                          frameWidth: 250)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
-
-                // TODO: Add logic to only show a filled heart icon if they've liked that boutique. Don't show an outline-only heart since they can't click it - they'll be sent to detail screen when they click anywhere on the Logo image
-                Image(systemName: "heart")
-                    .foregroundStyle(.favorited)
-                    .padding()
             }
             CityStateView(city: boutiqueLocation.city, state: boutiqueLocation.state)
         }

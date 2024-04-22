@@ -5,6 +5,7 @@
 //  Created by adobada on 4/2/24.
 //
 
+import SwiftData
 import SwiftUI
 
 @main
@@ -17,5 +18,6 @@ struct PinApp: App {
             AppTabView()
                 .environmentObject(boutiqueManager)
         }
+        .modelContainer(for: [FavoriteBoutique.self])
     }
 }

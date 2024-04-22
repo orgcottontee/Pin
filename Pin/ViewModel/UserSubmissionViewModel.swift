@@ -8,8 +8,6 @@
 import Foundation
 import CloudKit
 
-// TODO: Refactor & create alert if submission suceeds and/or fails
-
 final class UserSubmissionViewModel: ObservableObject {
     
     // MARK: - Properties
@@ -41,6 +39,9 @@ final class UserSubmissionViewModel: ObservableObject {
             do {
                 let submission = UserBoutiqueSubmission(name: boutiqueName, country: country, website: website)
                 try await container.save(submission.record)
+                boutiqueName = ""
+                country = ""
+                website = ""
                 showLoadingView()
                 alertItem = AlertContext.submissionSuccess
                 hideLoadingView()

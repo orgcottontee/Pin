@@ -7,16 +7,23 @@
 
 import Foundation
 import MapKit
+import CloudKit
 
 final class BoutiqueDetailViewModel: ObservableObject {
+    
+    // MARK: - Properties
     
     let boutiqueLocation: UnitedStatesBoutique
     @Published var showSafari: Bool = false
     @Published var isFavorited: Bool = false
+    private let container = CKContainer.default().privateCloudDatabase
+    private var favoritedDictionary: [String: CKRecord.ID] = [:]
     
-    init(boutiqueLocation: UnitedStatesBoutique) {
-        self.boutiqueLocation = boutiqueLocation
-    }
+    // MARK: - Init
+    
+    init(boutiqueLocation: UnitedStatesBoutique) { self.boutiqueLocation = boutiqueLocation }
+    
+    // MARK: - Actions
     
     func openMaps() {
         let placemark = MKPlacemark(coordinate: boutiqueLocation.location.coordinate)

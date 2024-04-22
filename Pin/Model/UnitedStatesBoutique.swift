@@ -66,11 +66,3 @@ struct UnitedStatesBoutique: Identifiable, Hashable {
     
     
 }
-
-//extension UnitedStatesBoutique {
-//    var record: CKRecord {
-//        let record = CKRecord(recordType: "FavoriteBoutique")
-//        record[UnitedStatesBoutique.kName] = name
-//       return record
-//    }
-//}

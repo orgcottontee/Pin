@@ -6,41 +6,20 @@
 //
 
 import Foundation
-import CloudKit
+import SwiftData
 
-struct FavoriteBoutique: Identifiable {
+@Model
+final class FavoriteBoutique {
     
-    static let kName = "name"
-    static let kCity = "city"
-    static let kState = "state"
-    static let kShortURL = "shortURL"
-    static let kWebsite = "website"
+    let boutiqueID: String = "" // ID of boutique record from public database
+    let favoritedAt: Date = Date.now
+    let name: String = ""
     
-    let id: CKRecord.ID
-    let name: String
-    let city: String
-    let state: String
-    let shortURL: String
-    let website: String
+    @Relationship(deleteRule: .cascade) var favoriteNotes: [FavoriteNote]?
     
-    init(record: CKRecord) {
-        id = record.recordID
-        name = record[FavoriteBoutique.kName] as? String ?? "N/A"
-        city = record[FavoriteBoutique.kCity] as? String ?? "N/A"
-        state = record[FavoriteBoutique.kState] as? String ?? "N/A"
-        shortURL = record[FavoriteBoutique.kShortURL] as? String ?? "N/A"
-        website = record[FavoriteBoutique.kWebsite] as? String ?? "N/A"
-    }
-}
-
-extension FavoriteBoutique {
-    var record: CKRecord {
-        let favoriteRecord = CKRecord(recordType: RecordType.favoriteBoutique)
-        favoriteRecord[FavoriteBoutique.kName] = name
-        favoriteRecord[FavoriteBoutique.kCity] = city
-        favoriteRecord[FavoriteBoutique.kState] = state
-        favoriteRecord[FavoriteBoutique.kShortURL] = shortURL
-        favoriteRecord[FavoriteBoutique.kWebsite] = website
-        return favoriteRecord
+    init(boutiqueID: String, favoritedAt: Date, name: String) {
+        self.boutiqueID = boutiqueID
+        self.favoritedAt = favoritedAt
+        self.name = name
     }
 }

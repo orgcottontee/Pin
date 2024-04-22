@@ -19,13 +19,13 @@ final class BoutiqueViewModel: ObservableObject {
     // MARK: - Actions
     
     @MainActor
-    func getLocations(for locationManager: BoutiqueManager) {
+    func getUSBoutiques(for locationManager: BoutiqueManager) {
         
         showLoadingView()
         
         Task {
             do {
-                locationManager.locations = try await CloudKitManager.shared.getBoutiqueLocations()
+                locationManager.locations = try await CloudKitManager.shared.fetchUSBoutiques()
                 hideLoadingView()
             } catch {
                 hideLoadingView()

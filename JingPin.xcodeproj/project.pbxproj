@@ -31,10 +31,12 @@
 		DE76666B2BC70C88009C2A3D /* BoutiqueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE76666A2BC70C88009C2A3D /* BoutiqueManager.swift */; };
 		DE76666D2BC72714009C2A3D /* CKAsset+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE76666C2BC72714009C2A3D /* CKAsset+Ext.swift */; };
 		DE81C7C72BCB542D003F4E58 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = DE81C7C62BCB542D003F4E58 /* PrivacyInfo.xcprivacy */; };
-		DE81C7D42BCCD559003F4E58 /* FavoritesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE81C7D32BCCD559003F4E58 /* FavoritesScreen.swift */; };
 		DE81C7D62BCD6FAA003F4E58 /* UserSubmissionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE81C7D52BCD6FAA003F4E58 /* UserSubmissionViewModel.swift */; };
 		DE81C7D82BCDB4FD003F4E58 /* BannerImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE81C7D72BCDB4FD003F4E58 /* BannerImageView.swift */; };
 		DE9EC87D2BD2C86C009F8252 /* SFSymbolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9EC87C2BD2C86C009F8252 /* SFSymbolView.swift */; };
+		DE9EC8852BD6E1D3009F8252 /* FavoritesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9EC8842BD6E1D3009F8252 /* FavoritesScreen.swift */; };
+		DE9EC8872BD6E902009F8252 /* FavoriteNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9EC8862BD6E902009F8252 /* FavoriteNote.swift */; };
+		DE9EC8892BD6F47A009F8252 /* FavoriteNotesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9EC8882BD6F47A009F8252 /* FavoriteNotesScreen.swift */; };
 		DEA6AEB92BC8C477002AD595 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA6AEB82BC8C477002AD595 /* OnboardingView.swift */; };
 		DEB9AC422BBCD1F300013C92 /* PinApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB9AC412BBCD1F300013C92 /* PinApp.swift */; };
 		DEB9AC462BBCD1F400013C92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEB9AC452BBCD1F400013C92 /* Assets.xcassets */; };
@@ -76,10 +78,12 @@
 		DE76666A2BC70C88009C2A3D /* BoutiqueManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoutiqueManager.swift; sourceTree = "<group>"; };
 		DE76666C2BC72714009C2A3D /* CKAsset+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CKAsset+Ext.swift"; sourceTree = "<group>"; };
 		DE81C7C62BCB542D003F4E58 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		DE81C7D32BCCD559003F4E58 /* FavoritesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesScreen.swift; sourceTree = "<group>"; };
 		DE81C7D52BCD6FAA003F4E58 /* UserSubmissionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSubmissionViewModel.swift; sourceTree = "<group>"; };
 		DE81C7D72BCDB4FD003F4E58 /* BannerImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerImageView.swift; sourceTree = "<group>"; };
 		DE9EC87C2BD2C86C009F8252 /* SFSymbolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbolView.swift; sourceTree = "<group>"; };
+		DE9EC8842BD6E1D3009F8252 /* FavoritesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FavoritesScreen.swift; path = ../../FavoritesScreen.swift; sourceTree = "<group>"; };
+		DE9EC8862BD6E902009F8252 /* FavoriteNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteNote.swift; sourceTree = "<group>"; };
+		DE9EC8882BD6F47A009F8252 /* FavoriteNotesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteNotesScreen.swift; sourceTree = "<group>"; };
 		DEA6AEB82BC8C477002AD595 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		DEB9AC3E2BBCD1F300013C92 /* JingPin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JingPin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEB9AC412BBCD1F300013C92 /* PinApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinApp.swift; sourceTree = "<group>"; };
@@ -109,12 +113,13 @@
 		DE635B8C2BBE4BB1005D5C8D /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				DE9EC8842BD6E1D3009F8252 /* FavoritesScreen.swift */,
+				DE9EC8882BD6F47A009F8252 /* FavoriteNotesScreen.swift */,
 				DE635B652BBD9044005D5C8D /* BoutiqueMapScreen.swift */,
 				DE635B632BBD9035005D5C8D /* BoutiqueListScreen.swift */,
 				DE635B612BBD8FF6005D5C8D /* ProfileScreen.swift */,
 				DE635B772BBDC72D005D5C8D /* BoutiqueDetailScreen.swift */,
 				DEC9B6922BCA01B40036183F /* UserSubmissionScreen.swift */,
-				DE81C7D32BCCD559003F4E58 /* FavoritesScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -225,6 +230,7 @@
 		DEC275282BC05B66001912FC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DE9EC8862BD6E902009F8252 /* FavoriteNote.swift */,
 				DE5EB06E2BD0A08B00D8B332 /* FavoriteBoutique.swift */,
 				DEC275292BC05B77001912FC /* UnitedStatesBoutique.swift */,
 				DEC2752D2BC06408001912FC /* MockData.swift */,
@@ -316,6 +322,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE9EC8892BD6F47A009F8252 /* FavoriteNotesScreen.swift in Sources */,
 				DEC9B6952BCA02500036183F /* View+Ext.swift in Sources */,
 				DEC9B6932BCA01B40036183F /* UserSubmissionScreen.swift in Sources */,
 				DEC9B6972BCA02B30036183F /* CustomViewModifiers.swift in Sources */,
@@ -331,7 +338,6 @@
 				DEC9B68D2BC8E6B90036183F /* LoadingView.swift in Sources */,
 				DE5EB06F2BD0A08B00D8B332 /* FavoriteBoutique.swift in Sources */,
 				DE635B762BBDC51D005D5C8D /* AppFonts.swift in Sources */,
-				DE81C7D42BCCD559003F4E58 /* FavoritesScreen.swift in Sources */,
 				DE49DC902BC6FFC300202654 /* AlertItem.swift in Sources */,
 				DEC9B6892BC8C5F70036183F /* LogoView.swift in Sources */,
 				DE4007EA2BC239F9002BD9D0 /* CloudKitManager.swift in Sources */,
@@ -344,11 +350,13 @@
 				DE0B4D8E2BCF28EC00E9CE9D /* SafariViewWrapper.swift in Sources */,
 				DEA6AEB92BC8C477002AD595 /* OnboardingView.swift in Sources */,
 				DE49DC8E2BC6F61D00202654 /* CKRecord+Ext.swift in Sources */,
+				DE9EC8872BD6E902009F8252 /* FavoriteNote.swift in Sources */,
 				DEC2752E2BC06408001912FC /* MockData.swift in Sources */,
 				DEC2752A2BC05B77001912FC /* UnitedStatesBoutique.swift in Sources */,
 				DE0B4D902BCF2A8100E9CE9D /* SafariView.swift in Sources */,
 				DE0B4D922BCF2F0200E9CE9D /* BoutiqueDetailViewModel.swift in Sources */,
 				DE635B782BBDC72D005D5C8D /* BoutiqueDetailScreen.swift in Sources */,
+				DE9EC8852BD6E1D3009F8252 /* FavoritesScreen.swift in Sources */,
 				DE635B702BBDC4B4005D5C8D /* Font+Ext.swift in Sources */,
 				DE635B7C2BBDEDAE005D5C8D /* BoutiqueCellView.swift in Sources */,
 			);
