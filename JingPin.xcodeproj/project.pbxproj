@@ -37,6 +37,7 @@
 		DE9EC8852BD6E1D3009F8252 /* FavoritesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9EC8842BD6E1D3009F8252 /* FavoritesScreen.swift */; };
 		DE9EC8872BD6E902009F8252 /* FavoriteNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9EC8862BD6E902009F8252 /* FavoriteNote.swift */; };
 		DE9EC8892BD6F47A009F8252 /* FavoriteNotesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9EC8882BD6F47A009F8252 /* FavoriteNotesScreen.swift */; };
+		DE9EC88B2BD71A5F009F8252 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9EC88A2BD71A5F009F8252 /* Date+Ext.swift */; };
 		DEA6AEB92BC8C477002AD595 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA6AEB82BC8C477002AD595 /* OnboardingView.swift */; };
 		DEB9AC422BBCD1F300013C92 /* PinApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB9AC412BBCD1F300013C92 /* PinApp.swift */; };
 		DEB9AC462BBCD1F400013C92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEB9AC452BBCD1F400013C92 /* Assets.xcassets */; };
@@ -84,6 +85,7 @@
 		DE9EC8842BD6E1D3009F8252 /* FavoritesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FavoritesScreen.swift; path = ../../FavoritesScreen.swift; sourceTree = "<group>"; };
 		DE9EC8862BD6E902009F8252 /* FavoriteNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteNote.swift; sourceTree = "<group>"; };
 		DE9EC8882BD6F47A009F8252 /* FavoriteNotesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteNotesScreen.swift; sourceTree = "<group>"; };
+		DE9EC88A2BD71A5F009F8252 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		DEA6AEB82BC8C477002AD595 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		DEB9AC3E2BBCD1F300013C92 /* JingPin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JingPin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEB9AC412BBCD1F300013C92 /* PinApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinApp.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				DE49DC8D2BC6F61D00202654 /* CKRecord+Ext.swift */,
 				DE76666C2BC72714009C2A3D /* CKAsset+Ext.swift */,
 				DEC9B6942BCA02500036183F /* View+Ext.swift */,
+				DE9EC88A2BD71A5F009F8252 /* Date+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				DE635B602BBD8F7D005D5C8D /* AppTabView.swift in Sources */,
 				DE81C7D82BCDB4FD003F4E58 /* BannerImageView.swift in Sources */,
 				DE7666682BC7022D009C2A3D /* BoutiqueViewModel.swift in Sources */,
+				DE9EC88B2BD71A5F009F8252 /* Date+Ext.swift in Sources */,
 				DE635B6E2BBDBF55005D5C8D /* NavBar+Helper.swift in Sources */,
 				DE635B642BBD9035005D5C8D /* BoutiqueListScreen.swift in Sources */,
 				DE635B622BBD8FF6005D5C8D /* ProfileScreen.swift in Sources */,

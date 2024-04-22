@@ -7,7 +7,6 @@
 
 import Foundation
 import MapKit
-import CloudKit
 
 final class BoutiqueDetailViewModel: ObservableObject {
     
@@ -16,8 +15,6 @@ final class BoutiqueDetailViewModel: ObservableObject {
     let boutiqueLocation: UnitedStatesBoutique
     @Published var showSafari: Bool = false
     @Published var isFavorited: Bool = false
-    private let container = CKContainer.default().privateCloudDatabase
-    private var favoritedDictionary: [String: CKRecord.ID] = [:]
     
     // MARK: - Init
     

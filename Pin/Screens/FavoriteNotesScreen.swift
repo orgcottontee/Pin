@@ -18,7 +18,7 @@ struct FavoriteNotesScreen: View {
     var body: some View {
         ZStack {
             Color.appBackground.ignoresSafeArea()
-            VStack(alignment: .leading) {
+            VStack {
                 TextField("Add notes for \(favoriteBoutique.name)", text: $text)
                     .applyJPTextfield()
                     .onSubmit {
@@ -34,6 +34,10 @@ struct FavoriteNotesScreen: View {
                     .onDelete(perform: deleteNote)
                 }
                 .scrollContentBackground(.hidden)
+                
+                let convertedDate = favoriteBoutique.favoritedAt.convertToWeekdayDayMonth()
+                Text("Saved on \(convertedDate)")
+                    .font(.footnote)
             }
             .padding()
         }

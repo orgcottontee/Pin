@@ -13,7 +13,6 @@ struct BoutiqueDetailScreen: View {
     @ObservedObject var viewModel: BoutiqueDetailViewModel
     @Environment(\.modelContext) private var modelContext
     @Query private var favoriteBoutiques: [FavoriteBoutique]
-    @State private var path = [FavoriteBoutique]()
     
     var body: some View {
         ZStack {
@@ -31,11 +30,9 @@ struct BoutiqueDetailScreen: View {
                         SFSymbolView(icon: DetailScreenConstant.navigateIcon)
                     }
                     Button {
-                        Task {
-                            toggleToFavorite()
-                        }
+                        toggleToFavorite()
                     } label: {
-                        Image(systemName: viewModel.isFavorited ? DetailScreenConstant.favorited : DetailScreenConstant.heart)
+                        Image(systemName: favoriteBoutiques.contains(where: { $0.boutiqueID == viewModel.boutiqueLocation.id.recordName }) ? "heart.fill" : "heart")
                             .applyJPSubheader()
                             .frame(width: 40, height: 40)
                     }
@@ -60,13 +57,15 @@ struct BoutiqueDetailScreen: View {
     func toggleToFavorite() {
         
         let boutiqueID = viewModel.boutiqueLocation.id.recordName
-        let favorite = FavoriteBoutique(boutiqueID: boutiqueID, favoritedAt: .now, name: viewModel.boutiqueLocation.name)
-       
-        if favoriteBoutiques.contains(where: { $0.boutiqueID == boutiqueID }) {
-           print("already added")
+        
+        if let existingFavoriteIndex = favoriteBoutiques.firstIndex(where: { $0.boutiqueID == boutiqueID }) {
+            let existingFavorite = favoriteBoutiques[existingFavoriteIndex]
+            modelContext.delete(existingFavorite)
+            print("Already favorited. Removed from favorites.")
         } else {
+            let favorite = FavoriteBoutique(boutiqueID: boutiqueID, favoritedAt: .now, name: viewModel.boutiqueLocation.name)
             modelContext.insert(favorite)
-            print("successfully added")
+            print("Successfully added to favorites.")
         }
     }
 }
