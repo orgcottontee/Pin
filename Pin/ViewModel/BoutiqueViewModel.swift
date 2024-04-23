@@ -17,9 +17,9 @@ final class BoutiqueViewModel {
     var alertItem: AlertItem?
     var isShowingOnboardingView: Bool = true
     var isLoading: Bool = false
-    var filterStatus: USState = USState.allStates
+    var isSearchTextfieldVisible: Bool = false
+    var selectedState: USState = USState.allStates
     var searchText: String = ""
-
     
     // MARK: - Actions
     

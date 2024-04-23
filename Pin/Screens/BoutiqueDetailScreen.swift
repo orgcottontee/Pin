@@ -33,6 +33,7 @@ struct BoutiqueDetailScreen: View {
                         toggleToFavorite()
                     } label: {
                         Image(systemName: favoriteBoutiques.contains(where: { $0.boutiqueID == viewModel.boutiqueLocation.id.recordName }) ? "heart.fill" : "heart")
+                            .foregroundStyle(.favorited)
                             .applyJPSubheader()
                             .frame(width: 40, height: 40)
                     }

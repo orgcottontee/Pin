@@ -26,7 +26,7 @@ enum ListScreenConstant {
     static let header = "BOUTIQUES"
 }
 
-enum USState: String, CaseIterable {
+enum USState: String, CaseIterable, Identifiable {
   case allStates
   case california = "California"
   case colorado = "Colorado"
@@ -40,10 +40,10 @@ enum USState: String, CaseIterable {
 
   var id: String { self.rawValue }
 
-  var stateAbbreviation: String {
+  var state: String {
     switch self {
     case .allStates:
-      return "All"
+      return "All States"
     default:
       return self.rawValue
     }
