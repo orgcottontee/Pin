@@ -40,5 +40,5 @@ struct AppTabView: View {
 
 #Preview {
     AppTabView()
-        .environmentObject(BoutiqueManager())
+        .environment(BoutiqueManager())
 }

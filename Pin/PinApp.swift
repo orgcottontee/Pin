@@ -16,7 +16,7 @@ struct PinApp: App {
     var body: some Scene {
         WindowGroup {
             AppTabView()
-                .environmentObject(boutiqueManager)
+                .environment(boutiqueManager)
         }
         .modelContainer(for: [FavoriteBoutique.self])
     }

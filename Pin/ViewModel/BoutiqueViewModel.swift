@@ -7,14 +7,16 @@
 
 import MapKit
 import SwiftUI
+import Observation
 
-final class BoutiqueViewModel: ObservableObject {
+@Observable
+final class BoutiqueViewModel {
     
     // MARK: - Properties
     
-    @Published var alertItem: AlertItem?
-    @Published var isShowingOnboardingView: Bool = true
-    @Published var isLoading: Bool = false
+    var alertItem: AlertItem?
+    var isShowingOnboardingView: Bool = true
+    var isLoading: Bool = false
     
     // MARK: - Actions
     

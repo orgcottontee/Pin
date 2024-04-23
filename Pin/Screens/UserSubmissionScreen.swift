@@ -10,7 +10,7 @@ import CloudKit
 
 struct UserSubmissionScreen: View {
     
-    @StateObject private var viewModel = UserSubmissionViewModel()
+    @State private var viewModel = UserSubmissionViewModel()
     @FocusState private var focusedTextField: FocusTextField?
     
     enum FocusTextField { case name, country, website }

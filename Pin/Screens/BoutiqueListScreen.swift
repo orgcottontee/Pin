@@ -13,9 +13,9 @@ struct BoutiqueListScreen: View {
     
     init() { NavBar.configureAppearance() }
     
-    @StateObject private var viewModel = BoutiqueViewModel()
-    @EnvironmentObject private var boutiqueManager: BoutiqueManager
-    
+    @State private var viewModel = BoutiqueViewModel()
+    @Environment(BoutiqueManager.self) private var manager
+
     var body: some View {
         
         NavigationStack {
@@ -26,7 +26,7 @@ struct BoutiqueListScreen: View {
                     Color(.mainScreenBackground).ignoresSafeArea()
                     ScrollView {
                         LazyVStack {
-                            ForEach(boutiqueManager.locations) { boutiqueLocation in
+                            ForEach(manager.locations) { boutiqueLocation in
                                 NavigationLink(value: boutiqueLocation) {
                                     BoutiqueCellView(boutiqueLocation: boutiqueLocation)
                                 }
@@ -43,7 +43,7 @@ struct BoutiqueListScreen: View {
                     Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
                 }
                 .onAppear {
-                    if boutiqueManager.locations.isEmpty { viewModel.getUSBoutiques(for: boutiqueManager) }
+                    if manager.locations.isEmpty { viewModel.getUSBoutiques(for: manager) }
                 }
             }
         }
@@ -53,5 +53,5 @@ struct BoutiqueListScreen: View {
 
 #Preview {
     BoutiqueListScreen()
-        .environmentObject(BoutiqueManager())
+        .environment(BoutiqueManager())
 }

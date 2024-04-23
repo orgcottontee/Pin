@@ -8,15 +8,15 @@
 import Foundation
 import CloudKit
 
-final class UserSubmissionViewModel: ObservableObject {
+final class UserSubmissionViewModel {
     
     // MARK: - Properties
     
-    @Published var boutiqueName: String = ""
-    @Published var country: String = ""
-    @Published var website: String = ""
-    @Published var alertItem: AlertItem?
-    @Published var isLoading: Bool = false
+    var boutiqueName: String = ""
+    var country: String = ""
+    var website: String = ""
+    var alertItem: AlertItem?
+    var isLoading: Bool = false
     private let container: CKDatabase = CKContainer.default().publicCloudDatabase
     
     // MARK: - Actions

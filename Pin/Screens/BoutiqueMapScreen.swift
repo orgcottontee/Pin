@@ -10,13 +10,13 @@ import MapKit
 
 struct BoutiqueMapScreen: View {
     
-    @StateObject private var viewModel = BoutiqueViewModel()
-    @EnvironmentObject private var locationManager: BoutiqueManager
-    
+    private var viewModel = BoutiqueViewModel()
+    @Environment(BoutiqueManager.self) private var manager
+
     var body: some View {
         ZStack(alignment: .top) {
             Map {
-                ForEach(locationManager.locations) { boutique in
+                ForEach(manager.locations) { boutique in
                     Annotation(boutique.name, coordinate: boutique.location.coordinate) {
                         LogoView(image: boutique.createSquareLogo(), frameWidth: 30)
                             .clipShape(RoundedRectangle(cornerRadius: 10))
@@ -26,13 +26,10 @@ struct BoutiqueMapScreen: View {
             .ignoresSafeArea()
             .mapStyle(.standard)
         }
-        .alert(item: $viewModel.alertItem, content: { alertItem in
-            Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
-        })
     }
 }
 
 #Preview {
     BoutiqueMapScreen()
-        .environmentObject(BoutiqueManager())
+        .environment(BoutiqueManager())
 }

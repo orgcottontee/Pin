@@ -7,7 +7,8 @@
 
 import Foundation
 
-final class BoutiqueManager: ObservableObject {
+@Observable
+final class BoutiqueManager {
     
-    @Published var locations: [UnitedStatesBoutique] = []
+    var locations: [UnitedStatesBoutique] = []
 }

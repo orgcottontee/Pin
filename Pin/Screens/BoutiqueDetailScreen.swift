@@ -10,7 +10,7 @@ import SwiftData
 
 struct BoutiqueDetailScreen: View {
     
-    @ObservedObject var viewModel: BoutiqueDetailViewModel
+    @State var viewModel: BoutiqueDetailViewModel
     @Environment(\.modelContext) private var modelContext
     @Query private var favoriteBoutiques: [FavoriteBoutique]
     
