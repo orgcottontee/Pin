@@ -8,6 +8,7 @@
 import Foundation
 import CloudKit
 
+@Observable
 final class UserSubmissionViewModel {
     
     // MARK: - Properties

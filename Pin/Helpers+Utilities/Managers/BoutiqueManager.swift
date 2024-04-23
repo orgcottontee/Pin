@@ -11,4 +11,5 @@ import Foundation
 final class BoutiqueManager {
     
     var locations: [UnitedStatesBoutique] = []
+    
 }

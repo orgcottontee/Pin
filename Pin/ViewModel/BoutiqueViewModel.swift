@@ -17,17 +17,21 @@ final class BoutiqueViewModel {
     var alertItem: AlertItem?
     var isShowingOnboardingView: Bool = true
     var isLoading: Bool = false
+    var filterStatus: USState = USState.allStates
+    var searchText: String = ""
+
     
     // MARK: - Actions
     
     @MainActor
-    func getUSBoutiques(for locationManager: BoutiqueManager) {
+    func getUSBoutiques(for boutiqueManager: BoutiqueManager) {
         
         showLoadingView()
         
         Task {
             do {
-                locationManager.locations = try await CloudKitManager.shared.fetchUSBoutiques()
+                boutiqueManager.locations = try await CloudKitManager.shared.fetchUSBoutiques()   
+            
                 hideLoadingView()
             } catch {
                 hideLoadingView()

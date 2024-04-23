@@ -28,16 +28,15 @@ enum ListScreenConstant {
 
 enum USState: String, CaseIterable {
   case allStates
-  case california = "CA"
-  case colorado = "CO"
-  case illinois = "IL"
-  case michigan = "MI"
-  case minnesota = "MN"
-  case newYork = "NY"
-  case oregon = "OR"
-  case pennsylvania = "PA"
-  case washington = "WA"
-  case wisconsin = "WI"
+  case california = "California"
+  case colorado = "Colorado"
+  case illinois = " Illinois"
+  case michigan = " Michigan"
+  case minnesota = "Minnesota"
+  case newYork = "New York"
+  case oregon = "Oregon"
+  case pennsylvania = "Pennsylvania"
+  case washington = "Washington"
 
   var id: String { self.rawValue }
 
