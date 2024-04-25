@@ -9,18 +9,16 @@ import SwiftUI
 
 struct OnboardingView: View {
     
-//    @Environment(\.colorScheme) var colorScheme
     @Binding var hasSeenOnboarding: Bool
     
     var body: some View {
         ZStack {
-            Color.appBackground.ignoresSafeArea()
+            Color.App.background.ignoresSafeArea()
             VStack {
                 Spacer()
                 ZStack {
-                    LogoView(image: .appLogo,
-                             frameWidth: 200)
-                    .padding(.bottom)
+                    LogoView(image: .AppLogo.logo,
+                             frameWidth: 150)
                 }
                 Spacer()
                 VStack(alignment: .leading) {
@@ -52,7 +50,7 @@ fileprivate struct InfoView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text(title).applyJPSubheader()
-            Text(description).applyJPBody(.accent)
+            Text(description).applyJPBody(.App.accent)
         }
         .padding()
     }

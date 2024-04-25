@@ -16,7 +16,7 @@ struct BoutiqueCellView: View {
         VStack {
             ZStack(alignment: .topTrailing) {
                 LogoView(image: boutiqueLocation.createSquareLogo(),
-                         frameWidth: 250)
+                         frameWidth: 220)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
             }
             CityStateView(city: boutiqueLocation.city, state: boutiqueLocation.state)
@@ -38,9 +38,9 @@ fileprivate struct CityStateView: View {
         ZStack {
             RoundedRectangle(cornerRadius: 10)
                 .fill(.gray).opacity(0.1)
-                .frame(width: 250, height: 50)
+                .frame(width: 220, height: 50)
             Text("\(city), \(state)")
-                .applyJPBody(.mainScreenAccent)
+                .applyJPBody(.App.accent)
                 .lineLimit(1)
                 .minimumScaleFactor(0.75)
                 .truncationMode(.tail)

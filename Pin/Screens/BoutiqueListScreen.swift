@@ -26,33 +26,37 @@ struct BoutiqueListScreen: View {
         
         NavigationStack {
             if viewModel.isLoading {
-                LoadingView()
+                ProgressView()
             } else {
                 ZStack {
-                    Color(.mainScreenBackground).ignoresSafeArea()
+                    Color(.MainScreen.background).ignoresSafeArea()
                     // VStack for the whole screen
                     VStack {
                         // Search and filter icon
                         HStack {
                             Spacer()
                             Button {
-                                viewModel.isSearchTextfieldVisible.toggle()
+                                withAnimation(.easeInOut) {
+                                    viewModel.isSearchTextfieldVisible.toggle()
+                                }
                             } label: {
-                                Image(systemName: "magnifyingglass")
+                                Label("Search", systemImage: viewModel.isSearchTextfieldVisible ? ListScreenConstant.activeSearchIcon : ListScreenConstant.searchIcon)
+                                    .labelStyle(.iconOnly)
+                                    
+                                    .applyJPBody(.App.accent)
                             }
-                            
                             Picker("", selection: $viewModel.selectedState) {
                                 ForEach(USState.allCases) { state in
                                     Text(state.state)
-                                        .applyJPBody(.mainScreenAccent)
                                         .tag(state)
+                                        .applyJPBody(.App.accent)
                                 }
                             }
                         }
                         if viewModel.isSearchTextfieldVisible {
                             TextField("Search boutique", text: $viewModel.searchText)
                                 .applyJPTextfield()
-                                .transition(.opacity)
+                                .frame(width: 220)
                         }
                         
                         // Start of scrollview to display boutiques
@@ -80,7 +84,7 @@ struct BoutiqueListScreen: View {
                 }
             }
         }
-        .tint(.accent)
+        .tint(.App.accent)
     }
 }
 

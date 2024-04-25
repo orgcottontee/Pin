@@ -15,7 +15,7 @@ struct PinApp: App {
     
     var body: some Scene {
         WindowGroup {
-            AppTabView()
+            SplashScreenView()
                 .environment(boutiqueManager)
         }
         .modelContainer(for: [FavoriteBoutique.self])

@@ -16,7 +16,7 @@ struct BoutiqueDetailScreen: View {
     
     var body: some View {
         ZStack {
-            Color(.appBackground).ignoresSafeArea()
+            Color.App.background.ignoresSafeArea()
             VStack(alignment: .leading) {
                 NameView(name: viewModel.boutiqueLocation.name)
                 BannerImageView(image: viewModel.boutiqueLocation.createBannerImage())
@@ -33,7 +33,7 @@ struct BoutiqueDetailScreen: View {
                         toggleToFavorite()
                     } label: {
                         Image(systemName: favoriteBoutiques.contains(where: { $0.boutiqueID == viewModel.boutiqueLocation.id.recordName }) ? "heart.fill" : "heart")
-                            .foregroundStyle(.favorited)
+                            .foregroundStyle(Color(.App.favorite))
                             .applyJPSubheader()
                             .frame(width: 40, height: 40)
                     }
@@ -98,7 +98,7 @@ fileprivate struct FullAddressView: View {
                 Text(address)
                 Text(cityStatePostalCode)
             }
-            .applyJPBody(.accent)
+            .applyJPBody(.App.accent)
             Spacer()
         }
     }
@@ -109,7 +109,7 @@ fileprivate struct AboutDetailView: View {
     var aboutText: String
     
     var body: some View {
-        Text(aboutText).applyJPBody(.accent)
+        Text(aboutText).applyJPBody(.App.accent)
     }
 }
 
@@ -122,7 +122,7 @@ fileprivate struct FooterView: View {
             ForEach(categories, id: \.self) { category in
                 HStack {
                     Image(systemName: "square.fill").font(.system(size: 4))
-                    Text(category).applyJPBody(.accent)
+                    Text(category).applyJPBody(.App.accent)
                     
                     
                 }

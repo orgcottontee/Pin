@@ -16,12 +16,12 @@ struct FavoritesScreen: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color.appBackground.ignoresSafeArea()
+                Color.App.background.ignoresSafeArea()
                 VStack {
-                    LogoView(image: .appLogo, frameWidth: 80)
+                    LogoView(image: .AppLogo.logo, frameWidth: 80)
                         .padding(.top, 50)
                     Text(FavoritesScreenConstant.header)
-                        .applyJPHeader(.accent)
+                        .applyJPHeader(.App.accent)
                
                         List {
                             ForEach(favoriteBoutiques) { favorite in

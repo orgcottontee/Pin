@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "LightBannerLogo.png",
+      "filename" : "Logo.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,7 +12,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "BannerLogo.png",
+      "filename" : "LightLines.png",
       "idiom" : "universal",
       "scale" : "1x"
     },

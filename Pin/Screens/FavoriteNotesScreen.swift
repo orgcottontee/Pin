@@ -17,7 +17,7 @@ struct FavoriteNotesScreen: View {
 
     var body: some View {
         ZStack {
-            Color.appBackground.ignoresSafeArea()
+            Color.App.background.ignoresSafeArea()
             VStack {
                 TextField("Add notes for \(favoriteBoutique.name)", text: $text)
                     .applyJPTextfield()

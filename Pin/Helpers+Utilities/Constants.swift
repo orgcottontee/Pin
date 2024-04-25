@@ -24,6 +24,8 @@ enum OnboardingTextConstant {
 
 enum ListScreenConstant {
     static let header = "BOUTIQUES"
+    static let searchIcon = "magnifyingglass"
+    static let activeSearchIcon = "magnifyingglass.circle.fill"
 }
 
 enum USState: String, CaseIterable, Identifiable {
@@ -108,8 +110,8 @@ enum ImageDimension {
 // MARK: Placeholder images
 
 enum PlaceholderImage {
-    static let squareLogo = UIImage(resource: .appSquareLogo)
-    static let bannerImage = UIImage(resource: .appBanner)
+    static let squareLogo = UIImage(resource: .AppLogo.square)
+    static let bannerImage = UIImage(resource: .AppLogo.banner)
 }
 
 // MARK: CloudKit record type
