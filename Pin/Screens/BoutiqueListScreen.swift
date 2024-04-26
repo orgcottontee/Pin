@@ -14,54 +14,27 @@ struct BoutiqueListScreen: View {
     @Environment(BoutiqueManager.self) private var boutiqueManager
     @State private var viewModel = BoutiqueViewModel()
     
+    private var filterResults: [UnitedStatesBoutique] {
+        viewModel.selectedState == .allStates ? searchResults : boutiqueManager.locations.filter { $0.state == viewModel.selectedState.rawValue }
+    }
+    
+    private var searchResults: [UnitedStatesBoutique] {
+        viewModel.searchText.isEmpty ? boutiqueManager.locations : boutiqueManager.locations.filter { $0.name.localizedCaseInsensitiveContains(viewModel.searchText) }
+    }
+    
     var body: some View {
         if !viewModel.isLoading {
             NavigationStack {
                 ZStack {
                     Color(.MainScreen.background).ignoresSafeArea()
-                    // VStack for the whole screen
                     VStack {
-                        // Search and filter icon
-                        HStack {
-                            Spacer()
-                            Button {
-                                withAnimation(.smooth) {
-                                    viewModel.isSearchTextfieldVisible.toggle()
-                                }
-                            } label: {
-                                Label("Search", systemImage: viewModel.isSearchTextfieldVisible ? ListScreenConstant.activeSearchIcon : ListScreenConstant.searchIcon)
-                                    .labelStyle(.iconOnly)
-                                    .applyJPBody(.App.accent)
+                        SearchFilterView(isSearchTextfieldVisible: $viewModel.isSearchTextfieldVisible,
+                                         selectedState: $viewModel.selectedState,
+                                         searchText: $viewModel.searchText)
+                        ListView(filterResults: filterResults)
+                            .navigationDestination(for: UnitedStatesBoutique.self) { boutique in
+                                BoutiqueDetailScreen(viewModel: BoutiqueDetailViewModel(boutiqueLocation: boutique))
                             }
-                            
-                            
-                            Picker("Filter by State", selection: $viewModel.selectedState) {
-                                ForEach(USState.allCases) { state in
-                                    Text(state.state)
-                                        .tag(state)
-                                }
-                            }
-                            
-                        }
-                        if viewModel.isSearchTextfieldVisible {
-                            TextField("Search boutique", text: $viewModel.searchText)
-                                .applyJPTextfield()
-                        }
-                        
-                        // Start of scrollview to display boutiques
-                        ScrollView {
-                            LazyVStack {
-                                ForEach(filterResults) { boutique in
-                                    NavigationLink(value: boutique) {
-                                        BoutiqueCellView(boutiqueLocation: boutique)
-                                    }
-                                }
-                            }
-                        }
-                        .padding()
-                        .navigationDestination(for: UnitedStatesBoutique.self) { boutique in
-                            BoutiqueDetailScreen(viewModel: BoutiqueDetailViewModel(boutiqueLocation: boutique))
-                        }
                     }
                 }
                 .onAppear {
@@ -79,17 +52,61 @@ struct BoutiqueListScreen: View {
                 }
         }
     }
-    
-    private var filterResults: [UnitedStatesBoutique] {
-        viewModel.selectedState == .allStates ? searchResults : boutiqueManager.locations.filter { $0.state == viewModel.selectedState.rawValue }
-    }
-    
-    private var searchResults: [UnitedStatesBoutique] {
-        viewModel.searchText.isEmpty ? boutiqueManager.locations : boutiqueManager.locations.filter { $0.name.localizedCaseInsensitiveContains(viewModel.searchText) }
-    }
 }
 
 #Preview {
     BoutiqueListScreen()
         .environment(BoutiqueManager())
+}
+
+fileprivate struct SearchFilterView: View {
+    
+    @Binding var isSearchTextfieldVisible: Bool
+    @Binding var selectedState: USState
+    @Binding var searchText: String
+    
+    var body: some View {
+        VStack {
+            HStack {
+                Spacer()
+                Button {
+                    withAnimation(.smooth) {
+                        isSearchTextfieldVisible.toggle()
+                    }
+                } label: {
+                    Label("Search", systemImage: isSearchTextfieldVisible ? ListScreenConstant.activeSearchIcon : ListScreenConstant.searchIcon)
+                        .labelStyle(.iconOnly)
+                        .applyJPBody(.App.accent)
+                }
+                Picker("Filter by State", selection: $selectedState) {
+                    ForEach(USState.allCases) { state in
+                        Text(state.state)
+                            .tag(state)
+                    }
+                }
+            }
+            if isSearchTextfieldVisible {
+                TextField("Search boutique", text: $searchText)
+                    .applyJPTextfield()
+            }
+        }
+    }
+}
+
+fileprivate struct ListView: View {
+    
+    var filterResults: [UnitedStatesBoutique]
+    
+    var body: some View {
+        ScrollView {
+            LazyVStack {
+                ForEach(filterResults) { boutique in
+                    NavigationLink(value: boutique) {
+                        BoutiqueCellView(boutiqueLocation: boutique)
+                    }
+                }
+            }
+        }
+        .padding()
+    }
 }

@@ -20,7 +20,6 @@ final class BoutiqueViewModel {
     var isLoading: Bool = false
     var isSearchTextfieldVisible: Bool = false
     private(set) var jingPinError: JingPinError?
-
     
     // MARK: - Actions
     
