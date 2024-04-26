@@ -125,7 +125,7 @@ enum PlaceholderImage {
 // MARK: CloudKit record type
 
 enum RecordType {
-    static let USBoutique = "UnitedStatesBoutique" // Has to match the CloudKit record type name
+    static let USBoutique = "UitedStatesBoutique" // Has to match the CloudKit record type name
     static let userSubmission = "UserBoutiqueSubmission"
     static let favoriteBoutique = "FavoriteBoutique"
 }

@@ -64,18 +64,19 @@ struct BoutiqueListScreen: View {
                         }
                     }
                 }
-                .alert(item: $viewModel.alertItem) { alertItem in
-                    Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
-                }
                 .onAppear {
                     if boutiqueManager.locations.isEmpty { viewModel.getUSBoutiques(for: boutiqueManager) }
                 }
-                
             }
             .tint(.App.accent)
-            
         } else {
             ProgressView()
+                .alert(isPresented: $viewModel.hasError,
+                       error: viewModel.jingPinError) {
+                    Button("Retry") {
+                        if boutiqueManager.locations.isEmpty { viewModel.getUSBoutiques(for: boutiqueManager) }
+                    }
+                }
         }
     }
     

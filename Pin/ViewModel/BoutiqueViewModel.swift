@@ -14,12 +14,13 @@ final class BoutiqueViewModel {
     
     // MARK: - Properties
     
-    var alertItem: AlertItem?
-    var isShowingOnboardingView: Bool = true
-    var isLoading: Bool = false
-    var isSearchTextfieldVisible: Bool = false
     var selectedState: USState = USState.allStates
     var searchText: String = ""
+    var hasError: Bool = false
+    var isLoading: Bool = false
+    var isSearchTextfieldVisible: Bool = false
+    private(set) var jingPinError: JingPinError?
+
     
     // MARK: - Actions
     
@@ -30,12 +31,11 @@ final class BoutiqueViewModel {
         
         Task {
             do {
-                boutiqueManager.locations = try await CloudKitManager.shared.fetchUSBoutiques()   
-            
+                boutiqueManager.locations = try await CloudKitManager.shared.fetchUSBoutiques()
                 hideLoadingView()
             } catch {
-                hideLoadingView()
-                alertItem = AlertContext.unableToGetLocations
+                hasError = true
+                jingPinError = .unableToDecode
                 print(error.localizedDescription)
             }
         }
