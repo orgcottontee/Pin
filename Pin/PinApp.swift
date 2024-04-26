@@ -12,11 +12,13 @@ import SwiftUI
 struct PinApp: App {
     
     let boutiqueManager = BoutiqueManager()
+    @StateObject private var networkMonitor = NetworkMonitor()
     
     var body: some Scene {
         WindowGroup {
             SplashScreenView()
                 .environment(boutiqueManager)
+                .environmentObject(networkMonitor)
         }
         .modelContainer(for: [FavoriteBoutique.self])
     }

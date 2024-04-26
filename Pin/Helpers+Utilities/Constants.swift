@@ -20,6 +20,14 @@ enum OnboardingTextConstant {
     static let thirdText = "Save your favorite boutiques and share your favorite locations for us to add to the list."
 }
 
+// MARK: Network unavailable screen
+
+enum NetworkUnavailableConstant {
+    static let title = "Network Unavailable"
+    static let icon = "wifi.exclamationmark"
+    static let description = "Please check your network connection and try again"
+}
+
 // MARK: Boutique list screen
 
 enum ListScreenConstant {

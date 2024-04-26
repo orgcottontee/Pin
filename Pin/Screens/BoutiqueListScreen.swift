@@ -14,20 +14,9 @@ struct BoutiqueListScreen: View {
     @Environment(BoutiqueManager.self) private var boutiqueManager
     @State private var viewModel = BoutiqueViewModel()
     
-    var filterResults: [UnitedStatesBoutique] {
-        viewModel.selectedState == .allStates ? searchResults : boutiqueManager.locations.filter { $0.state == viewModel.selectedState.rawValue }
-    }
-    
-    var searchResults: [UnitedStatesBoutique] {
-        viewModel.searchText.isEmpty ? boutiqueManager.locations : boutiqueManager.locations.filter { $0.name.localizedCaseInsensitiveContains(viewModel.searchText) }
-    }
-    
     var body: some View {
-        
-        NavigationStack {
-            if viewModel.isLoading {
-                ProgressView()
-            } else {
+        if !viewModel.isLoading {
+            NavigationStack {
                 ZStack {
                     Color(.MainScreen.background).ignoresSafeArea()
                     // VStack for the whole screen
@@ -36,27 +25,27 @@ struct BoutiqueListScreen: View {
                         HStack {
                             Spacer()
                             Button {
-                                withAnimation(.easeInOut) {
+                                withAnimation(.smooth) {
                                     viewModel.isSearchTextfieldVisible.toggle()
                                 }
                             } label: {
                                 Label("Search", systemImage: viewModel.isSearchTextfieldVisible ? ListScreenConstant.activeSearchIcon : ListScreenConstant.searchIcon)
                                     .labelStyle(.iconOnly)
-                                    
                                     .applyJPBody(.App.accent)
                             }
-                            Picker("", selection: $viewModel.selectedState) {
+                            
+                            
+                            Picker("Filter by State", selection: $viewModel.selectedState) {
                                 ForEach(USState.allCases) { state in
                                     Text(state.state)
                                         .tag(state)
-                                        .applyJPBody(.App.accent)
                                 }
                             }
+                            
                         }
                         if viewModel.isSearchTextfieldVisible {
                             TextField("Search boutique", text: $viewModel.searchText)
                                 .applyJPTextfield()
-                                .frame(width: 220)
                         }
                         
                         // Start of scrollview to display boutiques
@@ -72,7 +61,6 @@ struct BoutiqueListScreen: View {
                         .padding()
                         .navigationDestination(for: UnitedStatesBoutique.self) { boutique in
                             BoutiqueDetailScreen(viewModel: BoutiqueDetailViewModel(boutiqueLocation: boutique))
-                            // TODO: Filter by state, search bar
                         }
                     }
                 }
@@ -82,9 +70,21 @@ struct BoutiqueListScreen: View {
                 .onAppear {
                     if boutiqueManager.locations.isEmpty { viewModel.getUSBoutiques(for: boutiqueManager) }
                 }
+                
             }
+            .tint(.App.accent)
+            
+        } else {
+            ProgressView()
         }
-        .tint(.App.accent)
+    }
+    
+    private var filterResults: [UnitedStatesBoutique] {
+        viewModel.selectedState == .allStates ? searchResults : boutiqueManager.locations.filter { $0.state == viewModel.selectedState.rawValue }
+    }
+    
+    private var searchResults: [UnitedStatesBoutique] {
+        viewModel.searchText.isEmpty ? boutiqueManager.locations : boutiqueManager.locations.filter { $0.name.localizedCaseInsensitiveContains(viewModel.searchText) }
     }
 }
 
