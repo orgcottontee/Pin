@@ -11,10 +11,10 @@ import SwiftData
 @Model
 final class FavoriteNote {
     
-    var text: String = ""
+    var note: String = ""
     var favoriteBoutique: FavoriteBoutique?
     
-    init(text: String) {
-        self.text = text
+    init(note: String) {
+        self.note = note
     }
 }

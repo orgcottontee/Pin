@@ -11,7 +11,7 @@ import SwiftData
 struct FavoriteNotesScreen: View {
     
     let favoriteBoutique: FavoriteBoutique
-    @State private var text: String = ""
+    @State private var note: String = ""
     @Query private var notes: [FavoriteNote]
     @Environment(\.modelContext) private var modelContext
 
@@ -19,17 +19,17 @@ struct FavoriteNotesScreen: View {
         ZStack {
             Color.App.background.ignoresSafeArea()
             VStack {
-                TextField("Add notes for \(favoriteBoutique.name)", text: $text)
+                TextField("Add notes for \(favoriteBoutique.name)", text: $note)
                     .applyJPTextfield()
                     .onSubmit {
-                        let note = FavoriteNote(text: text)
-                        note.favoriteBoutique = favoriteBoutique
-                        text = ""
+                        let addedNote = FavoriteNote(note: note)
+                        addedNote.favoriteBoutique = favoriteBoutique
+                        note = ""
                     }
                 
                 List {
                     ForEach(favoriteBoutique.favoriteNotes ?? []) { note in
-                        Text(note.text)
+                        Text(note.note)
                     }
                     .onDelete(perform: deleteNote)
                 }
