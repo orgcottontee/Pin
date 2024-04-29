@@ -8,13 +8,14 @@
 import Foundation
 import MapKit
 
-final class BoutiqueDetailViewModel: ObservableObject {
+@Observable
+final class BoutiqueDetailViewModel {
     
     // MARK: - Properties
     
     let boutiqueLocation: UnitedStatesBoutique
-    @Published var showSafari: Bool = false
-    @Published var isFavorited: Bool = false
+    var showSafari: Bool = false
+    var isFavorited: Bool = false
     
     // MARK: - Init
     

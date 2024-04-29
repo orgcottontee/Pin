@@ -20,6 +20,7 @@ struct FavoritesScreen: View {
                 VStack {
                     LogoView(image: .AppLogo.logo, frameWidth: 80)
                         .padding(.top, 50)
+                        .accessibilityHidden(true)
                     Text(FavoritesScreenConstant.header)
                         .applyJPHeader(.App.accent)
                

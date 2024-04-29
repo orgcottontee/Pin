@@ -12,7 +12,7 @@ struct BoutiqueDetailScreen: View {
     
     @Environment(\.modelContext) private var modelContext
     @Query private var favoriteBoutiques: [FavoriteBoutique]
-    @State var viewModel: BoutiqueDetailViewModel
+    @Bindable var viewModel: BoutiqueDetailViewModel
     
     var body: some View {
         ZStack {
@@ -42,7 +42,7 @@ struct BoutiqueDetailScreen: View {
         }
     }
     
-    func toggleToFavorite() {
+    private func toggleToFavorite() {
         
         let boutiqueID = viewModel.boutiqueLocation.id.recordName
         
@@ -114,10 +114,8 @@ fileprivate struct FavoriteButtonView: View {
             action()
             playHaptic()
         } label: {
-            Image(systemName: isFavorite ? "heart.fill" : "heart")
-                .foregroundStyle(Color(.App.favorite))
-                .applyJPSubheader()
-                .frame(width: 40, height: 40)
+            SFSymbolView(icon: isFavorite ? DetailScreenConstant.favorited : DetailScreenConstant.heart)
+            // TODO: Implement favorite color from asset folder
         }
         .contentTransition(.symbolEffect(.replace))
     }
