@@ -66,6 +66,12 @@ fileprivate struct SearchFilterView: View {
         VStack {
             HStack {
                 Spacer()
+                Picker("Filter by State", selection: $selectedState) {
+                    ForEach(USState.allCases) { state in
+                        Text(state.state)
+                            .tag(state)
+                    }
+                }
                 Button {
                     withAnimation(.smooth) {
                         isSearchTextfieldVisible.toggle()
@@ -75,13 +81,8 @@ fileprivate struct SearchFilterView: View {
                         .labelStyle(.iconOnly)
                         .applyJPBody(.App.accent)
                 }
-                Picker("Filter by State", selection: $selectedState) {
-                    ForEach(USState.allCases) { state in
-                        Text(state.state)
-                            .tag(state)
-                    }
-                }
             }
+            .padding([.horizontal, .top])
             if isSearchTextfieldVisible {
                 TextField("Search boutique", text: $searchText)
                     .applyJPTextfield()
@@ -100,6 +101,12 @@ fileprivate struct ListView: View {
                 ForEach(filterResults) { boutique in
                     NavigationLink(value: boutique) {
                         BoutiqueCellView(boutiqueLocation: boutique)
+                            .scrollTransition { content, phase in
+                                content
+                                    .opacity(phase.isIdentity ? 1 : 0)
+                                    .scaleEffect(phase.isIdentity ? 1 : 0.50)
+                                    .blur(radius: phase.isIdentity ? 0 : 10)
+                            }
                     }
                 }
             }
