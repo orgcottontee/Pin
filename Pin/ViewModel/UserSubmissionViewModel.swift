@@ -40,9 +40,6 @@ final class UserSubmissionViewModel {
             do {
                 let submission = UserBoutiqueSubmission(name: boutiqueName, country: country, website: website)
                 try await container.save(submission.record)
-                boutiqueName = ""
-                country = ""
-                website = ""
                 showLoadingView()
                 alertItem = AlertContext.submissionSuccess
                 hideLoadingView()
@@ -50,6 +47,9 @@ final class UserSubmissionViewModel {
                 hideLoadingView()
                 alertItem = AlertContext.submissionFail
             }
+            boutiqueName = ""
+            country = ""
+            website = ""
         }
     }
     

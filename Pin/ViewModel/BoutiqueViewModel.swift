@@ -19,7 +19,7 @@ final class BoutiqueViewModel {
     var hasError: Bool = false
     var isLoading: Bool = false
     var isSearchTextfieldVisible: Bool = false
-    private(set) var jingPinError: JingPinError?
+    var alertItem: AlertItem?
     
     // MARK: - Actions
     
@@ -34,7 +34,7 @@ final class BoutiqueViewModel {
                 hideLoadingView()
             } catch {
                 hasError = true
-                jingPinError = .unableToDecode
+                alertItem = AlertContext.unableToGetLocations
                 print(error.localizedDescription)
             }
         }

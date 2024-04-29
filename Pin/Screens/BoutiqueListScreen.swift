@@ -44,11 +44,8 @@ struct BoutiqueListScreen: View {
             .tint(.App.accent)
         } else {
             ProgressView()
-                .alert(isPresented: $viewModel.hasError,
-                       error: viewModel.jingPinError) {
-                    Button("Retry") {
-                        if boutiqueManager.locations.isEmpty { viewModel.getUSBoutiques(for: boutiqueManager) }
-                    }
+                .alert(item: $viewModel.alertItem) { alertItem in
+                    Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
                 }
         }
     }

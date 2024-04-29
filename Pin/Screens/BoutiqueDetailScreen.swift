@@ -10,9 +10,9 @@ import SwiftData
 
 struct BoutiqueDetailScreen: View {
     
-    @State var viewModel: BoutiqueDetailViewModel
     @Environment(\.modelContext) private var modelContext
     @Query private var favoriteBoutiques: [FavoriteBoutique]
+    @State var viewModel: BoutiqueDetailViewModel
     
     var body: some View {
         ZStack {
@@ -24,21 +24,8 @@ struct BoutiqueDetailScreen: View {
                 HStack {
                     FullAddressView(address: viewModel.boutiqueLocation.address,
                                     cityStatePostalCode: "\(viewModel.boutiqueLocation.city), \(viewModel.boutiqueLocation.state), \(viewModel.boutiqueLocation.zipCode)")
-                    Button {
-                        viewModel.openMaps()
-                    } label: {
-                        SFSymbolView(icon: DetailScreenConstant.navigateIcon)
-                    }
-                    Button {
-                        toggleToFavorite()
-                    } label: {
-                        Image(systemName: favoriteBoutiques.contains(where: { $0.boutiqueID == viewModel.boutiqueLocation.id.recordName }) ? "heart.fill" : "heart")
-                            .foregroundStyle(Color(.App.favorite))
-                            .applyJPSubheader()
-                            .frame(width: 40, height: 40)
-                    }
-                    .contentTransition(.symbolEffect(.replace))
-                    
+                    MapsButtonView(action: viewModel.openMaps)
+                    FavoriteButtonView(isFavorite: favoriteBoutiques.contains(where: { $0.boutiqueID == viewModel.boutiqueLocation.id.recordName }), action: toggleToFavorite)
                 }
                 .padding(.bottom)
                 
@@ -103,6 +90,39 @@ fileprivate struct FullAddressView: View {
         }
     }
 }
+
+fileprivate struct MapsButtonView: View {
+    
+    var action: () -> Void
+    
+    var body: some View {
+        Button {
+            action()
+        } label: {
+            SFSymbolView(icon: DetailScreenConstant.navigateIcon)
+        }
+    }
+}
+
+fileprivate struct FavoriteButtonView: View {
+    
+    var isFavorite: Bool
+    var action: () -> Void
+    
+    var body: some View {
+        Button {
+            action()
+            playHaptic()
+        } label: {
+            Image(systemName: isFavorite ? "heart.fill" : "heart")
+                .foregroundStyle(Color(.App.favorite))
+                .applyJPSubheader()
+                .frame(width: 40, height: 40)
+        }
+        .contentTransition(.symbolEffect(.replace))
+    }
+}
+
 
 fileprivate struct AboutDetailView: View {
     
