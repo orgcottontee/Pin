@@ -37,7 +37,7 @@ struct FavoriteNotesScreen: View {
                 
                 let convertedDate = favoriteBoutique.favoritedAt.convertToWeekdayDayMonth()
                 Text("Saved on \(convertedDate)")
-                    .font(.footnote)
+                    .applyJPFootnote(.secondary)
             }
             .padding()
         }

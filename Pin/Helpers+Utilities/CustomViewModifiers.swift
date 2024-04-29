@@ -35,11 +35,14 @@ struct JPHeaderStyle: ViewModifier {
 
 
 struct JPSubheaderStyle: ViewModifier {
+    
+    var color: Color
+
     func body(content: Content) -> some View {
         content
             .font(.custom(BaskervilleFont.italic, size: 30, relativeTo: .subheadline))
             .kerning(1.2)
-            .foregroundStyle(Color(.App.accent))
+            .foregroundStyle(color)
     }
 }
                   
@@ -56,10 +59,13 @@ struct JPBodyStyle: ViewModifier {
 }
 
 struct JPFootnoteStyle: ViewModifier {
+    
+    var color: Color
+
     func body(content: Content) -> some View {
         content
             .font(.custom(UniversFont.light, size: 16, relativeTo: .footnote))
             .kerning(1.2)
-            .foregroundStyle(Color(.App.accent))
+            .foregroundStyle(color)
     }
 }

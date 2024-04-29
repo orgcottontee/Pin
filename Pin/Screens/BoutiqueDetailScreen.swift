@@ -69,7 +69,7 @@ fileprivate struct NameView: View {
     var body: some View {
         HStack {
             Spacer()
-            Text(name).applyJPSubheader()
+            Text(name).applyJPSubheader(.App.accent)
         }
     }
 }
@@ -99,7 +99,7 @@ fileprivate struct MapsButtonView: View {
         Button {
             action()
         } label: {
-            SFSymbolView(icon: DetailScreenConstant.navigateIcon)
+            IconButtonView(icon: DetailScreenConstant.navigateIcon, color: .App.navigate)
         }
     }
 }
@@ -114,7 +114,7 @@ fileprivate struct FavoriteButtonView: View {
             action()
             playHaptic()
         } label: {
-            SFSymbolView(icon: isFavorite ? DetailScreenConstant.favorited : DetailScreenConstant.heart)
+            IconButtonView(icon: isFavorite ? DetailScreenConstant.favorited : DetailScreenConstant.heart, color: .App.favorite)
             // TODO: Implement favorite color from asset folder
         }
         .contentTransition(.symbolEffect(.replace))

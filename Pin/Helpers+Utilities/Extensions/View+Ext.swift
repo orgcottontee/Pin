@@ -22,15 +22,15 @@ extension View {
         modifier(JPHeaderStyle(color: color))
     }
     
-    func applyJPSubheader() -> some View {
-        modifier(JPSubheaderStyle())
+    func applyJPSubheader(_ color: Color) -> some View {
+        modifier(JPSubheaderStyle(color: color))
     }
     
     func applyJPBody(_ color: Color) -> some View {
         modifier(JPBodyStyle(color: color))
     }
     
-    func applyJPFootnote() -> some View {
-        modifier(JPFootnoteStyle())
+    func applyJPFootnote(_ color: Color) -> some View {
+        modifier(JPFootnoteStyle(color: color))
     }
 }
