@@ -14,11 +14,8 @@ struct BannerImageView: View {
     var body: some View {
         Image(uiImage: image)
             .resizable()
-            .scaledToFit()
-            .frame(maxWidth: .infinity)
+            .scaledToFill()
             .clipShape(RoundedRectangle(cornerRadius: 4))
             .padding(.bottom)
     }
 }
-
-// TODO: Can use AsyncImage?
