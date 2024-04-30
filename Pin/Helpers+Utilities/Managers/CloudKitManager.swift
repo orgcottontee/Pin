@@ -25,4 +25,10 @@ final class CloudKitManager {
         let records = matchResults.compactMap { _, result in try? result.get() }
         return records.map(UnitedStatesBoutique.init)
     }
+    
+    
+    func checkAccountStatus() async throws -> CKAccountStatus {
+        try await CKContainer.default().accountStatus()
+    }
 }
+

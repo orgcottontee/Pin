@@ -12,6 +12,8 @@
 		DE0B4D922BCF2F0200E9CE9D /* BoutiqueDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0B4D912BCF2F0200E9CE9D /* BoutiqueDetailViewModel.swift */; };
 		DE1057D42BE0327F001EA882 /* XDismissButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1057D32BE0327F001EA882 /* XDismissButtonView.swift */; };
 		DE1057D62BE055CA001EA882 /* CustomPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1057D52BE055CA001EA882 /* CustomPickerView.swift */; };
+		DE1057D82BE12CA4001EA882 /* fabricFlowing.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DE1057D72BE12CA3001EA882 /* fabricFlowing.mp4 */; };
+		DE1057DE2BE133B3001EA882 /* AppSettings+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1057DD2BE133B3001EA882 /* AppSettings+Helper.swift */; };
 		DE4007EA2BC239F9002BD9D0 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4007E92BC239F9002BD9D0 /* CloudKitManager.swift */; };
 		DE49DC8E2BC6F61D00202654 /* CKRecord+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE49DC8D2BC6F61D00202654 /* CKRecord+Ext.swift */; };
 		DE49DC902BC6FFC300202654 /* AlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE49DC8F2BC6FFC300202654 /* AlertItem.swift */; };
@@ -62,6 +64,8 @@
 		DE0B4D912BCF2F0200E9CE9D /* BoutiqueDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoutiqueDetailViewModel.swift; sourceTree = "<group>"; };
 		DE1057D32BE0327F001EA882 /* XDismissButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XDismissButtonView.swift; sourceTree = "<group>"; };
 		DE1057D52BE055CA001EA882 /* CustomPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPickerView.swift; sourceTree = "<group>"; };
+		DE1057D72BE12CA3001EA882 /* fabricFlowing.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = fabricFlowing.mp4; sourceTree = "<group>"; };
+		DE1057DD2BE133B3001EA882 /* AppSettings+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppSettings+Helper.swift"; sourceTree = "<group>"; };
 		DE4007E92BC239F9002BD9D0 /* CloudKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
 		DE49DC8D2BC6F61D00202654 /* CKRecord+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CKRecord+Ext.swift"; sourceTree = "<group>"; };
 		DE49DC8F2BC6FFC300202654 /* AlertItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertItem.swift; sourceTree = "<group>"; };
@@ -136,6 +140,7 @@
 		DE635B8D2BBE4BDC005D5C8D /* Views+Cells */ = {
 			isa = PBXGroup;
 			children = (
+				DE1057D52BE055CA001EA882 /* CustomPickerView.swift */,
 				DE9EC87C2BD2C86C009F8252 /* IconButtonView.swift */,
 				DE635B7B2BBDEDAE005D5C8D /* BoutiqueCellView.swift */,
 				DE635B7D2BBE1471005D5C8D /* ActionButtonView.swift */,
@@ -158,6 +163,7 @@
 				DE635B752BBDC51D005D5C8D /* AppFonts.swift */,
 				DE49DC8F2BC6FFC300202654 /* AlertItem.swift */,
 				DEC9B6962BCA02B30036183F /* CustomViewModifiers.swift */,
+				DE1057DD2BE133B3001EA882 /* AppSettings+Helper.swift */,
 			);
 			path = "Helpers+Utilities";
 			sourceTree = "<group>";
@@ -165,6 +171,7 @@
 		DE635B8F2BBE4C32005D5C8D /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				DE1057D72BE12CA3001EA882 /* fabricFlowing.mp4 */,
 				DEB9AC452BBCD1F400013C92 /* Assets.xcassets */,
 				DE635B732BBDC501005D5C8D /* Baskerville.ttc */,
 				DE635B712BBDC4F2005D5C8D /* UniversLTStd-Light.otf */,
@@ -197,7 +204,6 @@
 		DEB9AC352BBCD1F300013C92 = {
 			isa = PBXGroup;
 			children = (
-				DE1057D52BE055CA001EA882 /* CustomPickerView.swift */,
 				DEB9AC402BBCD1F300013C92 /* Pin */,
 				DE0B4D8C2BCEBB0000E9CE9D /* JingPin-Info.plist */,
 				DE81C7C62BCB542D003F4E58 /* PrivacyInfo.xcprivacy */,
@@ -322,6 +328,7 @@
 				DE81C7C72BCB542D003F4E58 /* PrivacyInfo.xcprivacy in Resources */,
 				DE635B742BBDC501005D5C8D /* Baskerville.ttc in Resources */,
 				DEB9AC492BBCD1F400013C92 /* Preview Assets.xcassets in Resources */,
+				DE1057D82BE12CA4001EA882 /* fabricFlowing.mp4 in Resources */,
 				DEB9AC462BBCD1F400013C92 /* Assets.xcassets in Resources */,
 				DE635B722BBDC4F2005D5C8D /* UniversLTStd-Light.otf in Resources */,
 			);
@@ -361,6 +368,7 @@
 				DE635B6A2BBD90D1005D5C8D /* Constants.swift in Sources */,
 				DE635B7E2BBE1471005D5C8D /* ActionButtonView.swift in Sources */,
 				DE1057D62BE055CA001EA882 /* CustomPickerView.swift in Sources */,
+				DE1057DE2BE133B3001EA882 /* AppSettings+Helper.swift in Sources */,
 				DE0B4D8E2BCF28EC00E9CE9D /* SafariViewWrapper.swift in Sources */,
 				DEA6AEB92BC8C477002AD595 /* OnboardingView.swift in Sources */,
 				DE49DC8E2BC6F61D00202654 /* CKRecord+Ext.swift in Sources */,

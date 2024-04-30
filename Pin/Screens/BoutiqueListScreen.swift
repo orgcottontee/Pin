@@ -95,8 +95,8 @@ fileprivate struct SearchFilterTitleView: View {
             }
             CustomPickerView(selectedState: $selectedState)
                 .padding(.horizontal)
-            
         }
+        .padding(.top)
     }
 }
 
