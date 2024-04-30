@@ -19,7 +19,7 @@ struct ActionButtonView: View {
                 .padding(.horizontal)
             Text(buttonText)
                 .foregroundStyle(Color(.App.background))
-                .applyJPBody(.App.accent)
+                .applyJPBody(.App.background)
         }
     }
 }

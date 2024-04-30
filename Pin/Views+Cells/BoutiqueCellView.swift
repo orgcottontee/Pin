@@ -36,16 +36,23 @@ fileprivate struct CityStateView: View {
     
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 4)
-                .fill(Color.App.placard)
-                .frame(width: 230, height: 50)
-                .shadow(color: .gray.opacity(0.5), radius: 4, x: 0, y: 4)
-            Text("\(city), \(state)")
-                .applyJPBody(.App.accent)
-                .lineLimit(1)
-                .minimumScaleFactor(0.75)
-                .truncationMode(.tail)
+            Capsule()
+                .fill(Color.App.background)
+                .frame(width: 180, height: 60)
+                .shadow(color: .gray.opacity(0.5), radius: 6, x: 0, y: 6)
+            VStack(alignment: .leading) {
+                Text("\(city),")
+                    .applyJPBody(.App.accent)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.75)
+                    .truncationMode(.tail)
+                Text("\(state)")
+                    .applyJPBody(.App.accent)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.75)
+                    .truncationMode(.tail)
+            }
         }
-        .offset(x: 0, y: -25)
+        .offset(x: 0, y: -30)
     }
 }

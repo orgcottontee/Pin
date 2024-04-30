@@ -46,6 +46,7 @@ struct ProfileScreen: View {
                             Text("Share with a friend")
                                 .applyJPFootnote(.App.accent)
                         }
+                        .padding(.bottom)
                     }
                 }
                 .preferredColorScheme(selectedTheme)

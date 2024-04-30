@@ -118,6 +118,7 @@ fileprivate struct ListView: View {
                             }
                     }
                 }
+                .padding(.top)
             }
         }
         .scrollIndicators(.hidden)
