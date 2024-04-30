@@ -26,7 +26,8 @@ struct ProfileScreen: View {
         NavigationStack {
             ZStack {
                 Color.App.background.ignoresSafeArea()
-                VStack(spacing: 50) {
+                VStack(spacing: 20) {
+                    Spacer()
                     HStack {
                         Button { selectedAppTheme = .lightTheme} label: { ActionButtonView(buttonText: AppTheme.lightTheme.rawValue) }
                         Button { selectedAppTheme = .darkTheme } label: { ActionButtonView(buttonText: AppTheme.darkTheme.rawValue) }
@@ -34,6 +35,17 @@ struct ProfileScreen: View {
                     }
                     NavigationLink(destination: UserSubmissionScreen()) {
                         ActionButtonView(buttonText: ProfileScreenConstant.submissionFormButton)
+                    }
+                    Spacer()
+                    ShareLink(item: URL(string: "https://apps.apple.com/us/app")!) {
+                        HStack {
+                            Image(.AppLogo.logo)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 20, height: 20)
+                            Text("Share with a friend")
+                                .applyJPFootnote(.App.accent)
+                        }
                     }
                 }
                 .preferredColorScheme(selectedTheme)
