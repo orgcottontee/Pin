@@ -38,14 +38,14 @@ fileprivate struct CityStateView: View {
         ZStack {
             RoundedRectangle(cornerRadius: 4)
                 .fill(Color.App.placard)
-                .frame(width: 250, height: 50)
-                .shadow(color: .black.opacity(0.5), radius: 4, x: 0, y: 6)
+                .frame(width: 230, height: 50)
+                .shadow(color: .gray.opacity(0.5), radius: 4, x: 0, y: 4)
             Text("\(city), \(state)")
                 .applyJPBody(.App.accent)
                 .lineLimit(1)
                 .minimumScaleFactor(0.75)
                 .truncationMode(.tail)
         }
-        .offset(x: 0, y: -20)
+        .offset(x: 0, y: -25)
     }
 }

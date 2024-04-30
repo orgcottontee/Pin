@@ -26,11 +26,12 @@ struct BoutiqueListScreen: View {
         if !viewModel.isLoading {
             NavigationStack {
                 ZStack {
-                    Color(.MainScreen.background).ignoresSafeArea()
-                    VStack {
-                        SearchFilterView(isSearchTextfieldVisible: $viewModel.isSearchTextfieldVisible,
+                    Color(.App.background).ignoresSafeArea()
+                    VStack(alignment: .leading) {
+                        SearchFilterTitleView(isSearchTextfieldVisible: $viewModel.isSearchTextfieldVisible,
                                          selectedState: $viewModel.selectedState,
                                          searchText: $viewModel.searchText)
+                        HeaderView(headerText: ListScreenConstant.header)
                         ListView(filterResults: filterResults)
                             .navigationDestination(for: UnitedStatesBoutique.self) { boutique in
                                 BoutiqueDetailScreen(viewModel: BoutiqueDetailViewModel(boutiqueLocation: boutique))
@@ -56,7 +57,18 @@ struct BoutiqueListScreen: View {
         .environment(BoutiqueManager())
 }
 
-fileprivate struct SearchFilterView: View {
+fileprivate struct HeaderView: View {
+    
+    let headerText: String
+    
+    var body: some View {
+        Text(headerText)
+            .applyJPHeader(.App.accent)
+            .padding(.leading)
+    }
+}
+
+fileprivate struct SearchFilterTitleView: View {
     
     @Binding var isSearchTextfieldVisible: Bool
     @Binding var selectedState: USState
@@ -66,12 +78,6 @@ fileprivate struct SearchFilterView: View {
         VStack {
             HStack {
                 Spacer()
-                Picker("Filter by State", selection: $selectedState) {
-                    ForEach(USState.allCases) { state in
-                        Text(state.state)
-                            .tag(state)
-                    }
-                }
                 Button {
                     withAnimation(.smooth) {
                         isSearchTextfieldVisible.toggle()
@@ -79,14 +85,17 @@ fileprivate struct SearchFilterView: View {
                 } label: {
                     Label("Search", systemImage: isSearchTextfieldVisible ? ListScreenConstant.activeSearchIcon : ListScreenConstant.searchIcon)
                         .labelStyle(.iconOnly)
-                        .applyJPBody(.App.accent)
+                        .applyJPSubheader(.App.accent)
                 }
+                .padding(.horizontal)
             }
-            .padding([.horizontal, .top])
             if isSearchTextfieldVisible {
                 TextField("Search boutique", text: $searchText)
                     .applyJPTextfield()
             }
+            CustomPickerView(selectedState: $selectedState)
+                .padding(.horizontal)
+            
         }
     }
 }
@@ -111,6 +120,6 @@ fileprivate struct ListView: View {
                 }
             }
         }
-        .padding()
+        .scrollIndicators(.hidden)
     }
 }

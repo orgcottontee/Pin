@@ -31,7 +31,7 @@ enum NetworkUnavailableConstant {
 // MARK: Boutique list screen
 
 enum ListScreenConstant {
-    static let header = "BOUTIQUES"
+    static let header = "United States Boutiques"
     static let searchIcon = "magnifyingglass"
     static let activeSearchIcon = "magnifyingglass.circle.fill"
 }
