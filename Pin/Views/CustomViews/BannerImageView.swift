@@ -16,6 +16,5 @@ struct BannerImageView: View {
             .resizable()
             .scaledToFill()
             .clipShape(RoundedRectangle(cornerRadius: 4))
-            .padding(.bottom)
     }
 }

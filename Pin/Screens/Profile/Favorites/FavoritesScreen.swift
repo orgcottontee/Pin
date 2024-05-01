@@ -11,21 +11,20 @@ import SwiftData
 struct FavoritesScreen: View {
     
     @Environment(\.modelContext) private var modelContext
-    @Query private var favoriteBoutiques: [FavoriteBoutique] = []
+//    @Query private var favoriteBoutiques: [FavoriteBoutique] = []
+    @Query(sort: \FavoriteBoutique.savedDate, order: .reverse) var favorites: [FavoriteBoutique]
+
     
     var body: some View {
         NavigationStack {
             ZStack {
                 Color.App.background.ignoresSafeArea()
                 VStack {
-                    LogoView(image: .AppLogo.logo, frameWidth: 80)
-                        .padding(.top, 50)
-                        .accessibilityHidden(true)
                     Text(FavoritesScreenConstant.header)
                         .applyJPHeader(.App.accent)
                
                         List {
-                            ForEach(favoriteBoutiques) { favorite in
+                            ForEach(favorites) { favorite in
                                 NavigationLink {
                                     FavoriteNotesScreen(favoriteBoutique: favorite)
                                 } label: {
@@ -43,12 +42,8 @@ struct FavoritesScreen: View {
     }
     private func deleteFavProducts(_ indexSet: IndexSet) {
         for index in indexSet {
-            let boutique = favoriteBoutiques[index]
+            let boutique = favorites[index]
             modelContext.delete(boutique)
         }
     }
 }
-
-//#Preview {
-//    FavoritesScreen()
-//}

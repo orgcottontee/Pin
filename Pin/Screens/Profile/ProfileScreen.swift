@@ -44,12 +44,13 @@ struct ProfileScreen: View {
                                 .scaledToFit()
                                 .frame(width: 20, height: 20)
                             Text("Share with a friend")
-                                .applyJPFootnote(.App.accent)
+                                .applyJPFootnote()
                         }
                         .padding(.bottom)
                     }
                 }
                 .preferredColorScheme(selectedTheme)
+                .padding()
             }
         }
         .tint(.App.accent)

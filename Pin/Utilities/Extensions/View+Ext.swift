@@ -25,7 +25,7 @@ extension View {
         modifier(JPBodyStyle(color: color))
     }
     
-    func applyJPFootnote(_ color: Color) -> some View {
-        modifier(JPFootnoteStyle(color: color))
+    func applyJPFootnote() -> some View {
+        modifier(JPFootnoteStyle())
     }
 }

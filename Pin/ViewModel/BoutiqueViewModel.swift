@@ -5,8 +5,7 @@
 //  Created by adobada on 4/10/24.
 //
 
-import MapKit
-import SwiftUI
+import Foundation
 import Observation
 
 @Observable

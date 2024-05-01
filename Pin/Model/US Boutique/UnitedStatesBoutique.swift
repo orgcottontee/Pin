@@ -5,8 +5,8 @@
 //  Created by adobada on 4/5/24.
 //
 
-import CloudKit
 import UIKit
+import CloudKit
 
 struct UnitedStatesBoutique: Identifiable, Hashable {
     

@@ -6,8 +6,6 @@
 //
 
 import SwiftUI
-import SwiftData
-import CloudKit
 
 struct BoutiqueListScreen: View {
         
@@ -90,8 +88,9 @@ fileprivate struct SearchFilterTitleView: View {
                 .padding(.horizontal)
             }
             if isSearchTextfieldVisible {
-                TextField("Search boutique", text: $searchText)
+                TextField(ListScreenConstant.textfieldPlaceholder, text: $searchText)
                     .applyJPTextfield()
+                    .padding(.horizontal)
             }
             CustomPickerView(selectedState: $selectedState)
                 .padding(.horizontal)

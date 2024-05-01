@@ -16,7 +16,6 @@ struct ActionButtonView: View {
             Capsule()
                 .frame(height: 40)
                 .foregroundStyle(Color(.App.accent))
-                .padding(.horizontal)
             Text(buttonText)
                 .foregroundStyle(Color(.App.background))
                 .applyJPBody(.App.background)

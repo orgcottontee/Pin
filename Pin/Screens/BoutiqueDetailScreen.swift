@@ -18,18 +18,15 @@ struct BoutiqueDetailScreen: View {
         ZStack {
             Color.App.background.ignoresSafeArea()
             
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 10) {
                 BannerImageView(image: viewModel.boutiqueLocation.createBannerImage())
-                
-                Spacer()
-                
+                                
                 HStack {
                     FullAddressView(address: viewModel.boutiqueLocation.address,
                                     cityStatePostalCode: "\(viewModel.boutiqueLocation.city), \(viewModel.boutiqueLocation.state), \(viewModel.boutiqueLocation.zipCode)")
                     MapsButtonView(action: viewModel.openMaps)
                     FavoriteButtonView(isFavorite: favoriteBoutiques.contains(where: { $0.boutiqueID == viewModel.boutiqueLocation.id.recordName }), action: toggleToFavorite)
                 }
-                .padding(.bottom)
                 
                 ScrollView {
                     VStack(alignment: .leading) {
@@ -43,8 +40,7 @@ struct BoutiqueDetailScreen: View {
             .padding()
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Text(viewModel.boutiqueLocation.name)
-                        .applyJPHeader(.App.accent)
+                    NameView(name: viewModel.boutiqueLocation.name)
                 }
             }
             
@@ -76,7 +72,10 @@ fileprivate struct NameView: View {
     var body: some View {
         HStack {
             Spacer()
-            Text(name).applyJPSubheader(.App.accent)
+            Text(name)
+                .applyJPHeader(.App.accent)
+                .lineLimit(1)
+                .minimumScaleFactor(0.75)
         }
     }
 }
@@ -92,7 +91,7 @@ fileprivate struct FullAddressView: View {
                 Text(address)
                 Text(cityStatePostalCode)
             }
-            .applyJPBody(.App.accent)
+            .applyJPFootnote()
             Spacer()
         }
     }
@@ -122,7 +121,6 @@ fileprivate struct FavoriteButtonView: View {
             HapticManager.playSuccess()
         } label: {
             IconButtonView(icon: isFavorite ? DetailScreenConstant.favorited : DetailScreenConstant.heart, color: .App.favorite)
-            // TODO: Implement favorite color from asset folder
         }
         .contentTransition(.symbolEffect(.replace))
     }
@@ -143,16 +141,16 @@ fileprivate struct FooterView: View {
     var categories: [String]
     
     var body: some View {
-        VStack(alignment: .leading) {
-            ForEach(categories, id: \.self) { category in
-                HStack {
+        ScrollView(.horizontal) {
+            HStack(alignment: .center) {
+                ForEach(categories, id: \.self) { category in
                     Image(systemName: "square.fill").font(.system(size: 4))
-                    Text(category).applyJPBody(.App.accent)
-                    
-                    
+                    Text(category)
                 }
             }
+            .applyJPFootnote()
         }
+        .scrollIndicators(.hidden)
         .padding(.vertical)
     }
 }

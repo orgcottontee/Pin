@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import CloudKit
 
 struct UserSubmissionScreen: View {
     
@@ -14,7 +13,7 @@ struct UserSubmissionScreen: View {
     @FocusState private var focusedTextField: FocusTextField?
     
     enum FocusTextField { case name, country, website }
-
+    
     var body: some View {
         ZStack {
             Color.App.background.ignoresSafeArea()
@@ -22,23 +21,36 @@ struct UserSubmissionScreen: View {
                 Spacer()
                 Text(SubmissionScreenConstant.instructions)
                     .applyJPBody(.App.accent)
-                    .padding(.horizontal)
-                TextField(SubmissionScreenConstant.namePlaceholder, text: $viewModel.boutiqueName)
-                    .focused($focusedTextField, equals: .name)
-                    .onSubmit { focusedTextField = .country }
-                    .submitLabel(.next)
-                    .applyJPTextfield()
-                TextField(SubmissionScreenConstant.countryPlaceholder, text: $viewModel.country)
-                    .focused($focusedTextField, equals: .country)
-                    .onSubmit { focusedTextField = .website }
-                    .submitLabel(.next)
-                    .applyJPTextfield()
-                    .autocorrectionDisabled(false)
-                TextField(SubmissionScreenConstant.websitePlaceholder, text: $viewModel.website)
-                    .focused($focusedTextField, equals: .website)
-                    .submitLabel(.done)
-                    .onSubmit { focusedTextField = nil }
-                    .applyJPTextfield()
+                    .padding(.bottom)
+                
+                VStack {
+                    TextField(SubmissionScreenConstant.namePlaceholder, text: $viewModel.boutiqueName)
+                        .focused($focusedTextField, equals: .name)
+                        .onSubmit { focusedTextField = .country }
+                        .submitLabel(.next)
+                        .applyJPTextfield()
+                }
+                .padding(.bottom)
+                
+                VStack {
+                    TextField(SubmissionScreenConstant.countryPlaceholder, text: $viewModel.country)
+                        .focused($focusedTextField, equals: .country)
+                        .onSubmit { focusedTextField = .website }
+                        .submitLabel(.next)
+                        .applyJPTextfield()
+                        .autocorrectionDisabled(false)
+                }
+                .padding(.bottom)
+                
+                VStack {
+                    TextField(SubmissionScreenConstant.websitePlaceholder, text: $viewModel.website)
+                        .focused($focusedTextField, equals: .website)
+                        .submitLabel(.done)
+                        .onSubmit { focusedTextField = nil }
+                        .applyJPTextfield()
+                }
+                .padding(.bottom)
+                
                 Spacer()
                 Button {
                     Task {
@@ -46,9 +58,9 @@ struct UserSubmissionScreen: View {
                     }
                 } label: {
                     ActionButtonView(buttonText: "Submit")
-                        .padding(.bottom)
                 }
             }
+            .padding()
         }
         .onTapGesture { focusedTextField = nil }
         .alert(item: $viewModel.alertItem) { alertItem in

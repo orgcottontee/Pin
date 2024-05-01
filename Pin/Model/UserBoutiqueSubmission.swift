@@ -5,8 +5,8 @@
 //  Created by adobada on 4/12/24.
 //
 
-import CloudKit
 import Foundation
+import CloudKit
 
 struct UserBoutiqueSubmission {
     

@@ -12,11 +12,8 @@ struct JPTextfieldStyle: ViewModifier {
         content
             .applyJPBody(.App.accent)
             .autocorrectionDisabled(true)
-            .padding(.horizontal)
-            .padding(.top, 20)
         Rectangle()
             .frame(height: 1)
-            .padding(.horizontal)
             .foregroundColor(.gray)
     }
 }
@@ -27,7 +24,7 @@ struct JPHeaderStyle: ViewModifier {
     
     func body(content: Content) -> some View {
         content
-            .font(.custom(BaskervilleFont.italic, size: 36, relativeTo: .largeTitle))
+            .font(.custom(BaskervilleFont.italic, size: 38, relativeTo: .largeTitle))
             .kerning(1.2)
             .foregroundStyle(color)
     }
@@ -59,13 +56,10 @@ struct JPBodyStyle: ViewModifier {
 }
 
 struct JPFootnoteStyle: ViewModifier {
-    
-    var color: Color
 
     func body(content: Content) -> some View {
         content
             .font(.custom(UniversFont.light, size: 16, relativeTo: .footnote))
-            .kerning(1.2)
-            .foregroundStyle(color)
+            .foregroundStyle(.secondary)
     }
 }
