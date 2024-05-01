@@ -46,7 +46,7 @@
 		DEAF81852BDA1282003CA29D /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEAF81842BDA1282003CA29D /* SplashScreenView.swift */; };
 		DEAF81872BDB5A26003CA29D /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEAF81862BDB5A26003CA29D /* NetworkMonitor.swift */; };
 		DEAF81892BDB5FAD003CA29D /* NetworkUnavailableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEAF81882BDB5FAD003CA29D /* NetworkUnavailableView.swift */; };
-		DEB9AC422BBCD1F300013C92 /* PinApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB9AC412BBCD1F300013C92 /* PinApp.swift */; };
+		DEB9AC422BBCD1F300013C92 /* JingPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB9AC412BBCD1F300013C92 /* JingPin.swift */; };
 		DEB9AC462BBCD1F400013C92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEB9AC452BBCD1F400013C92 /* Assets.xcassets */; };
 		DEB9AC492BBCD1F400013C92 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEB9AC482BBCD1F400013C92 /* Preview Assets.xcassets */; };
 		DEC2752A2BC05B77001912FC /* UnitedStatesBoutique.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC275292BC05B77001912FC /* UnitedStatesBoutique.swift */; };
@@ -101,7 +101,7 @@
 		DEAF81862BDB5A26003CA29D /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		DEAF81882BDB5FAD003CA29D /* NetworkUnavailableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUnavailableView.swift; sourceTree = "<group>"; };
 		DEB9AC3E2BBCD1F300013C92 /* JingPin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JingPin.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		DEB9AC412BBCD1F300013C92 /* PinApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinApp.swift; sourceTree = "<group>"; };
+		DEB9AC412BBCD1F300013C92 /* JingPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JingPin.swift; sourceTree = "<group>"; };
 		DEB9AC452BBCD1F400013C92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DEB9AC482BBCD1F400013C92 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DEC275292BC05B77001912FC /* UnitedStatesBoutique.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitedStatesBoutique.swift; sourceTree = "<group>"; };
@@ -324,7 +324,7 @@
 		DEB9AC402BBCD1F300013C92 /* Pin */ = {
 			isa = PBXGroup;
 			children = (
-				DEB9AC412BBCD1F300013C92 /* PinApp.swift */,
+				DEB9AC412BBCD1F300013C92 /* JingPin.swift */,
 				DE635B5F2BBD8F7D005D5C8D /* AppTabView.swift */,
 				DE635B5E2BBCD3F0005D5C8D /* Pin.entitlements */,
 				DE635B8C2BBE4BB1005D5C8D /* Screens */,
@@ -461,7 +461,7 @@
 				DEC9B6892BC8C5F70036183F /* LogoView.swift in Sources */,
 				DE4007EA2BC239F9002BD9D0 /* CloudKitManager.swift in Sources */,
 				DE9EC87D2BD2C86C009F8252 /* IconButtonView.swift in Sources */,
-				DEB9AC422BBCD1F300013C92 /* PinApp.swift in Sources */,
+				DEB9AC422BBCD1F300013C92 /* JingPin.swift in Sources */,
 				DEAF81892BDB5FAD003CA29D /* NetworkUnavailableView.swift in Sources */,
 				DE76666D2BC72714009C2A3D /* CKAsset+Ext.swift in Sources */,
 				DEC9B6912BC9F0C20036183F /* UserBoutiqueSubmission.swift in Sources */,

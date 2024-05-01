@@ -18,24 +18,26 @@ struct BoutiqueDetailScreen: View {
         ZStack {
             Color.App.background.ignoresSafeArea()
             
-            VStack(alignment: .leading, spacing: 10) {
+            VStack(spacing: 10) {
                 BannerImageView(image: viewModel.boutiqueLocation.createBannerImage())
-                                
-                HStack {
-                    FullAddressView(address: viewModel.boutiqueLocation.address,
-                                    cityStatePostalCode: "\(viewModel.boutiqueLocation.city), \(viewModel.boutiqueLocation.state), \(viewModel.boutiqueLocation.zipCode)")
-                    OpenMapsButtonView(action: viewModel.openMaps)
-                    FavoriteButtonView(isFavorite: favoriteBoutiques.contains(where: { $0.boutiqueID == viewModel.boutiqueLocation.id.recordName }), action: toggleToFavorite)
-                }
                 
-                ScrollView {
-                    VStack(alignment: .leading) {
-                        BoutiqueStoryView(storyText: viewModel.boutiqueLocation.boutiqueStory)
+                VStack(alignment: .leading, spacing: 10) {
+                    HStack {
+                        FullAddressView(address: viewModel.boutiqueLocation.address,
+                                        cityStatePostalCode: "\(viewModel.boutiqueLocation.city), \(viewModel.boutiqueLocation.state), \(viewModel.boutiqueLocation.zipCode)")
+                        OpenMapsButtonView(action: viewModel.openMaps)
+                        FavoriteButtonView(isFavorite: favoriteBoutiques.contains(where: { $0.boutiqueID == viewModel.boutiqueLocation.id.recordName }), action: toggleToFavorite)
                     }
+                    
+                    ScrollView {
+                        VStack(alignment: .leading) {
+                            BoutiqueStoryView(storyText: viewModel.boutiqueLocation.boutiqueStory)
+                        }
+                    }
+                    
+                    CategoryView(categories: viewModel.boutiqueLocation.categories)
+                    OpenSafariView(showSafari: $viewModel.showSafari, title: "Visit \(viewModel.boutiqueLocation.shortURL)", url: viewModel.boutiqueLocation.websiteURL)
                 }
-                
-                CategoryView(categories: viewModel.boutiqueLocation.categories)
-                OpenSafariView(showSafari: $viewModel.showSafari, title: "Visit \(viewModel.boutiqueLocation.shortURL)", url: viewModel.boutiqueLocation.websiteURL)
             }
             .padding()
             .toolbar {
@@ -74,7 +76,7 @@ fileprivate struct NameView: View {
             Text(name)
                 .applyJPHeader(.App.accent)
                 .lineLimit(1)
-                .minimumScaleFactor(0.75)
+                .minimumScaleFactor(0.50)
         }
     }
 }

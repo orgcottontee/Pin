@@ -9,16 +9,16 @@ import SwiftData
 import SwiftUI
 
 @main
-struct PinApp: App {
+struct JingPin: App {
     
     let boutiqueManager = BoutiqueManager()
-    @StateObject private var networkMonitor = NetworkMonitor()
+    @State private var networkMonitor = NetworkMonitor()
     
     var body: some Scene {
         WindowGroup {
             SplashScreenView()
                 .environment(boutiqueManager)
-                .environmentObject(networkMonitor)
+                .environment(networkMonitor)
         }
         .modelContainer(for: [FavoriteBoutique.self])
     }

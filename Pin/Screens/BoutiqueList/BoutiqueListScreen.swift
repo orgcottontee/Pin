@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BoutiqueListScreen: View {
         
+    @Environment(NetworkMonitor.self) private var networkMonitor
     @Environment(BoutiqueManager.self) private var boutiqueManager
     @State private var viewModel = BoutiqueViewModel()
     
@@ -21,32 +22,36 @@ struct BoutiqueListScreen: View {
     }
     
     var body: some View {
-        if !viewModel.isLoading {
-            NavigationStack {
-                ZStack {
-                    Color(.App.background).ignoresSafeArea()
-                    VStack(alignment: .leading) {
-                        SearchFilterTitleView(isSearchTextfieldVisible: $viewModel.isSearchTextfieldVisible,
-                                         selectedState: $viewModel.selectedState,
-                                         searchText: $viewModel.searchText)
-                        HeaderView(headerText: ListScreenConstant.header)
-                        ListView(filterResults: filterResults)
-                            .navigationDestination(for: UnitedStatesBoutique.self) { boutique in
-                                BoutiqueDetailScreen(viewModel: BoutiqueDetailViewModel(boutiqueLocation: boutique))
-                                    .toolbarRole(.editor)
-                            }
+        if networkMonitor.isConnected {
+            if !viewModel.isLoading {
+                NavigationStack {
+                    ZStack {
+                        Color(.App.background).ignoresSafeArea()
+                        VStack(alignment: .leading) {
+                            SearchFilterTitleView(isSearchTextfieldVisible: $viewModel.isSearchTextfieldVisible,
+                                             selectedState: $viewModel.selectedState,
+                                             searchText: $viewModel.searchText)
+                            HeaderView(headerText: ListScreenConstant.header)
+                            ListView(filterResults: filterResults)
+                                .navigationDestination(for: UnitedStatesBoutique.self) { boutique in
+                                    BoutiqueDetailScreen(viewModel: BoutiqueDetailViewModel(boutiqueLocation: boutique))
+                                        .toolbarRole(.editor)
+                                }
+                        }
+                    }
+                    .onAppear {
+                        if boutiqueManager.locations.isEmpty { viewModel.getUSBoutiques(for: boutiqueManager) }
                     }
                 }
-                .onAppear {
-                    if boutiqueManager.locations.isEmpty { viewModel.getUSBoutiques(for: boutiqueManager) }
-                }
+                .tint(.App.accent)
+            } else {
+                ProgressView()
+                    .alert(item: $viewModel.alertItem) { alertItem in
+                        Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
+                    }
             }
-            .tint(.App.accent)
         } else {
-            ProgressView()
-                .alert(item: $viewModel.alertItem) { alertItem in
-                    Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
-                }
+            NetworkUnavailableView()
         }
     }
 }
@@ -78,8 +83,9 @@ fileprivate struct SearchFilterTitleView: View {
             HStack {
                 Spacer()
                 Button {
-                    withAnimation(.smooth) {
+                    withAnimation {
                         isSearchTextfieldVisible.toggle()
+                        searchText = ""
                     }
                 } label: {
                     Label("Search", systemImage: isSearchTextfieldVisible ? ListScreenConstant.activeSearchIcon : ListScreenConstant.searchIcon)

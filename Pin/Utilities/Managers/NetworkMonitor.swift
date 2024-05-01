@@ -8,7 +8,8 @@
 import Foundation
 import Network
 
-class NetworkMonitor: ObservableObject {
+@Observable
+class NetworkMonitor {
     private let networkMonitor: NWPathMonitor = NWPathMonitor()
     private let workerQueue:DispatchQueue = DispatchQueue(label: "Monitor")
     
@@ -17,11 +18,6 @@ class NetworkMonitor: ObservableObject {
     init() {
         networkMonitor.pathUpdateHandler = { path in
             self.isConnected = path.status == .satisfied
-            Task {
-                await MainActor.run {
-                    self.objectWillChange.send()
-                }
-            }
         }
         networkMonitor.start(queue: workerQueue)
     }

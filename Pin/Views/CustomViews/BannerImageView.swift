@@ -14,7 +14,9 @@ struct BannerImageView: View {
     var body: some View {
         Image(uiImage: image)
             .resizable()
-            .scaledToFill()
+            .scaledToFit()
+            .frame(width: 300)
             .clipShape(RoundedRectangle(cornerRadius: 4))
+            .shadow(color: .gray, radius: 4, x: 2, y: 2)
     }
 }

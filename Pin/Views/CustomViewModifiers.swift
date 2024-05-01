@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct JPTextfieldStyle: ViewModifier {
-    
-    init() { UITextField.appearance().clearButtonMode = .whileEditing }
-    
+        
     func body(content: Content) -> some View {
         content
             .applyJPBody(.App.accent)
@@ -27,7 +25,7 @@ struct JPHeaderStyle: ViewModifier {
     
     func body(content: Content) -> some View {
         content
-            .font(.custom(BaskervilleFont.italic, size: 38, relativeTo: .largeTitle))
+            .font(.custom(BaskervilleFont.italic, size: 34, relativeTo: .largeTitle))
             .kerning(1.2)
             .foregroundStyle(color)
     }
