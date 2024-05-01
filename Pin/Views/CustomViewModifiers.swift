@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct JPTextfieldStyle: ViewModifier {
+    
+    init() { UITextField.appearance().clearButtonMode = .whileEditing }
+    
     func body(content: Content) -> some View {
         content
             .applyJPBody(.App.accent)

@@ -33,6 +33,7 @@ struct BoutiqueListScreen: View {
                         ListView(filterResults: filterResults)
                             .navigationDestination(for: UnitedStatesBoutique.self) { boutique in
                                 BoutiqueDetailScreen(viewModel: BoutiqueDetailViewModel(boutiqueLocation: boutique))
+                                    .toolbarRole(.editor)
                             }
                     }
                 }

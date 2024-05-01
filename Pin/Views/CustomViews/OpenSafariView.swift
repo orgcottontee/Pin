@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SafariView: View {
+struct OpenSafariView: View {
     
     @Binding var showSafari: Bool
     var title: String
@@ -26,7 +26,7 @@ struct SafariView: View {
 }
 
 #Preview {
-    SafariView(showSafari: .constant(true),
+    OpenSafariView(showSafari: .constant(true),
                title: "Testing Safari",
                url: "https://www.apple.com" )
 }

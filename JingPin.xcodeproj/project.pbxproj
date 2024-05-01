@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DE0B4D8E2BCF28EC00E9CE9D /* SafariViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0B4D8D2BCF28EC00E9CE9D /* SafariViewWrapper.swift */; };
-		DE0B4D902BCF2A8100E9CE9D /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0B4D8F2BCF2A8100E9CE9D /* SafariView.swift */; };
+		DE0B4D902BCF2A8100E9CE9D /* OpenSafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0B4D8F2BCF2A8100E9CE9D /* OpenSafariView.swift */; };
 		DE0B4D922BCF2F0200E9CE9D /* BoutiqueDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0B4D912BCF2F0200E9CE9D /* BoutiqueDetailViewModel.swift */; };
 		DE1057D42BE0327F001EA882 /* XDismissButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1057D32BE0327F001EA882 /* XDismissButtonView.swift */; };
 		DE1057D62BE055CA001EA882 /* CustomPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1057D52BE055CA001EA882 /* CustomPickerView.swift */; };
@@ -61,7 +61,7 @@
 /* Begin PBXFileReference section */
 		DE0B4D8C2BCEBB0000E9CE9D /* JingPin-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "JingPin-Info.plist"; sourceTree = "<group>"; };
 		DE0B4D8D2BCF28EC00E9CE9D /* SafariViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariViewWrapper.swift; sourceTree = "<group>"; };
-		DE0B4D8F2BCF2A8100E9CE9D /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
+		DE0B4D8F2BCF2A8100E9CE9D /* OpenSafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSafariView.swift; sourceTree = "<group>"; };
 		DE0B4D912BCF2F0200E9CE9D /* BoutiqueDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoutiqueDetailViewModel.swift; sourceTree = "<group>"; };
 		DE1057D32BE0327F001EA882 /* XDismissButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XDismissButtonView.swift; sourceTree = "<group>"; };
 		DE1057D52BE055CA001EA882 /* CustomPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPickerView.swift; sourceTree = "<group>"; };
@@ -173,7 +173,7 @@
 				DEAF81842BDA1282003CA29D /* SplashScreenView.swift */,
 				DEA6AEB82BC8C477002AD595 /* OnboardingView.swift */,
 				DEAF81882BDB5FAD003CA29D /* NetworkUnavailableView.swift */,
-				DE0B4D8F2BCF2A8100E9CE9D /* SafariView.swift */,
+				DE0B4D8F2BCF2A8100E9CE9D /* OpenSafariView.swift */,
 				DE81C7D72BCDB4FD003F4E58 /* BannerImageView.swift */,
 				DE1057D52BE055CA001EA882 /* CustomPickerView.swift */,
 				DEC9B6882BC8C5F70036183F /* LogoView.swift */,
@@ -476,7 +476,7 @@
 				DE1057D42BE0327F001EA882 /* XDismissButtonView.swift in Sources */,
 				DEC2752E2BC06408001912FC /* MockData.swift in Sources */,
 				DEC2752A2BC05B77001912FC /* UnitedStatesBoutique.swift in Sources */,
-				DE0B4D902BCF2A8100E9CE9D /* SafariView.swift in Sources */,
+				DE0B4D902BCF2A8100E9CE9D /* OpenSafariView.swift in Sources */,
 				DE0B4D922BCF2F0200E9CE9D /* BoutiqueDetailViewModel.swift in Sources */,
 				DE635B782BBDC72D005D5C8D /* BoutiqueDetailScreen.swift in Sources */,
 				DE9EC8852BD6E1D3009F8252 /* FavoritesScreen.swift in Sources */,

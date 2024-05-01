@@ -24,18 +24,18 @@ struct BoutiqueDetailScreen: View {
                 HStack {
                     FullAddressView(address: viewModel.boutiqueLocation.address,
                                     cityStatePostalCode: "\(viewModel.boutiqueLocation.city), \(viewModel.boutiqueLocation.state), \(viewModel.boutiqueLocation.zipCode)")
-                    MapsButtonView(action: viewModel.openMaps)
+                    OpenMapsButtonView(action: viewModel.openMaps)
                     FavoriteButtonView(isFavorite: favoriteBoutiques.contains(where: { $0.boutiqueID == viewModel.boutiqueLocation.id.recordName }), action: toggleToFavorite)
                 }
                 
                 ScrollView {
                     VStack(alignment: .leading) {
-                        AboutDetailView(aboutText: viewModel.boutiqueLocation.boutiqueStory)
+                        BoutiqueStoryView(storyText: viewModel.boutiqueLocation.boutiqueStory)
                     }
                 }
                 
-                FooterView(categories: viewModel.boutiqueLocation.categories)
-                SafariView(showSafari: $viewModel.showSafari, title: "Visit \(viewModel.boutiqueLocation.shortURL)", url: viewModel.boutiqueLocation.websiteURL)
+                CategoryView(categories: viewModel.boutiqueLocation.categories)
+                OpenSafariView(showSafari: $viewModel.showSafari, title: "Visit \(viewModel.boutiqueLocation.shortURL)", url: viewModel.boutiqueLocation.websiteURL)
             }
             .padding()
             .toolbar {
@@ -43,7 +43,6 @@ struct BoutiqueDetailScreen: View {
                     NameView(name: viewModel.boutiqueLocation.name)
                 }
             }
-            
         }
     }
     
@@ -97,7 +96,7 @@ fileprivate struct FullAddressView: View {
     }
 }
 
-fileprivate struct MapsButtonView: View {
+fileprivate struct OpenMapsButtonView: View {
     
     var action: () -> Void
     
@@ -127,16 +126,17 @@ fileprivate struct FavoriteButtonView: View {
 }
 
 
-fileprivate struct AboutDetailView: View {
+fileprivate struct BoutiqueStoryView: View {
     
-    var aboutText: String
+    var storyText: String
     
     var body: some View {
-        Text(aboutText).applyJPBody(.App.accent)
+        Text(storyText)
+            .applyJPBody(.App.accent)
     }
 }
 
-fileprivate struct FooterView: View {
+fileprivate struct CategoryView: View {
     
     var categories: [String]
     

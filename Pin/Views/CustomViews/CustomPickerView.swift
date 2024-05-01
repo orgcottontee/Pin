@@ -25,7 +25,7 @@ struct CustomPickerView: View {
                     } label: {
                         ZStack {
                             Capsule()
-                                .fill(Color.App.accent)
+                                .fill(selectedState == stateName ? Color.App.accent : Color.secondary)
                             Text(stateName.state)
                                 .applyJPBody(.App.background)
                                 .padding(.horizontal)

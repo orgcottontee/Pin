@@ -33,7 +33,7 @@ struct ProfileScreen: View {
                         Button { selectedAppTheme = .darkTheme } label: { ActionButtonView(buttonText: AppTheme.darkTheme.rawValue) }
                         Button { selectedAppTheme = .system } label: { ActionButtonView(buttonText: AppTheme.system.rawValue) }
                     }
-                    NavigationLink(destination: UserSubmissionScreen()) {
+                    NavigationLink(destination: UserSubmissionScreen().toolbarRole(.editor)) {
                         ActionButtonView(buttonText: ProfileScreenConstant.submissionFormButton)
                     }
                     Spacer()

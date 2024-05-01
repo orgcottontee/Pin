@@ -27,6 +27,7 @@ struct FavoritesScreen: View {
                             ForEach(favorites) { favorite in
                                 NavigationLink {
                                     FavoriteNotesScreen(favoriteBoutique: favorite)
+                                        .toolbarRole(.editor)
                                 } label: {
                                     Text(favorite.name)
                                 }
