@@ -36,10 +36,12 @@ struct BoutiqueMapScreen: View {
             NavigationStack {
                 BoutiqueDetailScreen(viewModel: BoutiqueDetailViewModel(boutiqueLocation: boutiqueManager.selectedLocation!))
                     .toolbar {
-                        Button {
-                            isShowingDetailView = false
-                        } label: {
-                            XDismissButtonView()
+                        ToolbarItem(placement: .topBarLeading) {
+                            Button {
+                                isShowingDetailView = false
+                            } label: {
+                                XDismissButtonView()
+                            }
                         }
                     }
             }

@@ -10,7 +10,7 @@ import SwiftData
 import CloudKit
 
 struct BoutiqueListScreen: View {
-    
+        
     @Environment(BoutiqueManager.self) private var boutiqueManager
     @State private var viewModel = BoutiqueViewModel()
     

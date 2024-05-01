@@ -17,10 +17,12 @@ struct BoutiqueDetailScreen: View {
     var body: some View {
         ZStack {
             Color.App.background.ignoresSafeArea()
+            
             VStack(alignment: .leading) {
-                NameView(name: viewModel.boutiqueLocation.name)
                 BannerImageView(image: viewModel.boutiqueLocation.createBannerImage())
+                
                 Spacer()
+                
                 HStack {
                     FullAddressView(address: viewModel.boutiqueLocation.address,
                                     cityStatePostalCode: "\(viewModel.boutiqueLocation.city), \(viewModel.boutiqueLocation.state), \(viewModel.boutiqueLocation.zipCode)")
@@ -39,6 +41,13 @@ struct BoutiqueDetailScreen: View {
                 SafariView(showSafari: $viewModel.showSafari, title: "Visit \(viewModel.boutiqueLocation.shortURL)", url: viewModel.boutiqueLocation.websiteURL)
             }
             .padding()
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Text(viewModel.boutiqueLocation.name)
+                        .applyJPHeader(.App.accent)
+                }
+            }
+            
         }
     }
     
@@ -58,9 +67,7 @@ struct BoutiqueDetailScreen: View {
     }
 }
 
-#Preview {
-    BoutiqueDetailScreen(viewModel: BoutiqueDetailViewModel(boutiqueLocation: UnitedStatesBoutique(record: MockData.boutiqueLocation)))
-}
+//#Preview { BoutiqueDetailScreen(viewModel: BoutiqueDetailViewModel(boutiqueLocation: UnitedStatesBoutique(record: MockData.boutiqueLocation))) }
 
 fileprivate struct NameView: View {
     

@@ -27,7 +27,7 @@ struct JPHeaderStyle: ViewModifier {
     
     func body(content: Content) -> some View {
         content
-            .font(.custom(BaskervilleFont.italic, size: 30, relativeTo: .largeTitle))
+            .font(.custom(BaskervilleFont.italic, size: 36, relativeTo: .largeTitle))
             .kerning(1.2)
             .foregroundStyle(color)
     }
