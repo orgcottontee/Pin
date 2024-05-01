@@ -9,11 +9,6 @@ import SwiftUI
 
 extension View {
     
-    func playHaptic() {
-        let generator = UINotificationFeedbackGenerator()
-        generator.notificationOccurred(.success)
-    }
-    
     func applyJPTextfield() -> some View {
         modifier(JPTextfieldStyle())
     }

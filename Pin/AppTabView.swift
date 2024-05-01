@@ -37,7 +37,7 @@ struct AppTabView: View {
                 OnboardingView(hasSeenOnboarding: $hasSeenOnboarding)
             }
         } else {
-            NetworkUnavailableScreen()
+            NetworkUnavailableView()
         }
     }
 }

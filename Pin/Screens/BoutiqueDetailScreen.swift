@@ -112,7 +112,7 @@ fileprivate struct FavoriteButtonView: View {
     var body: some View {
         Button {
             action()
-            playHaptic()
+            HapticManager.playSuccess()
         } label: {
             IconButtonView(icon: isFavorite ? DetailScreenConstant.favorited : DetailScreenConstant.heart, color: .App.favorite)
             // TODO: Implement favorite color from asset folder

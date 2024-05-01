@@ -14,6 +14,7 @@
 		DE1057D62BE055CA001EA882 /* CustomPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1057D52BE055CA001EA882 /* CustomPickerView.swift */; };
 		DE1057D82BE12CA4001EA882 /* fabricFlowing.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DE1057D72BE12CA3001EA882 /* fabricFlowing.mp4 */; };
 		DE1057DE2BE133B3001EA882 /* AppSettings+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1057DD2BE133B3001EA882 /* AppSettings+Helper.swift */; };
+		DE1057EC2BE2B3F4001EA882 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1057EB2BE2B3F4001EA882 /* HapticManager.swift */; };
 		DE4007EA2BC239F9002BD9D0 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4007E92BC239F9002BD9D0 /* CloudKitManager.swift */; };
 		DE49DC8E2BC6F61D00202654 /* CKRecord+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE49DC8D2BC6F61D00202654 /* CKRecord+Ext.swift */; };
 		DE49DC902BC6FFC300202654 /* AlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE49DC8F2BC6FFC300202654 /* AlertItem.swift */; };
@@ -44,7 +45,7 @@
 		DEA6AEB92BC8C477002AD595 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA6AEB82BC8C477002AD595 /* OnboardingView.swift */; };
 		DEAF81852BDA1282003CA29D /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEAF81842BDA1282003CA29D /* SplashScreenView.swift */; };
 		DEAF81872BDB5A26003CA29D /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEAF81862BDB5A26003CA29D /* NetworkMonitor.swift */; };
-		DEAF81892BDB5FAD003CA29D /* NetworkUnavailableScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEAF81882BDB5FAD003CA29D /* NetworkUnavailableScreen.swift */; };
+		DEAF81892BDB5FAD003CA29D /* NetworkUnavailableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEAF81882BDB5FAD003CA29D /* NetworkUnavailableView.swift */; };
 		DEB9AC422BBCD1F300013C92 /* PinApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB9AC412BBCD1F300013C92 /* PinApp.swift */; };
 		DEB9AC462BBCD1F400013C92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEB9AC452BBCD1F400013C92 /* Assets.xcassets */; };
 		DEB9AC492BBCD1F400013C92 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEB9AC482BBCD1F400013C92 /* Preview Assets.xcassets */; };
@@ -66,6 +67,7 @@
 		DE1057D52BE055CA001EA882 /* CustomPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPickerView.swift; sourceTree = "<group>"; };
 		DE1057D72BE12CA3001EA882 /* fabricFlowing.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = fabricFlowing.mp4; sourceTree = "<group>"; };
 		DE1057DD2BE133B3001EA882 /* AppSettings+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppSettings+Helper.swift"; sourceTree = "<group>"; };
+		DE1057EB2BE2B3F4001EA882 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		DE4007E92BC239F9002BD9D0 /* CloudKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
 		DE49DC8D2BC6F61D00202654 /* CKRecord+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CKRecord+Ext.swift"; sourceTree = "<group>"; };
 		DE49DC8F2BC6FFC300202654 /* AlertItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertItem.swift; sourceTree = "<group>"; };
@@ -90,14 +92,14 @@
 		DE81C7D52BCD6FAA003F4E58 /* UserSubmissionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSubmissionViewModel.swift; sourceTree = "<group>"; };
 		DE81C7D72BCDB4FD003F4E58 /* BannerImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerImageView.swift; sourceTree = "<group>"; };
 		DE9EC87C2BD2C86C009F8252 /* IconButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButtonView.swift; sourceTree = "<group>"; };
-		DE9EC8842BD6E1D3009F8252 /* FavoritesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FavoritesScreen.swift; path = ../../FavoritesScreen.swift; sourceTree = "<group>"; };
+		DE9EC8842BD6E1D3009F8252 /* FavoritesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesScreen.swift; sourceTree = "<group>"; };
 		DE9EC8862BD6E902009F8252 /* FavoriteNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteNote.swift; sourceTree = "<group>"; };
 		DE9EC8882BD6F47A009F8252 /* FavoriteNotesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteNotesScreen.swift; sourceTree = "<group>"; };
 		DE9EC88A2BD71A5F009F8252 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		DEA6AEB82BC8C477002AD595 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		DEAF81842BDA1282003CA29D /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		DEAF81862BDB5A26003CA29D /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
-		DEAF81882BDB5FAD003CA29D /* NetworkUnavailableScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUnavailableScreen.swift; sourceTree = "<group>"; };
+		DEAF81882BDB5FAD003CA29D /* NetworkUnavailableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUnavailableView.swift; sourceTree = "<group>"; };
 		DEB9AC3E2BBCD1F300013C92 /* JingPin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JingPin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEB9AC412BBCD1F300013C92 /* PinApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinApp.swift; sourceTree = "<group>"; };
 		DEB9AC452BBCD1F400013C92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -122,55 +124,154 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DE1057E12BE2B071001EA882 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				DE9EC8842BD6E1D3009F8252 /* FavoritesScreen.swift */,
+				DE9EC8882BD6F47A009F8252 /* FavoriteNotesScreen.swift */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
+		DE1057E22BE2B08B001EA882 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				DE635B612BBD8FF6005D5C8D /* ProfileScreen.swift */,
+				DE1057E12BE2B071001EA882 /* Favorites */,
+				DE1057E42BE2B0DD001EA882 /* Submission */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		DE1057E32BE2B0A8001EA882 /* BoutiqueMap */ = {
+			isa = PBXGroup;
+			children = (
+				DE635B652BBD9044005D5C8D /* BoutiqueMapScreen.swift */,
+			);
+			path = BoutiqueMap;
+			sourceTree = "<group>";
+		};
+		DE1057E42BE2B0DD001EA882 /* Submission */ = {
+			isa = PBXGroup;
+			children = (
+				DEC9B6922BCA01B40036183F /* UserSubmissionScreen.swift */,
+			);
+			path = Submission;
+			sourceTree = "<group>";
+		};
+		DE1057E52BE2B10E001EA882 /* BoutiqueList */ = {
+			isa = PBXGroup;
+			children = (
+				DE635B632BBD9035005D5C8D /* BoutiqueListScreen.swift */,
+			);
+			path = BoutiqueList;
+			sourceTree = "<group>";
+		};
+		DE1057E72BE2B17D001EA882 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				DEAF81842BDA1282003CA29D /* SplashScreenView.swift */,
+				DEA6AEB82BC8C477002AD595 /* OnboardingView.swift */,
+				DEAF81882BDB5FAD003CA29D /* NetworkUnavailableView.swift */,
+				DE0B4D8F2BCF2A8100E9CE9D /* SafariView.swift */,
+				DE81C7D72BCDB4FD003F4E58 /* BannerImageView.swift */,
+				DE1057D52BE055CA001EA882 /* CustomPickerView.swift */,
+				DEC9B6882BC8C5F70036183F /* LogoView.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		DE1057E82BE2B274001EA882 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				DE9EC8862BD6E902009F8252 /* FavoriteNote.swift */,
+				DE5EB06E2BD0A08B00D8B332 /* FavoriteBoutique.swift */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
+		DE1057E92BE2B283001EA882 /* US Boutique */ = {
+			isa = PBXGroup;
+			children = (
+				DEC275292BC05B77001912FC /* UnitedStatesBoutique.swift */,
+				DEC2752D2BC06408001912FC /* MockData.swift */,
+			);
+			path = "US Boutique";
+			sourceTree = "<group>";
+		};
+		DE1057EA2BE2B34B001EA882 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				DE1057DD2BE133B3001EA882 /* AppSettings+Helper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		DE1057ED2BE2B4B0001EA882 /* UIKit Components */ = {
+			isa = PBXGroup;
+			children = (
+				DE0B4D8D2BCF28EC00E9CE9D /* SafariViewWrapper.swift */,
+			);
+			path = "UIKit Components";
+			sourceTree = "<group>";
+		};
+		DE1057EE2BE2B4C9001EA882 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				DE635B7D2BBE1471005D5C8D /* ActionButtonView.swift */,
+				DE9EC87C2BD2C86C009F8252 /* IconButtonView.swift */,
+				DE1057D32BE0327F001EA882 /* XDismissButtonView.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		DE1057EF2BE2B557001EA882 /* BoutiqueListScreen */ = {
+			isa = PBXGroup;
+			children = (
+				DE635B7B2BBDEDAE005D5C8D /* BoutiqueCellView.swift */,
+			);
+			path = BoutiqueListScreen;
+			sourceTree = "<group>";
+		};
 		DE635B8C2BBE4BB1005D5C8D /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				DEAF81882BDB5FAD003CA29D /* NetworkUnavailableScreen.swift */,
-				DE9EC8842BD6E1D3009F8252 /* FavoritesScreen.swift */,
-				DE9EC8882BD6F47A009F8252 /* FavoriteNotesScreen.swift */,
-				DE635B652BBD9044005D5C8D /* BoutiqueMapScreen.swift */,
-				DE635B632BBD9035005D5C8D /* BoutiqueListScreen.swift */,
-				DE635B612BBD8FF6005D5C8D /* ProfileScreen.swift */,
+				DE1057E52BE2B10E001EA882 /* BoutiqueList */,
+				DE1057E32BE2B0A8001EA882 /* BoutiqueMap */,
+				DE1057E22BE2B08B001EA882 /* Profile */,
 				DE635B772BBDC72D005D5C8D /* BoutiqueDetailScreen.swift */,
-				DEC9B6922BCA01B40036183F /* UserSubmissionScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
 		};
-		DE635B8D2BBE4BDC005D5C8D /* Views+Cells */ = {
+		DE635B8D2BBE4BDC005D5C8D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				DE1057D52BE055CA001EA882 /* CustomPickerView.swift */,
-				DE9EC87C2BD2C86C009F8252 /* IconButtonView.swift */,
-				DE635B7B2BBDEDAE005D5C8D /* BoutiqueCellView.swift */,
-				DE635B7D2BBE1471005D5C8D /* ActionButtonView.swift */,
-				DEA6AEB82BC8C477002AD595 /* OnboardingView.swift */,
-				DEC9B6882BC8C5F70036183F /* LogoView.swift */,
-				DE81C7D72BCDB4FD003F4E58 /* BannerImageView.swift */,
-				DE0B4D8F2BCF2A8100E9CE9D /* SafariView.swift */,
-				DEAF81842BDA1282003CA29D /* SplashScreenView.swift */,
+				DEC9B6962BCA02B30036183F /* CustomViewModifiers.swift */,
+				DE1057EF2BE2B557001EA882 /* BoutiqueListScreen */,
+				DE1057EE2BE2B4C9001EA882 /* Buttons */,
+				DE1057ED2BE2B4B0001EA882 /* UIKit Components */,
+				DE1057E72BE2B17D001EA882 /* CustomViews */,
 			);
-			path = "Views+Cells";
+			path = Views;
 			sourceTree = "<group>";
 		};
-		DE635B8E2BBE4C11005D5C8D /* Helpers+Utilities */ = {
+		DE635B8E2BBE4C11005D5C8D /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				DE635B692BBD90D1005D5C8D /* Constants.swift */,
+				DE49DC8F2BC6FFC300202654 /* AlertItem.swift */,
+				DE1057EA2BE2B34B001EA882 /* Helpers */,
 				DE7666692BC70C77009C2A3D /* Managers */,
 				DE635B902BBE4C46005D5C8D /* Extensions */,
-				DE0B4D8D2BCF28EC00E9CE9D /* SafariViewWrapper.swift */,
-				DE635B692BBD90D1005D5C8D /* Constants.swift */,
-				DE635B752BBDC51D005D5C8D /* AppFonts.swift */,
-				DE49DC8F2BC6FFC300202654 /* AlertItem.swift */,
-				DEC9B6962BCA02B30036183F /* CustomViewModifiers.swift */,
-				DE1057DD2BE133B3001EA882 /* AppSettings+Helper.swift */,
 			);
-			path = "Helpers+Utilities";
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		DE635B8F2BBE4C32005D5C8D /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				DE635B752BBDC51D005D5C8D /* AppFonts.swift */,
 				DE1057D72BE12CA3001EA882 /* fabricFlowing.mp4 */,
 				DEB9AC452BBCD1F400013C92 /* Assets.xcassets */,
 				DE635B732BBDC501005D5C8D /* Baskerville.ttc */,
@@ -197,6 +298,7 @@
 				DEAF81862BDB5A26003CA29D /* NetworkMonitor.swift */,
 				DE4007E92BC239F9002BD9D0 /* CloudKitManager.swift */,
 				DE76666A2BC70C88009C2A3D /* BoutiqueManager.swift */,
+				DE1057EB2BE2B3F4001EA882 /* HapticManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -226,10 +328,10 @@
 				DE635B5F2BBD8F7D005D5C8D /* AppTabView.swift */,
 				DE635B5E2BBCD3F0005D5C8D /* Pin.entitlements */,
 				DE635B8C2BBE4BB1005D5C8D /* Screens */,
-				DE635B8D2BBE4BDC005D5C8D /* Views+Cells */,
+				DE635B8D2BBE4BDC005D5C8D /* Views */,
 				DEC9B6982BCA09D50036183F /* ViewModel */,
 				DEC275282BC05B66001912FC /* Model */,
-				DE635B8E2BBE4C11005D5C8D /* Helpers+Utilities */,
+				DE635B8E2BBE4C11005D5C8D /* Utilities */,
 				DE635B8F2BBE4C32005D5C8D /* Assets */,
 				DEB9AC472BBCD1F400013C92 /* Preview Content */,
 			);
@@ -247,10 +349,8 @@
 		DEC275282BC05B66001912FC /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DE9EC8862BD6E902009F8252 /* FavoriteNote.swift */,
-				DE5EB06E2BD0A08B00D8B332 /* FavoriteBoutique.swift */,
-				DEC275292BC05B77001912FC /* UnitedStatesBoutique.swift */,
-				DEC2752D2BC06408001912FC /* MockData.swift */,
+				DE1057E92BE2B283001EA882 /* US Boutique */,
+				DE1057E82BE2B274001EA882 /* Favorites */,
 				DEC9B6902BC9F0C20036183F /* UserBoutiqueSubmission.swift */,
 			);
 			path = Model;
@@ -260,9 +360,8 @@
 			isa = PBXGroup;
 			children = (
 				DE7666672BC7022D009C2A3D /* BoutiqueViewModel.swift */,
-				DE81C7D52BCD6FAA003F4E58 /* UserSubmissionViewModel.swift */,
 				DE0B4D912BCF2F0200E9CE9D /* BoutiqueDetailViewModel.swift */,
-				DE1057D32BE0327F001EA882 /* XDismissButtonView.swift */,
+				DE81C7D52BCD6FAA003F4E58 /* UserSubmissionViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -344,6 +443,7 @@
 				DE9EC8892BD6F47A009F8252 /* FavoriteNotesScreen.swift in Sources */,
 				DEC9B6952BCA02500036183F /* View+Ext.swift in Sources */,
 				DEC9B6932BCA01B40036183F /* UserSubmissionScreen.swift in Sources */,
+				DE1057EC2BE2B3F4001EA882 /* HapticManager.swift in Sources */,
 				DEC9B6972BCA02B30036183F /* CustomViewModifiers.swift in Sources */,
 				DE635B662BBD9044005D5C8D /* BoutiqueMapScreen.swift in Sources */,
 				DE81C7D62BCD6FAA003F4E58 /* UserSubmissionViewModel.swift in Sources */,
@@ -362,7 +462,7 @@
 				DE4007EA2BC239F9002BD9D0 /* CloudKitManager.swift in Sources */,
 				DE9EC87D2BD2C86C009F8252 /* IconButtonView.swift in Sources */,
 				DEB9AC422BBCD1F300013C92 /* PinApp.swift in Sources */,
-				DEAF81892BDB5FAD003CA29D /* NetworkUnavailableScreen.swift in Sources */,
+				DEAF81892BDB5FAD003CA29D /* NetworkUnavailableView.swift in Sources */,
 				DE76666D2BC72714009C2A3D /* CKAsset+Ext.swift in Sources */,
 				DEC9B6912BC9F0C20036183F /* UserBoutiqueSubmission.swift in Sources */,
 				DE635B6A2BBD90D1005D5C8D /* Constants.swift in Sources */,

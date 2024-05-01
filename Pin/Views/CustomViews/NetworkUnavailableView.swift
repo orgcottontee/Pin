@@ -1,5 +1,5 @@
 //
-//  NetworkUnavailableScreen.swift
+//  NetworkUnavailableView.swift
 //  JingPin
 //
 //  Created by adobada on 4/26/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct NetworkUnavailableScreen: View {
+struct NetworkUnavailableView: View {
     var body: some View {
         ZStack {
             Color(.App.background).ignoresSafeArea()
@@ -19,5 +19,5 @@ struct NetworkUnavailableScreen: View {
 }
 
 #Preview {
-    NetworkUnavailableScreen()
+    NetworkUnavailableView()
 }
