@@ -25,7 +25,7 @@ struct JPHeaderStyle: ViewModifier {
     
     func body(content: Content) -> some View {
         content
-            .font(.custom(BaskervilleFont.italic, size: 34, relativeTo: .largeTitle))
+            .font(.custom(BaskervilleFont.italic, size: 38, relativeTo: .title))
             .kerning(1.2)
             .foregroundStyle(color)
     }
@@ -38,7 +38,7 @@ struct JPSubheaderStyle: ViewModifier {
 
     func body(content: Content) -> some View {
         content
-            .font(.custom(BaskervilleFont.italic, size: 30, relativeTo: .subheadline))
+            .font(.custom(BaskervilleFont.italic, size: 30, relativeTo: .title2))
             .kerning(1.2)
             .foregroundStyle(color)
     }

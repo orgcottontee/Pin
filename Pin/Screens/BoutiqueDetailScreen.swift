@@ -74,7 +74,7 @@ fileprivate struct NameView: View {
         HStack {
             Spacer()
             Text(name)
-                .applyJPHeader(.App.accent)
+                .applyJPSubheader(.App.accent)
                 .lineLimit(1)
                 .minimumScaleFactor(0.50)
         }

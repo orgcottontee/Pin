@@ -18,6 +18,7 @@ enum OnboardingTextConstant {
     static let firstText = "Discover unique boutiques and concept stores anytime, anywhere."
     static let secondText = "This initial release will feature locations in the United States."
     static let thirdText = "Save your favorite boutiques and share your favorite locations for us to add to the list."
+    static let buttonText = "Discover now"
 }
 
 // MARK: Network unavailable screen

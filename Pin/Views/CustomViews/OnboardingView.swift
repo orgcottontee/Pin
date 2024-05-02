@@ -16,21 +16,21 @@ struct OnboardingView: View {
             Color.App.background.ignoresSafeArea()
             VStack {
                 Spacer()
-                ZStack {
-                    LogoView(image: .AppLogo.logo,
-                             frameWidth: 150)
-                }
+                
+                LogoView(image: .AppLogo.logo, frameWidth: 150)
+                
                 Spacer()
-                VStack(alignment: .leading) {
-                    InfoView(title: OnboardingTextConstant.titleOne, description: OnboardingTextConstant.firstText)
-                    InfoView(title: OnboardingTextConstant.titleTwo, description: OnboardingTextConstant.secondText)
-                    InfoView(title: OnboardingTextConstant.titleThree, description: OnboardingTextConstant.thirdText)
-                }
+                
+                InfoView(title: OnboardingTextConstant.titleOne, description: OnboardingTextConstant.firstText)
+                InfoView(title: OnboardingTextConstant.titleTwo, description: OnboardingTextConstant.secondText)
+                InfoView(title: OnboardingTextConstant.titleThree, description: OnboardingTextConstant.thirdText)
+               
                 Spacer()
+                
                 Button {
                     hasSeenOnboarding = true
                 } label: {
-                    ActionButtonView(buttonText: "Let's go!")
+                    ActionButtonView(buttonText: OnboardingTextConstant.buttonText)
                 }
             }
             .padding()
@@ -49,8 +49,10 @@ fileprivate struct InfoView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text(title).applyJPSubheader(.App.accent)
-            Text(description).applyJPBody(.App.accent)
+            Text(title)
+                .applyJPSubheader(.App.accent)
+            Text(description)
+                .applyJPBody(.App.accent)
         }
         .padding()
     }
