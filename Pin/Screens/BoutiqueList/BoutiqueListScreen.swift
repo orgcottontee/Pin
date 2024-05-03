@@ -12,7 +12,6 @@ struct BoutiqueListScreen: View {
     @Environment(NetworkMonitor.self) private var networkMonitor
     @Environment(BoutiqueManager.self) private var boutiqueManager
     @State private var viewModel = BoutiqueViewModel()
-    @State private var isShowingAlert: Bool = false
     
     private var filterResults: [UnitedStatesBoutique] {
         viewModel.selectedState == .allStates ? searchResults : boutiqueManager.locations.filter { $0.state == viewModel.selectedState.rawValue }
@@ -36,8 +35,15 @@ struct BoutiqueListScreen: View {
                 }
             } else {
                 ProgressView()
-                    .alert(item: $viewModel.alertItem) { alertItem in
-                        Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
+                    .alert(isPresented: $viewModel.hasError,
+                           error: viewModel.jingPinError) { error in
+                        Button {
+                            if boutiqueManager.locations.isEmpty { viewModel.getUSBoutiques(for: boutiqueManager) }
+                        } label: {
+                            Text("Retry")
+                        }
+                    } message: { errorMessage in
+                        Text(errorMessage.failureReason)
                     }
             }
         }
