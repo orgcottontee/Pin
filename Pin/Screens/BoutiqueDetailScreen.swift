@@ -54,9 +54,10 @@ struct BoutiqueDetailScreen: View {
         if let existingFavoriteIndex = favoriteBoutiques.firstIndex(where: { $0.boutiqueID == boutiqueID }) {
             let existingFavorite = favoriteBoutiques[existingFavoriteIndex]
             modelContext.delete(existingFavorite)
-            print("Already favorited. Removed from favorites.")
+            print("Already favorited - Removed from favorites.")
         } else {
-            let favorite = FavoriteBoutique(boutiqueID: boutiqueID, favoritedAt: .now, name: viewModel.boutiqueLocation.name)
+            let favorite = FavoriteBoutique(boutiqueID: boutiqueID, name: viewModel.boutiqueLocation.name, city: viewModel.boutiqueLocation.city, state: viewModel.boutiqueLocation.state, savedDated: .now)
+                                            
             modelContext.insert(favorite)
             print("Successfully added to favorites.")
         }

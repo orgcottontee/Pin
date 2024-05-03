@@ -12,14 +12,18 @@ import SwiftData
 final class FavoriteBoutique {
     
     let boutiqueID: String = "" // ID of boutique record from public database
-    let savedDate: Date = Date.now
     let name: String = ""
+    let city: String = ""
+    let state: String = ""
+    let savedDate: Date = Date.now
     
     @Relationship(deleteRule: .cascade) var favoriteNotes: [FavoriteNote]?
     
-    init(boutiqueID: String, favoritedAt: Date, name: String) {
+    init(boutiqueID: String, name: String, city: String, state: String, savedDated: Date) {
         self.boutiqueID = boutiqueID
-        self.savedDate = favoritedAt
         self.name = name
+        self.city = city
+        self.state = state
+        self.savedDate = savedDated
     }
 }

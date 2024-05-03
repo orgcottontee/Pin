@@ -72,7 +72,7 @@
 		DE4007E92BC239F9002BD9D0 /* CloudKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
 		DE49DC8D2BC6F61D00202654 /* CKRecord+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CKRecord+Ext.swift"; sourceTree = "<group>"; };
 		DE49DC8F2BC6FFC300202654 /* AlertItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertItem.swift; sourceTree = "<group>"; };
-		DE55B9F52BE48DBA006F364C /* JingPinError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JingPinError.swift; path = Pin/Utilities/JingPinError.swift; sourceTree = "<group>"; };
+		DE55B9F52BE48DBA006F364C /* JingPinError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JingPinError.swift; sourceTree = "<group>"; };
 		DE5EB06E2BD0A08B00D8B332 /* FavoriteBoutique.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteBoutique.swift; sourceTree = "<group>"; };
 		DE635B5E2BBCD3F0005D5C8D /* Pin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Pin.entitlements; sourceTree = "<group>"; };
 		DE635B5F2BBD8F7D005D5C8D /* AppTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabView.swift; sourceTree = "<group>"; };
@@ -261,6 +261,7 @@
 		DE635B8E2BBE4C11005D5C8D /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				DE55B9F52BE48DBA006F364C /* JingPinError.swift */,
 				DE635B692BBD90D1005D5C8D /* Constants.swift */,
 				DE49DC8F2BC6FFC300202654 /* AlertItem.swift */,
 				DE1057EA2BE2B34B001EA882 /* Helpers */,
@@ -308,7 +309,6 @@
 		DEB9AC352BBCD1F300013C92 = {
 			isa = PBXGroup;
 			children = (
-				DE55B9F52BE48DBA006F364C /* JingPinError.swift */,
 				DEB9AC402BBCD1F300013C92 /* Pin */,
 				DE0B4D8C2BCEBB0000E9CE9D /* JingPin-Info.plist */,
 				DE81C7C62BCB542D003F4E58 /* PrivacyInfo.xcprivacy */,

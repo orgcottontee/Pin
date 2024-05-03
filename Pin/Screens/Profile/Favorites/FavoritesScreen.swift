@@ -11,17 +11,16 @@ import SwiftData
 struct FavoritesScreen: View {
     
     @Environment(\.modelContext) private var modelContext
-//    @Query private var favoriteBoutiques: [FavoriteBoutique] = []
     @Query(sort: \FavoriteBoutique.savedDate, order: .reverse) var favorites: [FavoriteBoutique]
 
-    
     var body: some View {
         NavigationStack {
             ZStack {
                 Color.App.background.ignoresSafeArea()
-                VStack {
+                VStack(alignment: .leading) {
                     Text(FavoritesScreenConstant.header)
                         .applyJPHeader(.App.accent)
+                        .padding(.top)
                
                         List {
                             ForEach(favorites) { favorite in
@@ -29,7 +28,12 @@ struct FavoritesScreen: View {
                                     FavoriteNotesScreen(favoriteBoutique: favorite)
                                         .toolbarRole(.editor)
                                 } label: {
-                                    Text(favorite.name)
+                                    VStack(alignment: .leading) {
+                                        Text(favorite.name)
+                                            .applyJPSubheader(.App.accent)
+                                        Text("\(favorite.city), \(favorite.state)")
+                                            .applyJPBody(.App.accent)
+                                    }
                                 }
                             }
                             .onDelete(perform: deleteFavProducts)
