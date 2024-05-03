@@ -42,8 +42,8 @@ enum USState: String, CaseIterable, Identifiable {
   case allStates
   case california = "California"
   case colorado = "Colorado"
-  case illinois = " Illinois"
-  case michigan = " Michigan"
+  case illinois = "Illinois"
+  case michigan = "Michigan"
   case minnesota = "Minnesota"
   case newYork = "New York"
   case oregon = "Oregon"
