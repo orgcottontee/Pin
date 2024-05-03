@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct BoutiqueListScreen: View {
-        
+    
     @Environment(NetworkMonitor.self) private var networkMonitor
     @Environment(BoutiqueManager.self) private var boutiqueManager
     @State private var viewModel = BoutiqueViewModel()
+    @State private var isShowingAlert: Bool = false
     
     private var filterResults: [UnitedStatesBoutique] {
         viewModel.selectedState == .allStates ? searchResults : boutiqueManager.locations.filter { $0.state == viewModel.selectedState.rawValue }
@@ -22,36 +23,23 @@ struct BoutiqueListScreen: View {
     }
     
     var body: some View {
-        if networkMonitor.isConnected {
+        if !networkMonitor.isConnected {
+            NetworkUnavailableView()
+        } else {
             if !viewModel.isLoading {
-                NavigationStack {
-                    ZStack {
-                        Color(.App.background).ignoresSafeArea()
-                        VStack(alignment: .leading) {
-                            SearchFilterTitleView(isSearchTextfieldVisible: $viewModel.isSearchTextfieldVisible,
-                                             selectedState: $viewModel.selectedState,
-                                             searchText: $viewModel.searchText)
-                            HeaderView(headerText: ListScreenConstant.header)
-                            ListView(filterResults: filterResults)
-                                .navigationDestination(for: UnitedStatesBoutique.self) { boutique in
-                                    BoutiqueDetailScreen(viewModel: BoutiqueDetailViewModel(boutiqueLocation: boutique))
-                                        .toolbarRole(.editor)
-                                }
-                        }
-                    }
-                    .onAppear {
-                        if boutiqueManager.locations.isEmpty { viewModel.getUSBoutiques(for: boutiqueManager) }
-                    }
+                BoutiqueDisplayView(isSearchTextfieldVisible: $viewModel.isSearchTextfieldVisible,
+                                    selectedState: $viewModel.selectedState,
+                                    searchText: $viewModel.searchText,
+                                    filterResults: filterResults)
+                .onAppear {
+                    if boutiqueManager.locations.isEmpty { viewModel.getUSBoutiques(for: boutiqueManager) }
                 }
-                .tint(.App.accent)
             } else {
                 ProgressView()
                     .alert(item: $viewModel.alertItem) { alertItem in
                         Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
                     }
             }
-        } else {
-            NetworkUnavailableView()
         }
     }
 }
@@ -59,16 +47,33 @@ struct BoutiqueListScreen: View {
 #Preview {
     BoutiqueListScreen()
         .environment(BoutiqueManager())
+        .environment(NetworkMonitor())
 }
-
-fileprivate struct HeaderView: View {
     
-    let headerText: String
+fileprivate struct BoutiqueDisplayView: View {
+    
+    @Binding var isSearchTextfieldVisible: Bool
+    @Binding var selectedState: USState
+    @Binding var searchText: String
+    var filterResults: [UnitedStatesBoutique]
     
     var body: some View {
-        Text(headerText)
-            .applyJPHeader(.App.accent)
-            .padding(.leading)
+        NavigationStack {
+            ZStack {
+                Color(.App.background).ignoresSafeArea()
+                VStack {
+                    SearchFilterTitleView(isSearchTextfieldVisible: $isSearchTextfieldVisible,
+                                          selectedState: $selectedState,
+                                          searchText: $searchText)
+                    CardStackView(filterResults: filterResults)
+                        .navigationDestination(for: UnitedStatesBoutique.self) { boutique in
+                            BoutiqueDetailScreen(viewModel: BoutiqueDetailViewModel(boutiqueLocation: boutique))
+                                .toolbarRole(.editor)
+                        }
+                }
+            }
+        }
+        .tint(.App.accent)
     }
 }
 
@@ -92,7 +97,7 @@ fileprivate struct SearchFilterTitleView: View {
                         .labelStyle(.iconOnly)
                         .applyJPSubheader(.App.accent)
                 }
-                .padding(.horizontal)
+                .padding()
             }
             if isSearchTextfieldVisible {
                 TextField(ListScreenConstant.textfieldPlaceholder, text: $searchText)
@@ -106,13 +111,13 @@ fileprivate struct SearchFilterTitleView: View {
     }
 }
 
-fileprivate struct ListView: View {
+fileprivate struct CardStackView: View {
     
     var filterResults: [UnitedStatesBoutique]
     
     var body: some View {
-        ScrollView {
-            LazyVStack {
+        ScrollView(.horizontal) {
+            LazyHStack(spacing: -60) {
                 ForEach(filterResults) { boutique in
                     NavigationLink(value: boutique) {
                         BoutiqueCellView(boutiqueLocation: boutique)
@@ -124,9 +129,18 @@ fileprivate struct ListView: View {
                             }
                     }
                 }
-                .padding(.top)
             }
+            .padding(.leading)
         }
         .scrollIndicators(.hidden)
+    }
+}
+
+fileprivate struct FooterCountryView: View {
+    var body: some View {
+        
+        Text("Location: United States")
+            .applyJPFootnote()
+        
     }
 }

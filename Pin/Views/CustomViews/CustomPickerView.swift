@@ -16,7 +16,7 @@ struct CustomPickerView: View {
     var body: some View {
         
         ScrollView(.horizontal) {
-            LazyHGrid(rows: rows) {
+            LazyHGrid(rows: rows, spacing: 14) {
                 ForEach(states) { stateName in
                     Button {
                         withAnimation {
@@ -24,8 +24,9 @@ struct CustomPickerView: View {
                         }
                     } label: {
                         ZStack {
-                            Capsule()
+                            RoundedRectangle(cornerRadius: 10)
                                 .fill(selectedState == stateName ? Color.App.accent : Color.secondary)
+                                .frame(height: 38)
                             Text(stateName.state)
                                 .applyJPBody(.App.background)
                                 .padding(.horizontal)
@@ -33,7 +34,7 @@ struct CustomPickerView: View {
                     }
                 }
             }
-            .frame(height: 60)
+            .frame(height: 44)
         }
         .scrollIndicators(.hidden)
         

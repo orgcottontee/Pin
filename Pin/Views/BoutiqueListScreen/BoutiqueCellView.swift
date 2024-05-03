@@ -13,20 +13,46 @@ struct BoutiqueCellView: View {
     
     var body: some View {
         
-        VStack {
-            ZStack(alignment: .topTrailing) {
-                LogoView(image: boutiqueLocation.createSquareLogo(),
-                         frameWidth: 250)
-                .clipShape(RoundedRectangle(cornerRadius: 4))
-            }
+        VStack(alignment: .leading) {
+            BrandNameView(name: boutiqueLocation.name)
+            BrandLogoView(image: boutiqueLocation.createSquareLogo())
             CityStateView(city: boutiqueLocation.city, state: boutiqueLocation.state)
+            FooterCategoryView(categories: boutiqueLocation.categories)
         }
-        .padding(.bottom, 30)
+        .padding()
     }
 }
 
 #Preview {
     BoutiqueCellView(boutiqueLocation: UnitedStatesBoutique(record: MockData.boutiqueLocation))
+}
+
+fileprivate struct BrandNameView: View {
+    
+    var name: String
+    
+    var body: some View {
+        HStack {
+            Text(name)
+                .applyJPHeader(.App.accent)
+                .lineLimit(1)
+                .minimumScaleFactor(0.50)
+            Spacer()
+        }
+        .frame(width: 300, height: 50)
+    }
+}
+
+fileprivate struct BrandLogoView: View {
+    
+    var image: UIImage
+    
+    var body: some View {
+        LogoView(image: image, frameWidth: 300)
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .shadow(color: .gray, radius: 4, x: 2, y: 2)
+            .padding(.bottom)
+    }
 }
 
 fileprivate struct CityStateView: View {
@@ -35,24 +61,28 @@ fileprivate struct CityStateView: View {
     var state: String
     
     var body: some View {
-        ZStack {
-            Capsule()
-                .fill(Color.App.background)
-                .frame(width: 180, height: 60)
-                .shadow(color: .gray.opacity(0.5), radius: 6, x: 0, y: 6)
+        Text("\(city), \(state)")
+            .applyJPBody(.App.accent)
+            .padding(.bottom)
+    }
+}
+
+fileprivate struct FooterCategoryView: View {
+    
+    var categories: [String]
+    
+    var body: some View {
+        ScrollView(.horizontal) {
             VStack(alignment: .leading) {
-                Text("\(city),")
-                    .applyJPBody(.App.accent)
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.75)
-                    .truncationMode(.tail)
-                Text("\(state)")
-                    .applyJPBody(.App.accent)
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.75)
-                    .truncationMode(.tail)
+                ForEach(categories, id: \.self) { category in
+                    HStack {
+                        Image(systemName: "square.fill").font(.system(size: 4))
+                        Text(category)
+                    }
+                }
             }
+            .applyJPFootnote()
         }
-        .offset(x: 0, y: -30)
+        .scrollIndicators(.hidden)
     }
 }
