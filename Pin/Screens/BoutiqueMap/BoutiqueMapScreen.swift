@@ -12,7 +12,7 @@ struct BoutiqueMapScreen: View {
     
     @Environment(NetworkMonitor.self) private var networkMonitor
     @Environment(BoutiqueManager.self) private var boutiqueManager
-    @State var isShowingDetailView: Bool = false
+    @State private var isShowingDetailView: Bool = false
     
     var body: some View {
         if networkMonitor.isConnected {

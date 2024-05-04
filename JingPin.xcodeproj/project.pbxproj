@@ -17,7 +17,6 @@
 		DE1057EC2BE2B3F4001EA882 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1057EB2BE2B3F4001EA882 /* HapticManager.swift */; };
 		DE4007EA2BC239F9002BD9D0 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4007E92BC239F9002BD9D0 /* CloudKitManager.swift */; };
 		DE49DC8E2BC6F61D00202654 /* CKRecord+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE49DC8D2BC6F61D00202654 /* CKRecord+Ext.swift */; };
-		DE49DC902BC6FFC300202654 /* AlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE49DC8F2BC6FFC300202654 /* AlertItem.swift */; };
 		DE55B9F62BE48DBA006F364C /* JingPinError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE55B9F52BE48DBA006F364C /* JingPinError.swift */; };
 		DE5EB06F2BD0A08B00D8B332 /* FavoriteBoutique.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5EB06E2BD0A08B00D8B332 /* FavoriteBoutique.swift */; };
 		DE635B602BBD8F7D005D5C8D /* AppTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE635B5F2BBD8F7D005D5C8D /* AppTabView.swift */; };
@@ -71,7 +70,6 @@
 		DE1057EB2BE2B3F4001EA882 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		DE4007E92BC239F9002BD9D0 /* CloudKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
 		DE49DC8D2BC6F61D00202654 /* CKRecord+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CKRecord+Ext.swift"; sourceTree = "<group>"; };
-		DE49DC8F2BC6FFC300202654 /* AlertItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertItem.swift; sourceTree = "<group>"; };
 		DE55B9F52BE48DBA006F364C /* JingPinError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JingPinError.swift; sourceTree = "<group>"; };
 		DE5EB06E2BD0A08B00D8B332 /* FavoriteBoutique.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteBoutique.swift; sourceTree = "<group>"; };
 		DE635B5E2BBCD3F0005D5C8D /* Pin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Pin.entitlements; sourceTree = "<group>"; };
@@ -263,7 +261,6 @@
 			children = (
 				DE55B9F52BE48DBA006F364C /* JingPinError.swift */,
 				DE635B692BBD90D1005D5C8D /* Constants.swift */,
-				DE49DC8F2BC6FFC300202654 /* AlertItem.swift */,
 				DE1057EA2BE2B34B001EA882 /* Helpers */,
 				DE7666692BC70C77009C2A3D /* Managers */,
 				DE635B902BBE4C46005D5C8D /* Extensions */,
@@ -460,7 +457,6 @@
 				DE76666B2BC70C88009C2A3D /* BoutiqueManager.swift in Sources */,
 				DE5EB06F2BD0A08B00D8B332 /* FavoriteBoutique.swift in Sources */,
 				DE635B762BBDC51D005D5C8D /* AppFonts.swift in Sources */,
-				DE49DC902BC6FFC300202654 /* AlertItem.swift in Sources */,
 				DEAF81852BDA1282003CA29D /* SplashScreenView.swift in Sources */,
 				DEC9B6892BC8C5F70036183F /* LogoView.swift in Sources */,
 				DE4007EA2BC239F9002BD9D0 /* CloudKitManager.swift in Sources */,

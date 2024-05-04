@@ -63,8 +63,17 @@ struct UserSubmissionScreen: View {
             .padding()
         }
         .onTapGesture { focusedTextField = nil }
-        .alert(item: $viewModel.alertItem) { alertItem in
-            Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
+        .alert(isPresented: $viewModel.hasError, error: viewModel.jingPinError) { error in
+            Button("Try again") {
+                viewModel.hasError = false
+            }
+        } message: { error in
+            Text(error.failureReason)
+        }
+        .alert("Thanks for your submission!", isPresented: $viewModel.hasAlert) {
+            Button("Submit more") {
+                viewModel.hasAlert = false
+            }
         }
     }
 }

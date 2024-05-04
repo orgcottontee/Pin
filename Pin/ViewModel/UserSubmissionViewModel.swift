@@ -16,8 +16,10 @@ final class UserSubmissionViewModel {
     var boutiqueName: String = ""
     var country: String = ""
     var website: String = ""
-    var alertItem: AlertItem?
+    var hasAlert: Bool = false
     var isLoading: Bool = false
+    var hasError: Bool = false
+    var jingPinError: JingPinError?
     private let container: CKDatabase = CKContainer.default().publicCloudDatabase
     
     // MARK: - Actions
@@ -32,7 +34,8 @@ final class UserSubmissionViewModel {
     @MainActor
     func submitSubmission() {
         guard isCompletedForm() else {
-            alertItem = AlertContext.incompleteForm
+            hasError = true
+            jingPinError = .incompleteForm
             return
         }
         
@@ -41,15 +44,16 @@ final class UserSubmissionViewModel {
                 let submission = UserBoutiqueSubmission(name: boutiqueName, country: country, website: website)
                 try await container.save(submission.record)
                 showLoadingView()
-                alertItem = AlertContext.submissionSuccess
+                hasAlert = true
                 hideLoadingView()
+                boutiqueName = ""
+                country = ""
+                website = ""
             } catch {
-                hideLoadingView()
-                alertItem = AlertContext.submissionFail
+                hasError = true
+                jingPinError = .submissionFailed
+                print(error.localizedDescription)
             }
-            boutiqueName = ""
-            country = ""
-            website = ""
         }
     }
     
