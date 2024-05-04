@@ -16,9 +16,11 @@ final class UserSubmissionViewModel {
     var boutiqueName: String = ""
     var country: String = ""
     var website: String = ""
+    
     var hasAlert: Bool = false
-    var isLoading: Bool = false
     var hasError: Bool = false
+    var isLoading: Bool = false
+    
     var jingPinError: JingPinError?
     private let container: CKDatabase = CKContainer.default().publicCloudDatabase
     

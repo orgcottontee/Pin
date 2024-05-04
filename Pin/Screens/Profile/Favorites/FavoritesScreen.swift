@@ -12,33 +12,33 @@ struct FavoritesScreen: View {
     
     @Environment(\.modelContext) private var modelContext
     @Query(sort: \FavoriteBoutique.savedDate, order: .reverse) var favorites: [FavoriteBoutique]
-
+    
     var body: some View {
         NavigationStack {
             ZStack {
                 Color.App.background.ignoresSafeArea()
-                VStack(alignment: .leading) {
-                    Text(FavoritesScreenConstant.header)
-                        .applyJPHeader(.App.accent)
+                VStack {
+                    Text("Your boutiques")
+                        .applyJPBody(.App.accent)
                         .padding(.top)
-               
-                        List {
-                            ForEach(favorites) { favorite in
-                                NavigationLink {
-                                    FavoriteNotesScreen(favoriteBoutique: favorite)
-                                        .toolbarRole(.editor)
-                                } label: {
-                                    VStack(alignment: .leading) {
-                                        Text(favorite.name)
-                                            .applyJPSubheader(.App.accent)
-                                        Text("\(favorite.city), \(favorite.state)")
-                                            .applyJPBody(.App.accent)
-                                    }
+                    List {
+                        ForEach(favorites) { favorite in
+                            NavigationLink {
+                                FavoriteNotesScreen(favoriteBoutique: favorite)
+                                    .toolbarRole(.editor)
+                            } label: {
+                                VStack(alignment: .leading) {
+                                    Text(favorite.name)
+                                        .applyJPSubheader(.App.accent)
+                                    Text("\(favorite.city), \(favorite.state)")
+                                        .applyJPBody(.App.accent)
                                 }
                             }
-                            .onDelete(perform: deleteFavProducts)
                         }
-                        .scrollContentBackground(.hidden)
+                        .onDelete(perform: deleteFavProducts)
+                    }
+                    .scrollIndicators(.hidden)
+                    .scrollContentBackground(.hidden)
                     
                 }
                 .padding()

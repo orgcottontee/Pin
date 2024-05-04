@@ -12,6 +12,7 @@ struct FavoriteNotesScreen: View {
     
     let favoriteBoutique: FavoriteBoutique
     @State private var note: String = ""
+    @State private var showSafari: Bool = false
     @Query private var notes: [FavoriteNote]
     @Environment(\.modelContext) private var modelContext
 
@@ -19,33 +20,48 @@ struct FavoriteNotesScreen: View {
         ZStack {
             Color.App.background.ignoresSafeArea()
             VStack {
-                TextField("Add notes for \(favoriteBoutique.name)", text: $note)
+                TextField("Add notes", text: $note)
                     .applyJPTextfield()
                     .onSubmit {
                         let addedNote = FavoriteNote(note: note)
                         addedNote.favoriteBoutique = favoriteBoutique
                         note = ""
                     }
-                
                 List {
                     ForEach(favoriteBoutique.favoriteNotes ?? []) { note in
                         Text(note.note)
                     }
                     .onDelete(perform: deleteNote)
                 }
+                .padding(.bottom)
+                .scrollIndicators(.hidden)
                 .scrollContentBackground(.hidden)
                 
-                let convertedDate = favoriteBoutique.savedDate.convertToWeekdayDayMonth()
-                Text("Saved on \(convertedDate)")
+                
+                
+                OpenSafariView(showSafari: $showSafari, title: "Visit \(favoriteBoutique.shortURL)", url: favoriteBoutique.website)
+                    .padding(.bottom)
+                Text("Saved to favorites on \(convertDate())")
                     .applyJPFootnote()
             }
             .padding()
         }
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                Text(favoriteBoutique.name)
+                    .applyJPBody(.App.accent)
+            }
+        }
     }
+    
     private func deleteNote(_ indexSet: IndexSet) {
         for index in indexSet {
             let note = notes[index]
             modelContext.delete(note)
         }
+    }
+    
+    private func convertDate() -> String {
+        favoriteBoutique.savedDate.convertToWeekdayDayMonth()
     }
 }

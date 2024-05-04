@@ -16,14 +16,18 @@ final class FavoriteBoutique {
     let city: String = ""
     let state: String = ""
     let savedDate: Date = Date.now
+    let website: String = ""
+    let shortURL: String = ""
     
     @Relationship(deleteRule: .cascade) var favoriteNotes: [FavoriteNote]?
     
-    init(boutiqueID: String, name: String, city: String, state: String, savedDated: Date) {
+    init(boutiqueID: String, name: String, city: String, state: String, savedDated: Date, website: String, shortURL: String) {
         self.boutiqueID = boutiqueID
         self.name = name
         self.city = city
         self.state = state
         self.savedDate = savedDated
+        self.website = website
+        self.shortURL = shortURL
     }
 }
