@@ -9,15 +9,15 @@ import SwiftUI
 
 struct AppTabView: View {
     
-    @AppStorage("hasSeenOnboarding") var hasSeenOnboarding: Bool = false
+    @StateObject private var viewModel = AppTabViewModel()
     @State private var selectedTab: Tab = .boutiqueList
-    
+    @State var isAccountStatusAlertShowing: Bool = false
+
+
     enum Tab { case boutiqueList, boutiqueMap, favoriteScreen, profile }
-    
+
     var body: some View {
-        
-        if hasSeenOnboarding {
-            TabView(selection: $selectedTab) {
+        TabView(selection: $selectedTab) {
                 BoutiqueListScreen()
                     .tabItem { Label("", systemImage: "hanger") }
                     .tag(Tab.boutiqueList)
@@ -32,9 +32,12 @@ struct AppTabView: View {
                     .tag(Tab.profile)
             }
             .tint(.App.accent)
-        } else {
-            OnboardingView(hasSeenOnboarding: $hasSeenOnboarding)
-        }
+            .task {
+                viewModel.checkIfHasSeenOnboard()
+            }
+            .sheet(isPresented: $viewModel.isShowingOnboardingView) {
+                OnboardingView()
+            }
     }
 }
 

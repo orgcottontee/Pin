@@ -28,7 +28,7 @@ final class CloudKitManager {
     
     
     func checkAccountStatus() async throws -> CKAccountStatus {
-        try await CKContainer.default().accountStatus()
+        try await container.accountStatus()
     }
 }
 

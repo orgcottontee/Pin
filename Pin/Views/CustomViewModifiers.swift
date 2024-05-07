@@ -7,6 +7,21 @@
 
 import SwiftUI
 
+struct OnFirstAppear: ViewModifier {
+    let action: (() -> Void)?
+    
+    @State private var hasAppeared = false
+    
+    func body(content: Content) -> some View {
+        content
+            .onAppear {
+                guard !hasAppeared else { return }
+                hasAppeared = true
+                action?()
+            }
+    }
+}
+
 struct JPTextfieldStyle: ViewModifier {
         
     func body(content: Content) -> some View {

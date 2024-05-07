@@ -56,7 +56,7 @@ struct BoutiqueDetailScreen: View {
             modelContext.delete(existingFavorite)
             print("Already favorited - Removed from favorites.")
         } else {
-            let favorite = FavoriteBoutique(boutiqueID: boutiqueID, 
+            let favorite = FavoriteBoutique(boutiqueID: boutiqueID,
                                             name: viewModel.boutiqueLocation.name,
                                             city: viewModel.boutiqueLocation.city,
                                             state: viewModel.boutiqueLocation.state,
@@ -64,7 +64,6 @@ struct BoutiqueDetailScreen: View {
                                             website: viewModel.boutiqueLocation.websiteURL,
                                             shortURL: viewModel.boutiqueLocation.shortURL
             )
-                                            
             modelContext.insert(favorite)
             print("Successfully added to favorites.")
         }

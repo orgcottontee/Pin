@@ -54,7 +54,7 @@ final class UserSubmissionViewModel {
             } catch {
                 hasError = true
                 jingPinError = .submissionFailed
-                print(error.localizedDescription)
+                print("-----\(error.localizedDescription)-----")
             }
         }
     }

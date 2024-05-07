@@ -7,6 +7,7 @@
 
 import Foundation
 import Observation
+import CloudKit
 
 @Observable
 final class BoutiqueViewModel {
@@ -19,6 +20,10 @@ final class BoutiqueViewModel {
     var isLoading: Bool = false
     var isSearchTextfieldVisible: Bool = false
     var jingPinError: JingPinError?
+    var isAccountStatusAlertShowing: Bool = false
+
+    private(set) var accountStatus: CKAccountStatus = .couldNotDetermine
+    
     
     // MARK: - Actions
     
@@ -34,10 +39,19 @@ final class BoutiqueViewModel {
             } catch {
                 hasError = true
                 jingPinError = .locationsUnavailable
-                print(error.localizedDescription)
+                print("-----\(error.localizedDescription)-----")
             }
         }
     }
+    
+    func fetchAccountStatus() async {
+        do {
+            accountStatus = try await CloudKitManager.shared.checkAccountStatus()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+
     
     private func showLoadingView() { return isLoading = true }
     private func hideLoadingView() { return isLoading = false }

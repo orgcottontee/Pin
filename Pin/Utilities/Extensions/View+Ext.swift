@@ -9,6 +9,10 @@ import SwiftUI
 
 extension View {
     
+    func applyOnFirstAppear(perform action: (() -> Void)? = nil) -> some View {
+      modifier(OnFirstAppear(action: action))
+    }
+    
     func applyJPTextfield() -> some View {
         modifier(JPTextfieldStyle())
     }

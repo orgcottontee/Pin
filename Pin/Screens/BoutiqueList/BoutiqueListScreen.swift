@@ -33,6 +33,20 @@ struct BoutiqueListScreen: View {
                 .onAppear {
                     if boutiqueManager.locations.isEmpty { viewModel.getUSBoutiques(for: boutiqueManager) }
                 }
+                .applyOnFirstAppear {
+                    Task {
+                        await viewModel.fetchAccountStatus()
+                        if viewModel.accountStatus != .available {
+                            viewModel.isAccountStatusAlertShowing = true
+                        }
+                    }
+                }
+                .alert("Please log into your iCloud", isPresented: $viewModel.isAccountStatusAlertShowing) {
+                    Button("Continue to app", role: .cancel, action: {})
+                } message: {
+                    Text("You can still explore all boutiques, but you will not be able to perform certain actions.")
+                }
+
             } else {
                 ProgressView()
                     .alert(isPresented: $viewModel.hasError,

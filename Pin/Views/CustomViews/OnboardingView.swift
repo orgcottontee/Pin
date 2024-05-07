@@ -9,34 +9,41 @@ import SwiftUI
 
 struct OnboardingView: View {
     
-    @Binding var hasSeenOnboarding: Bool
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         ZStack {
             Color.App.background.ignoresSafeArea()
             VStack {
+                HStack {
+                    Spacer()
+                    Button {
+                        dismiss()
+                    } label: {
+                       XDismissButtonView()
+                    }
+                }
+                
                 Spacer()
-                LogoView(image: .AppLogo.logo, frameWidth: 150)
-                Spacer()
-                VStack(alignment: .leading) {
+                
+                LogoView(image: .AppLogo.logo, frameWidth: 150).padding(.bottom)
+                
+                VStack(alignment: .leading, spacing: 32) {
                     DetailView(title: OnboardingTextConstant.titleOne, description: OnboardingTextConstant.firstText)
                     DetailView(title: OnboardingTextConstant.titleTwo, description: OnboardingTextConstant.secondText)
                     DetailView(title: OnboardingTextConstant.titleThree, description: OnboardingTextConstant.thirdText)
                 }
-                Spacer()
-                Button {
-                    hasSeenOnboarding = true
-                } label: {
-                    ActionButtonView(buttonText: OnboardingTextConstant.buttonText)
-                }
+                .fixedSize(horizontal: false, vertical: true)
             }
             .padding()
+            
+            Spacer()
         }
     }
 }
 
 #Preview {
-    OnboardingView(hasSeenOnboarding: .constant(true))
+    OnboardingView()
 }
 
 fileprivate struct DetailView: View {
