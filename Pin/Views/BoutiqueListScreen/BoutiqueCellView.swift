@@ -15,7 +15,7 @@ struct BoutiqueCellView: View {
         
         VStack(alignment: .leading) {
             BrandNameView(name: boutiqueLocation.name)
-            BrandLogoView(image: boutiqueLocation.createSquareLogo())
+            BrandLogoView(image: boutiqueLocation.squareLogo≈)
             CityStateView(city: boutiqueLocation.city, state: boutiqueLocation.state)
             FooterCategoryView(categories: boutiqueLocation.categories)
         }

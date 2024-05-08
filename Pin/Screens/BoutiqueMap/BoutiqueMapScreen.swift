@@ -20,7 +20,7 @@ struct BoutiqueMapScreen: View {
                 Map {
                     ForEach(boutiqueManager.locations) { boutique in
                         Annotation(boutique.name, coordinate: boutique.location.coordinate) {
-                            LogoView(image: boutique.createSquareLogo(), frameWidth: 30)
+                            LogoView(image: boutique.squareLogo, frameWidth: 30)
                                 .clipShape(RoundedRectangle(cornerRadius: 4))
                                 .onTapGesture {
                                     boutiqueManager.selectedLocation = boutique

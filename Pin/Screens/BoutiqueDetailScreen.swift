@@ -18,7 +18,7 @@ struct BoutiqueDetailScreen: View {
         ZStack {
             Color.App.background.ignoresSafeArea()
             VStack {
-                BannerImageView(image: viewModel.boutiqueLocation.createBannerImage())
+                BannerImageView(image: viewModel.boutiqueLocation.bannerImage)
                     .padding(.bottom)
                 VStack(alignment: .leading, spacing: 10) {
                     HStack {

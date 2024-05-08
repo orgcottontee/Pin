@@ -54,12 +54,12 @@ struct UnitedStatesBoutique: Identifiable, Hashable {
         zipCode = record[UnitedStatesBoutique.kZipCode] as? Int ?? 00000
     }
     
-    func createSquareLogo() -> UIImage {
+    var squareLogo: UIImage {
         guard let boutiqueAsset else { return PlaceholderImage.squareLogo }
         return boutiqueAsset.converToImage(in: .squareLogo)
     }
     
-    func createBannerImage() -> UIImage {
+    var bannerImage: UIImage {
         guard let locationAsset else { return PlaceholderImage.bannerImage }
         return locationAsset.converToImage(in: .bannerImage)
     }
