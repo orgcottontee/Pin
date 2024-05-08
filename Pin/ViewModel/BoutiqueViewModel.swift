@@ -5,7 +5,7 @@
 //  Created by adobada on 4/10/24.
 //
 
-import Foundation
+import SwiftUI
 import Observation
 import CloudKit
 
@@ -21,10 +21,8 @@ final class BoutiqueViewModel {
     var isSearchTextfieldVisible: Bool = false
     var jingPinError: JingPinError?
     var isAccountStatusAlertShowing: Bool = false
-
     private(set) var accountStatus: CKAccountStatus = .couldNotDetermine
-    
-    
+        
     // MARK: - Actions
     
     @MainActor
@@ -51,7 +49,6 @@ final class BoutiqueViewModel {
             print(error.localizedDescription)
         }
     }
-
     
     private func showLoadingView() { return isLoading = true }
     private func hideLoadingView() { return isLoading = false }

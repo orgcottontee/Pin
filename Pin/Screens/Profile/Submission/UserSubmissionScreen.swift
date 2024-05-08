@@ -60,7 +60,8 @@ struct UserSubmissionScreen: View {
                             viewModel.submitSubmission()
                         }
                     } label: {
-                        ActionButtonView(buttonText: "Submit")
+                        ActionButtonView(smallText: "Submit", icon: "paperplane")
+                            .accessibilityLabel("Submit your boutique suggestion")
                     }
                 }
                 .padding()
@@ -86,4 +87,5 @@ struct UserSubmissionScreen: View {
 
 #Preview {
     UserSubmissionScreen()
+        .environment(NetworkMonitor())
 }

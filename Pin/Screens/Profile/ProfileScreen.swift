@@ -29,12 +29,12 @@ struct ProfileScreen: View {
                 VStack(spacing: 20) {
                     Spacer()
                     HStack {
-                        Button { selectedAppTheme = .lightTheme} label: { ActionButtonView(buttonText: AppTheme.lightTheme.rawValue) }
-                        Button { selectedAppTheme = .darkTheme } label: { ActionButtonView(buttonText: AppTheme.darkTheme.rawValue) }
-                        Button { selectedAppTheme = .system } label: { ActionButtonView(buttonText: AppTheme.system.rawValue) }
+                        Button { selectedAppTheme = .lightTheme} label: { ActionButtonView(smallText: AppTheme.lightTheme.rawValue, icon: "rays") }
+                        Button { selectedAppTheme = .darkTheme } label: { ActionButtonView(smallText: AppTheme.darkTheme.rawValue, icon: "moon.fill") }
+                        Button { selectedAppTheme = .system } label: { ActionButtonView(smallText: AppTheme.system.rawValue, icon: "gear") }
                     }
                     NavigationLink(destination: UserSubmissionScreen().toolbarRole(.editor)) {
-                        ActionButtonView(buttonText: ProfileScreenConstant.submissionFormButton)
+                        ActionButtonView(smallText: ProfileScreenConstant.submissionFormButton, icon: "rectangle.and.pencil.and.ellipsis")
                     }
                     Spacer()
                     ShareLink(item: URL(string: "https://apps.apple.com/us/app")!) {

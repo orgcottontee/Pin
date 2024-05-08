@@ -17,7 +17,7 @@ struct OpenSafariView: View {
         Button {
             showSafari = true
         } label: {
-            ActionButtonView(buttonText: title)
+            ActionButtonView(smallText: title, icon: "globe")
         }
             .popover(isPresented: $showSafari) {
                 SafariViewWrapper(url: URL(string: url)!)

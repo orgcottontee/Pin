@@ -14,6 +14,8 @@ struct IconButtonView: View {
     
     var body: some View {
         Image(systemName: icon)
+            .resizable()
+            .scaledToFit()
             .applyJPSubheader(color)
             .frame(width: 44, height: 44)
     }
