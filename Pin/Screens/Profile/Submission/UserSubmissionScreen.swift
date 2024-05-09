@@ -61,7 +61,7 @@ struct UserSubmissionScreen: View {
                         }
                     } label: {
                         ActionButtonView(smallText: "Submit", icon: "paperplane")
-                            .accessibilityLabel("Submit your boutique suggestion")
+                            .accessibilityLabel(Text("Submit boutique suggestion form"))
                     }
                 }
                 .padding()

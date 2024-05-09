@@ -18,7 +18,7 @@ struct ActionButtonView: View {
             Capsule()
                 .frame(height: 40)
                 .foregroundStyle(Color(.App.accent))
-            if dynamicTypeSize >= .accessibility3 {
+            if dynamicTypeSize > .xxxLarge {
                 Image(systemName: icon)
                     .resizable()
                     .scaledToFit()

@@ -35,18 +35,17 @@ struct ProfileScreen: View {
                     }
                     NavigationLink(destination: UserSubmissionScreen().toolbarRole(.editor)) {
                         ActionButtonView(smallText: ProfileScreenConstant.submissionFormButton, icon: "rectangle.and.pencil.and.ellipsis")
+                            .accessibilityLabel(Text("Submit a boutique"))
                     }
                     Spacer()
                     ShareLink(item: URL(string: "https://apps.apple.com/us/app")!) {
                         HStack {
-                            Image(.AppLogo.logo)
+                            Image(systemName: "square.and.arrow.up")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: 20, height: 20)
-                            Text("Share with a friend")
-                                .applyJPFootnote()
+                                .accessibilityLabel(Text("Share app"))
                         }
-                        .padding(.bottom)
+                        .frame(width: 44, height: 44)
                     }
                 }
                 .preferredColorScheme(selectedTheme)

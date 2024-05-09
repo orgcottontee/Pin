@@ -32,38 +32,43 @@ struct BoutiqueListScreen: View {
             NavigationStack {
                 ZStack {
                     Color.App.background.ignoresSafeArea()
-                    BoutiqueDisplayView(isSearchTextfieldVisible: $viewModel.isSearchTextfieldVisible,
-                                        selectedState: $viewModel.selectedState,
-                                        searchText: $viewModel.searchText,
-                                        filterResults: filterResults)
-                    .onAppear {
-                        if boutiqueManager.locations.isEmpty { viewModel.getUSBoutiques(for: boutiqueManager) }
-                    }
-                    .applyOnFirstAppear {
-                        Task {
-                            await viewModel.fetchAccountStatus()
-                            if viewModel.accountStatus != .available {
-                                viewModel.isAccountStatusAlertShowing = true
+                    VStack {
+                        SearchFilterTitleView(isSearchTextfieldVisible: $viewModel.isSearchTextfieldVisible,
+                                              selectedState: $viewModel.selectedState,
+                                              searchText: $viewModel.searchText)
+                        CardStackView(filterResults: filterResults)
+                            .navigationDestination(for: UnitedStatesBoutique.self) { boutique in
+                                BoutiqueDetailScreen(viewModel: BoutiqueDetailViewModel(boutiqueLocation: boutique))
+                                    .toolbarRole(.editor)
                             }
-                        }
                     }
-                    .alert("Please log into your iCloud", isPresented: $viewModel.isAccountStatusAlertShowing) {
-                        Button("Continue to app", role: .cancel, action: {})
-                    } message: {
-                        Text("You can still explore all boutiques, but you will not be able to perform certain actions.")
-                    }
-                    .alert(isPresented: $viewModel.hasError,
-                           error: viewModel.jingPinError) { error in
-                        Button {
-                            if boutiqueManager.locations.isEmpty { viewModel.getUSBoutiques(for: boutiqueManager) }
-                        } label: {
-                            Text("Retry")
-                        }
-                    } message: { errorMessage in
-                        Text(errorMessage.failureReason)
-                    }
-                    
                     if viewModel.isLoading { LoadingView() }
+                }
+                .onAppear {
+                    if boutiqueManager.locations.isEmpty { viewModel.getUSBoutiques(for: boutiqueManager) }
+                }
+                .applyOnFirstAppear {
+                    Task {
+                        await viewModel.fetchAccountStatus()
+                        if viewModel.accountStatus != .available {
+                            viewModel.isAccountStatusAlertShowing = true
+                        }
+                    }
+                }
+                .alert("Please log into your iCloud", isPresented: $viewModel.isAccountStatusAlertShowing) {
+                    Button("Continue to app", role: .cancel, action: {})
+                } message: {
+                    Text("You can still explore all boutiques, but you will not be able to perform certain actions.")
+                }
+                .alert(isPresented: $viewModel.hasError,
+                       error: viewModel.jingPinError) { error in
+                    Button {
+                        if boutiqueManager.locations.isEmpty { viewModel.getUSBoutiques(for: boutiqueManager) }
+                    } label: {
+                        Text("Retry")
+                    }
+                } message: { errorMessage in
+                    Text(errorMessage.failureReason)
                 }
             }
         }
@@ -74,27 +79,6 @@ struct BoutiqueListScreen: View {
     BoutiqueListScreen()
         .environment(BoutiqueManager())
         .environment(NetworkMonitor())
-}
-
-fileprivate struct BoutiqueDisplayView: View {
-    
-    @Binding var isSearchTextfieldVisible: Bool
-    @Binding var selectedState: USState
-    @Binding var searchText: String
-    var filterResults: [UnitedStatesBoutique]
-    
-    var body: some View {
-        VStack {
-            SearchFilterTitleView(isSearchTextfieldVisible: $isSearchTextfieldVisible,
-                                  selectedState: $selectedState,
-                                  searchText: $searchText)
-            CardStackView(filterResults: filterResults)
-                .navigationDestination(for: UnitedStatesBoutique.self) { boutique in
-                    BoutiqueDetailScreen(viewModel: BoutiqueDetailViewModel(boutiqueLocation: boutique))
-                        .toolbarRole(.editor)
-                }
-        }
-    }
 }
 
 fileprivate struct SearchFilterTitleView: View {
@@ -134,7 +118,7 @@ fileprivate struct CardStackView: View {
     
     var body: some View {
         ScrollView {
-            LazyVStack(alignment: .leading) {
+            LazyVStack {
                 ForEach(filterResults) { boutique in
                     NavigationLink(value: boutique) {
                         BoutiqueCellView(boutiqueLocation: boutique)
@@ -152,10 +136,3 @@ fileprivate struct CardStackView: View {
         .scrollIndicators(.hidden)
     }
 }
-
-//fileprivate struct FooterCountryView: View {
-//    var body: some View {
-//        Text("Location: United States")
-//            .applyJPFootnote()
-//    }
-//}
