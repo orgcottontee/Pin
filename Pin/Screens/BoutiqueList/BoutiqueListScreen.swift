@@ -120,7 +120,7 @@ fileprivate struct SearchFilterTitleView: View {
                     .applyJPTextfield()
                     .padding(.horizontal)
             }
-            CustomPickerView(selectedState: $selectedState)
+            USStatePickerView(selectedState: $selectedState)
                 .padding(.horizontal)
         }
         .padding(.top)

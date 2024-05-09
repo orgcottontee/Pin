@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CustomPickerView: View {
+struct USStatePickerView: View {
     
     @Binding var selectedState: USState
     private let rows = [GridItem(.fixed(30))]
@@ -27,7 +27,7 @@ struct CustomPickerView: View {
                         ZStack {
                             Capsule()
                                 .fill(selectedState == stateName ? Color.App.accent : Color.secondary)
-                                .frame(height: 40)
+                                .frame(height: dynamicTypeSize >= .accessibility3 ? 200 : 40)
                             Text(stateName.state)
                                 .applyJPBody(.App.background)
                                 .padding(.horizontal)
@@ -43,5 +43,5 @@ struct CustomPickerView: View {
 }
 
 #Preview {
-    CustomPickerView(selectedState: .constant(.california))
+    USStatePickerView(selectedState: .constant(.california))
 }

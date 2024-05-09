@@ -11,7 +11,7 @@
 		DE0B4D902BCF2A8100E9CE9D /* OpenSafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0B4D8F2BCF2A8100E9CE9D /* OpenSafariView.swift */; };
 		DE0B4D922BCF2F0200E9CE9D /* BoutiqueDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0B4D912BCF2F0200E9CE9D /* BoutiqueDetailViewModel.swift */; };
 		DE1057D42BE0327F001EA882 /* XDismissButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1057D32BE0327F001EA882 /* XDismissButtonView.swift */; };
-		DE1057D62BE055CA001EA882 /* CustomPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1057D52BE055CA001EA882 /* CustomPickerView.swift */; };
+		DE1057D62BE055CA001EA882 /* USStatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1057D52BE055CA001EA882 /* USStatePickerView.swift */; };
 		DE1057D82BE12CA4001EA882 /* fabricFlowing.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DE1057D72BE12CA3001EA882 /* fabricFlowing.mp4 */; };
 		DE1057DE2BE133B3001EA882 /* AppSettings+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1057DD2BE133B3001EA882 /* AppSettings+Helper.swift */; };
 		DE1057EC2BE2B3F4001EA882 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1057EB2BE2B3F4001EA882 /* HapticManager.swift */; };
@@ -66,7 +66,7 @@
 		DE0B4D8F2BCF2A8100E9CE9D /* OpenSafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSafariView.swift; sourceTree = "<group>"; };
 		DE0B4D912BCF2F0200E9CE9D /* BoutiqueDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoutiqueDetailViewModel.swift; sourceTree = "<group>"; };
 		DE1057D32BE0327F001EA882 /* XDismissButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XDismissButtonView.swift; sourceTree = "<group>"; };
-		DE1057D52BE055CA001EA882 /* CustomPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPickerView.swift; sourceTree = "<group>"; };
+		DE1057D52BE055CA001EA882 /* USStatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USStatePickerView.swift; sourceTree = "<group>"; };
 		DE1057D72BE12CA3001EA882 /* fabricFlowing.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = fabricFlowing.mp4; sourceTree = "<group>"; };
 		DE1057DD2BE133B3001EA882 /* AppSettings+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppSettings+Helper.swift"; sourceTree = "<group>"; };
 		DE1057EB2BE2B3F4001EA882 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
@@ -179,7 +179,7 @@
 				DEAF81882BDB5FAD003CA29D /* NetworkUnavailableView.swift */,
 				DE0B4D8F2BCF2A8100E9CE9D /* OpenSafariView.swift */,
 				DE81C7D72BCDB4FD003F4E58 /* BannerImageView.swift */,
-				DE1057D52BE055CA001EA882 /* CustomPickerView.swift */,
+				DE1057D52BE055CA001EA882 /* USStatePickerView.swift */,
 				DEC9B6882BC8C5F70036183F /* LogoView.swift */,
 			);
 			path = CustomViews;
@@ -474,7 +474,7 @@
 				DEC9B6912BC9F0C20036183F /* UserBoutiqueSubmission.swift in Sources */,
 				DE635B6A2BBD90D1005D5C8D /* Constants.swift in Sources */,
 				DE635B7E2BBE1471005D5C8D /* ActionButtonView.swift in Sources */,
-				DE1057D62BE055CA001EA882 /* CustomPickerView.swift in Sources */,
+				DE1057D62BE055CA001EA882 /* USStatePickerView.swift in Sources */,
 				DE1057DE2BE133B3001EA882 /* AppSettings+Helper.swift in Sources */,
 				DE0B4D8E2BCF28EC00E9CE9D /* SafariViewWrapper.swift in Sources */,
 				DEA6AEB92BC8C477002AD595 /* OnboardingView.swift in Sources */,
