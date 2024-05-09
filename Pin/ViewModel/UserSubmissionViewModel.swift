@@ -44,14 +44,15 @@ final class UserSubmissionViewModel {
         Task {
             do {
                 let submission = UserBoutiqueSubmission(name: boutiqueName, country: country, website: website)
-                try await container.save(submission.record)
                 showLoadingView()
+                try await container.save(submission.record)
                 hasAlert = true
                 hideLoadingView()
                 boutiqueName = ""
                 country = ""
                 website = ""
             } catch {
+                hideLoadingView()
                 hasError = true
                 jingPinError = .submissionFailed
                 print("-----\(error.localizedDescription)-----")

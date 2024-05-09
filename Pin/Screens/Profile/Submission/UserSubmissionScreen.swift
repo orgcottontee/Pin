@@ -65,6 +65,7 @@ struct UserSubmissionScreen: View {
                     }
                 }
                 .padding()
+                if viewModel.isLoading { LoadingView() }
             }
             .onTapGesture { focusedTextField = nil }
             .alert(isPresented: $viewModel.hasError, error: viewModel.jingPinError) { error in

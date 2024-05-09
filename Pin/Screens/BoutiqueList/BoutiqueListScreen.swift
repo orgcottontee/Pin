@@ -25,30 +25,29 @@ struct BoutiqueListScreen: View {
         if !networkMonitor.isConnected {
             NetworkUnavailableView()
         } else {
-            if !viewModel.isLoading {
-                BoutiqueDisplayView(isSearchTextfieldVisible: $viewModel.isSearchTextfieldVisible,
-                                    selectedState: $viewModel.selectedState,
-                                    searchText: $viewModel.searchText,
-                                    filterResults: filterResults)
-                .onAppear {
-                    if boutiqueManager.locations.isEmpty { viewModel.getUSBoutiques(for: boutiqueManager) }
-                }
-                .applyOnFirstAppear {
-                    Task {
-                        await viewModel.fetchAccountStatus()
-                        if viewModel.accountStatus != .available {
-                            viewModel.isAccountStatusAlertShowing = true
+            NavigationStack {
+                ZStack {
+                    Color.App.background.ignoresSafeArea()
+                    BoutiqueDisplayView(isSearchTextfieldVisible: $viewModel.isSearchTextfieldVisible,
+                                        selectedState: $viewModel.selectedState,
+                                        searchText: $viewModel.searchText,
+                                        filterResults: filterResults)
+                    .onAppear {
+                        if boutiqueManager.locations.isEmpty { viewModel.getUSBoutiques(for: boutiqueManager) }
+                    }
+                    .applyOnFirstAppear {
+                        Task {
+                            await viewModel.fetchAccountStatus()
+                            if viewModel.accountStatus != .available {
+                                viewModel.isAccountStatusAlertShowing = true
+                            }
                         }
                     }
-                }
-                .alert("Please log into your iCloud", isPresented: $viewModel.isAccountStatusAlertShowing) {
-                    Button("Continue to app", role: .cancel, action: {})
-                } message: {
-                    Text("You can still explore all boutiques, but you will not be able to perform certain actions.")
-                }
-
-            } else {
-                ProgressView()
+                    .alert("Please log into your iCloud", isPresented: $viewModel.isAccountStatusAlertShowing) {
+                        Button("Continue to app", role: .cancel, action: {})
+                    } message: {
+                        Text("You can still explore all boutiques, but you will not be able to perform certain actions.")
+                    }
                     .alert(isPresented: $viewModel.hasError,
                            error: viewModel.jingPinError) { error in
                         Button {
@@ -59,6 +58,9 @@ struct BoutiqueListScreen: View {
                     } message: { errorMessage in
                         Text(errorMessage.failureReason)
                     }
+                    
+                    if viewModel.isLoading { LoadingView() }
+                }
             }
         }
     }
@@ -69,7 +71,7 @@ struct BoutiqueListScreen: View {
         .environment(BoutiqueManager())
         .environment(NetworkMonitor())
 }
-    
+
 fileprivate struct BoutiqueDisplayView: View {
     
     @Binding var isSearchTextfieldVisible: Bool
@@ -78,22 +80,16 @@ fileprivate struct BoutiqueDisplayView: View {
     var filterResults: [UnitedStatesBoutique]
     
     var body: some View {
-        NavigationStack {
-            ZStack {
-                Color(.App.background).ignoresSafeArea()
-                VStack {
-                    SearchFilterTitleView(isSearchTextfieldVisible: $isSearchTextfieldVisible,
-                                          selectedState: $selectedState,
-                                          searchText: $searchText)
-                    CardStackView(filterResults: filterResults)
-                        .navigationDestination(for: UnitedStatesBoutique.self) { boutique in
-                            BoutiqueDetailScreen(viewModel: BoutiqueDetailViewModel(boutiqueLocation: boutique))
-                                .toolbarRole(.editor)
-                        }
+        VStack {
+            SearchFilterTitleView(isSearchTextfieldVisible: $isSearchTextfieldVisible,
+                                  selectedState: $selectedState,
+                                  searchText: $searchText)
+            CardStackView(filterResults: filterResults)
+                .navigationDestination(for: UnitedStatesBoutique.self) { boutique in
+                    BoutiqueDetailScreen(viewModel: BoutiqueDetailViewModel(boutiqueLocation: boutique))
+                        .toolbarRole(.editor)
                 }
-            }
         }
-        .tint(.App.accent)
     }
 }
 

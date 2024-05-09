@@ -12,6 +12,7 @@ struct CustomPickerView: View {
     @Binding var selectedState: USState
     private let rows = [GridItem(.fixed(30))]
     private let states = USState.allCases
+    @Environment(\.dynamicTypeSize) var dynamicTypeSize
     
     var body: some View {
         
@@ -24,9 +25,9 @@ struct CustomPickerView: View {
                         }
                     } label: {
                         ZStack {
-                            RoundedRectangle(cornerRadius: 10)
+                            Capsule()
                                 .fill(selectedState == stateName ? Color.App.accent : Color.secondary)
-                                .frame(height: 38)
+                                .frame(height: 40)
                             Text(stateName.state)
                                 .applyJPBody(.App.background)
                                 .padding(.horizontal)

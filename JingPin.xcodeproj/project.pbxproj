@@ -16,6 +16,7 @@
 		DE1057DE2BE133B3001EA882 /* AppSettings+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1057DD2BE133B3001EA882 /* AppSettings+Helper.swift */; };
 		DE1057EC2BE2B3F4001EA882 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1057EB2BE2B3F4001EA882 /* HapticManager.swift */; };
 		DE1AA63C2BEAB6F100A7FC8B /* AppTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1AA63B2BEAB6F100A7FC8B /* AppTabViewModel.swift */; };
+		DE1AA63E2BEC6C5800A7FC8B /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1AA63D2BEC6C5800A7FC8B /* LoadingView.swift */; };
 		DE4007EA2BC239F9002BD9D0 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4007E92BC239F9002BD9D0 /* CloudKitManager.swift */; };
 		DE49DC8E2BC6F61D00202654 /* CKRecord+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE49DC8D2BC6F61D00202654 /* CKRecord+Ext.swift */; };
 		DE55B9F62BE48DBA006F364C /* JingPinError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE55B9F52BE48DBA006F364C /* JingPinError.swift */; };
@@ -70,6 +71,7 @@
 		DE1057DD2BE133B3001EA882 /* AppSettings+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppSettings+Helper.swift"; sourceTree = "<group>"; };
 		DE1057EB2BE2B3F4001EA882 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		DE1AA63B2BEAB6F100A7FC8B /* AppTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabViewModel.swift; sourceTree = "<group>"; };
+		DE1AA63D2BEC6C5800A7FC8B /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		DE4007E92BC239F9002BD9D0 /* CloudKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
 		DE49DC8D2BC6F61D00202654 /* CKRecord+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CKRecord+Ext.swift"; sourceTree = "<group>"; };
 		DE55B9F52BE48DBA006F364C /* JingPinError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JingPinError.swift; sourceTree = "<group>"; };
@@ -308,6 +310,7 @@
 		DEB9AC352BBCD1F300013C92 = {
 			isa = PBXGroup;
 			children = (
+				DE1AA63D2BEC6C5800A7FC8B /* LoadingView.swift */,
 				DEB9AC402BBCD1F300013C92 /* Pin */,
 				DE0B4D8C2BCEBB0000E9CE9D /* JingPin-Info.plist */,
 				DE81C7C62BCB542D003F4E58 /* PrivacyInfo.xcprivacy */,
@@ -451,6 +454,7 @@
 				DE635B662BBD9044005D5C8D /* BoutiqueMapScreen.swift in Sources */,
 				DE81C7D62BCD6FAA003F4E58 /* UserSubmissionViewModel.swift in Sources */,
 				DE635B602BBD8F7D005D5C8D /* AppTabView.swift in Sources */,
+				DE1AA63E2BEC6C5800A7FC8B /* LoadingView.swift in Sources */,
 				DE81C7D82BCDB4FD003F4E58 /* BannerImageView.swift in Sources */,
 				DE7666682BC7022D009C2A3D /* BoutiqueViewModel.swift in Sources */,
 				DE55B9F62BE48DBA006F364C /* JingPinError.swift in Sources */,
