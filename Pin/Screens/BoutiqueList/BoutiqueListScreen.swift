@@ -13,6 +13,8 @@ struct BoutiqueListScreen: View {
     @Environment(BoutiqueManager.self) private var boutiqueManager
     @State private var viewModel = BoutiqueViewModel()
     
+    // MARK: - Search & filter properties
+    
     private var filterResults: [UnitedStatesBoutique] {
         viewModel.selectedState == .allStates ? searchResults : boutiqueManager.locations.filter { $0.state == viewModel.selectedState.rawValue }
     }
@@ -20,6 +22,8 @@ struct BoutiqueListScreen: View {
     private var searchResults: [UnitedStatesBoutique] {
         viewModel.searchText.isEmpty ? boutiqueManager.locations : boutiqueManager.locations.filter { $0.name.localizedCaseInsensitiveContains(viewModel.searchText) }
     }
+    
+    // MARK: - Main view
     
     var body: some View {
         if !networkMonitor.isConnected {
@@ -99,31 +103,31 @@ fileprivate struct SearchFilterTitleView: View {
     @Binding var selectedState: USState
     @Binding var searchText: String
     
+    // when filterResult is filtered to a specific state, reset it when the user clicks on the search button
+    // when user clicks on a state to filter, reset search button
+    
     var body: some View {
         VStack {
-            HStack {
-                Spacer()
+            HStack(spacing: 20) {
                 Button {
                     withAnimation {
                         isSearchTextfieldVisible.toggle()
                         searchText = ""
                     }
                 } label: {
-                    Label("Search", systemImage: isSearchTextfieldVisible ? ListScreenConstant.activeSearchIcon : ListScreenConstant.searchIcon)
-                        .labelStyle(.iconOnly)
-                        .applyJPSubheader(.App.accent)
+                    IconButtonView(icon: isSearchTextfieldVisible ? ListScreenConstant.activeSearchIcon : ListScreenConstant.searchIcon, color: .App.accent)
                 }
-                .padding()
+                USStatePickerView(selectedState: $selectedState)
             }
+            .padding(.vertical)
             if isSearchTextfieldVisible {
-                TextField(ListScreenConstant.textfieldPlaceholder, text: $searchText)
-                    .applyJPTextfield()
-                    .padding(.horizontal)
+               
+                    TextField(ListScreenConstant.textfieldPlaceholder, text: $searchText)
+                        .applyJPTextfield()
+               
             }
-            USStatePickerView(selectedState: $selectedState)
-                .padding(.horizontal)
         }
-        .padding(.top)
+        .padding()
     }
 }
 
@@ -132,8 +136,8 @@ fileprivate struct CardStackView: View {
     var filterResults: [UnitedStatesBoutique]
     
     var body: some View {
-        ScrollView(.horizontal) {
-            LazyHStack(spacing: -60) {
+        ScrollView {
+            LazyVStack(alignment: .leading) {
                 ForEach(filterResults) { boutique in
                     NavigationLink(value: boutique) {
                         BoutiqueCellView(boutiqueLocation: boutique)
@@ -141,22 +145,20 @@ fileprivate struct CardStackView: View {
                                 content
                                     .opacity(phase.isIdentity ? 1 : 0)
                                     .scaleEffect(phase.isIdentity ? 1 : 0.25)
-                                    .blur(radius: phase.isIdentity ? 0 : 10)
+                                    .blur(radius: phase.isIdentity ? 0 : 5)
                             }
                     }
                 }
             }
-            .padding(.leading)
+            .padding()
         }
         .scrollIndicators(.hidden)
     }
 }
 
-fileprivate struct FooterCountryView: View {
-    var body: some View {
-        
-        Text("Location: United States")
-            .applyJPFootnote()
-        
-    }
-}
+//fileprivate struct FooterCountryView: View {
+//    var body: some View {
+//        Text("Location: United States")
+//            .applyJPFootnote()
+//    }
+//}

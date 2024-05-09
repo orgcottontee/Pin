@@ -33,7 +33,7 @@ enum NetworkUnavailableConstant {
 
 enum ListScreenConstant {
     static let header = "United States Boutiques"
-    static let textfieldPlaceholder = "Search boutique name"
+    static let textfieldPlaceholder = "Search by name"
     static let searchIcon = "magnifyingglass"
     static let activeSearchIcon = "magnifyingglass.circle.fill"
 }

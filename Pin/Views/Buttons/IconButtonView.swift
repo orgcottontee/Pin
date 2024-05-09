@@ -9,18 +9,25 @@ import SwiftUI
 
 struct IconButtonView: View {
     
+    @Environment(\.dynamicTypeSize) var dynamicTypeSize
     var icon: String
     var color: Color
     
     var body: some View {
-        Image(systemName: icon)
-            .resizable()
-            .scaledToFit()
-            .applyJPSubheader(color)
-            .frame(width: 44, height: 44)
+        if dynamicTypeSize >= .accessibility3 {
+            Image(systemName: icon)
+                .resizable()
+                .scaledToFit()
+                .applyJPSubheader(color)
+                .frame(width: 44, height: 44)
+        } else {
+            Image(systemName: icon)
+                .applyJPSubheader(color)
+                .frame(width: 44, height: 44)
+        }
     }
 }
 
 #Preview {
-    IconButtonView(icon: "heart", color: .App.favorite)
+    IconButtonView(icon: "magnifyingglass", color: .App.favorite)
 }
