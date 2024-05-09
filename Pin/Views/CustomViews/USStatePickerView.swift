@@ -13,6 +13,7 @@ struct USStatePickerView: View {
     private let rows = [GridItem(.fixed(30))]
     private let states = USState.allCases
     @Environment(\.dynamicTypeSize) var dynamicTypeSize
+    @Binding var isSearchTextfieldVisible: Bool
     
     var body: some View {
         
@@ -22,6 +23,7 @@ struct USStatePickerView: View {
                     Button {
                         withAnimation {
                             selectedState = stateName
+                            isSearchTextfieldVisible = false
                         }
                     } label: {
                         ZStack {
@@ -43,5 +45,5 @@ struct USStatePickerView: View {
 }
 
 #Preview {
-    USStatePickerView(selectedState: .constant(.california))
+    USStatePickerView(selectedState: .constant(.california), isSearchTextfieldVisible: .constant(true))
 }

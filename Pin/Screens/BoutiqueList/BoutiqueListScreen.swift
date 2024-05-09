@@ -103,28 +103,25 @@ fileprivate struct SearchFilterTitleView: View {
     @Binding var selectedState: USState
     @Binding var searchText: String
     
-    // when filterResult is filtered to a specific state, reset it when the user clicks on the search button
-    // when user clicks on a state to filter, reset search button
-    
     var body: some View {
         VStack {
             HStack(spacing: 20) {
                 Button {
                     withAnimation {
+                        selectedState = .allStates
                         isSearchTextfieldVisible.toggle()
                         searchText = ""
                     }
                 } label: {
                     IconButtonView(icon: isSearchTextfieldVisible ? ListScreenConstant.activeSearchIcon : ListScreenConstant.searchIcon, color: .App.accent)
                 }
-                USStatePickerView(selectedState: $selectedState)
+                USStatePickerView(selectedState: $selectedState, isSearchTextfieldVisible: $isSearchTextfieldVisible)
             }
             .padding(.vertical)
+            
             if isSearchTextfieldVisible {
-               
                     TextField(ListScreenConstant.textfieldPlaceholder, text: $searchText)
                         .applyJPTextfield()
-               
             }
         }
         .padding()

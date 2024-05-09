@@ -22,7 +22,7 @@ struct BoutiqueCellView: View {
             }
             .padding()
         } else {
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 5) {
                 LargeTextBrandNameView(name: boutiqueLocation.name)
                 LogoView(image: boutiqueLocation.squareLogo, frameWidth: 200)
                     .clipShape(RoundedRectangle(cornerRadius: 10))
