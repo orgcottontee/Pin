@@ -21,7 +21,7 @@ struct BoutiqueDetailScreen: View {
                 BannerImageView(image: viewModel.boutiqueLocation.bannerImage)
                     .padding(.bottom)
                 VStack(alignment: .leading, spacing: 10) {
-                    HStack {
+                    HStack(alignment: .top) {
                         FullAddressView(address: viewModel.boutiqueLocation.address,
                                         cityStatePostalCode: "\(viewModel.boutiqueLocation.city), \(viewModel.boutiqueLocation.state), \(viewModel.boutiqueLocation.zipCode)")
                         OpenMapsButtonView(action: viewModel.openMaps)
@@ -70,7 +70,17 @@ struct BoutiqueDetailScreen: View {
     }
 }
 
-//#Preview { BoutiqueDetailScreen(viewModel: BoutiqueDetailViewModel(boutiqueLocation: UnitedStatesBoutique(record: MockData.boutiqueLocation))) }
+#Preview {
+    let config = ModelConfiguration(isStoredInMemoryOnly: true)
+    let container = try! ModelContainer(for: FavoriteBoutique.self, configurations: config)
+    
+    return NavigationStack {
+        BoutiqueDetailScreen(viewModel: BoutiqueDetailViewModel(boutiqueLocation: UnitedStatesBoutique(record: MockData.boutiqueLocation)))
+            .modelContainer(container)
+    }
+    
+//    BoutiqueDetailScreen(viewModel: BoutiqueDetailViewModel(boutiqueLocation: UnitedStatesBoutique(record: MockData.boutiqueLocation)))
+}
 
 fileprivate struct NameView: View {
     
@@ -99,6 +109,7 @@ fileprivate struct FullAddressView: View {
                 Text(cityStatePostalCode)
             }
             .applyJPFootnote()
+            .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
             Spacer()
         }
     }

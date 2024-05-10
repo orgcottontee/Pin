@@ -50,6 +50,14 @@ final class BoutiqueViewModel {
         }
     }
     
+    @ViewBuilder func createBoutiqueDetailView(for boutique: UnitedStatesBoutique, in dynamicTypeSize: DynamicTypeSize) -> some View {
+        if dynamicTypeSize > .xxxLarge {
+            BoutiqueDetailScreen(viewModel: BoutiqueDetailViewModel(boutiqueLocation: boutique)).embedInScrollView()
+        } else {
+            BoutiqueDetailScreen(viewModel: BoutiqueDetailViewModel(boutiqueLocation: boutique))
+        }
+    }
+    
     private func showLoadingView() { return isLoading = true }
     private func hideLoadingView() { return isLoading = false }
 }

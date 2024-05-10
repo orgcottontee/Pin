@@ -11,6 +11,7 @@ struct BoutiqueListScreen: View {
     
     @Environment(NetworkMonitor.self) private var networkMonitor
     @Environment(BoutiqueManager.self) private var boutiqueManager
+    @Environment(\.dynamicTypeSize) var dynamicTypeSize
     @State private var viewModel = BoutiqueViewModel()
     
     // MARK: - Search & filter properties
@@ -38,7 +39,7 @@ struct BoutiqueListScreen: View {
                                               searchText: $viewModel.searchText)
                         CardStackView(filterResults: filterResults)
                             .navigationDestination(for: UnitedStatesBoutique.self) { boutique in
-                                BoutiqueDetailScreen(viewModel: BoutiqueDetailViewModel(boutiqueLocation: boutique))
+                                viewModel.createBoutiqueDetailView(for: boutique, in: dynamicTypeSize)
                                     .toolbarRole(.editor)
                             }
                     }

@@ -13,6 +13,14 @@ extension View {
       modifier(OnFirstAppear(action: action))
     }
     
+    func embedInScrollView() -> some View {
+        GeometryReader { geo in
+            ScrollView {
+                frame(minHeight: geo.size.height, maxHeight: .infinity)
+            }
+        }
+    }
+    
     func applyJPTextfield() -> some View {
         modifier(JPTextfieldStyle())
     }
