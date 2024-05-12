@@ -123,16 +123,15 @@ fileprivate struct CardStackView: View {
                 ForEach(filterResults) { boutique in
                     NavigationLink(value: boutique) {
                         BoutiqueCellView(boutiqueLocation: boutique)
-                            .scrollTransition { content, phase in
-                                content
-                                    .opacity(phase.isIdentity ? 1 : 0)
-                                    .scaleEffect(phase.isIdentity ? 1 : 0.25)
-                                    .blur(radius: phase.isIdentity ? 0 : 5)
-                            }
                     }
                 }
+                .scrollTransition { content, phase in
+                    content
+                        .opacity(phase.isIdentity ? 1 : 0)
+                        .scaleEffect(phase.isIdentity ? 1 : 0.50)
+                        .blur(radius: phase.isIdentity ? 0 : 5)
+                }
             }
-            .padding()
         }
         .scrollIndicators(.hidden)
     }

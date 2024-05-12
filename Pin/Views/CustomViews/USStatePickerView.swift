@@ -9,11 +9,11 @@ import SwiftUI
 
 struct USStatePickerView: View {
     
-    @Binding var selectedState: USState
     private let rows = [GridItem(.fixed(30))]
     private let states = USState.allCases
-    @Environment(\.dynamicTypeSize) var dynamicTypeSize
+    @Binding var selectedState: USState
     @Binding var isSearchTextfieldVisible: Bool
+    @Environment(\.dynamicTypeSize) var dynamicTypeSize
     
     var body: some View {
         
@@ -40,7 +40,6 @@ struct USStatePickerView: View {
             .frame(height: 44)
         }
         .scrollIndicators(.hidden)
-        
     }
 }
 
