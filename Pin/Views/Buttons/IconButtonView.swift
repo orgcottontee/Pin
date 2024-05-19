@@ -14,7 +14,7 @@ struct IconButtonView: View {
     var color: Color
     
     var body: some View {
-        if dynamicTypeSize >= .accessibility3 {
+        if dynamicTypeSize >= .xxxLarge {
             Image(systemName: icon)
                 .resizable()
                 .scaledToFit()
@@ -29,5 +29,5 @@ struct IconButtonView: View {
 }
 
 #Preview {
-    IconButtonView(icon: "magnifyingglass", color: .App.favorite)
+    IconButtonView(icon: "square.and.arrow.up", color: .App.favorite)
 }

@@ -40,10 +40,11 @@ struct ProfileScreen: View {
                     Spacer()
                     ShareLink(item: URL(string: "https://apps.apple.com/us/app")!) {
                         HStack {
-                            Image(systemName: "square.and.arrow.up")
-                                .resizable()
-                                .scaledToFit()
-                                .accessibilityLabel(Text("Share app"))
+                            IconButtonView(icon: "square.and.arrow.up", color: .App.accent)
+//                            Image(systemName: "square.and.arrow.up")
+//                                .resizable()
+//                                .scaledToFit()
+//                                .accessibilityLabel(Text("Share app"))
                         }
                         .frame(width: 44, height: 44)
                     }
