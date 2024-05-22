@@ -128,7 +128,7 @@ fileprivate struct CardStackView: View {
                 .scrollTransition { content, phase in
                     content
                         .opacity(phase.isIdentity ? 1 : 0)
-                        .scaleEffect(phase.isIdentity ? 1 : 0.50)
+                        .scaleEffect(phase.isIdentity ? 1 : 0.25)
                         .blur(radius: phase.isIdentity ? 0 : 5)
                 }
             }
