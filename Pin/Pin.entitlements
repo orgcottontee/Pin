@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>com.apple.developer.icloud-container-environment</key>
-	<string>production</string>
+	<string>Development</string>
 	<key>com.apple.security.app-sandbox</key>
 	<true/>
 	<key>aps-environment</key>
