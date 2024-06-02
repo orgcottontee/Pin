@@ -37,17 +37,12 @@ struct ProfileScreen: View {
                         ActionButtonView(smallText: ProfileScreenConstant.submissionFormButton, icon: "rectangle.and.pencil.and.ellipsis")
                             .accessibilityLabel(Text("Submit a boutique"))
                     }
-                    Spacer()
-                    ShareLink(item: URL(string: "https://apps.apple.com/us/app")!) {
+                    ShareLink(item: URL(string: "https://apps.apple.com/app/id6502470376")!) {
                         HStack {
-                            IconButtonView(icon: "square.and.arrow.up", color: .App.accent)
-//                            Image(systemName: "square.and.arrow.up")
-//                                .resizable()
-//                                .scaledToFit()
-//                                .accessibilityLabel(Text("Share app"))
+                            ActionButtonView(smallText: "Share App", icon: "square.and.arrow.up")
                         }
-                        .frame(width: 44, height: 44)
                     }
+                    Spacer()
                 }
                 .preferredColorScheme(selectedTheme)
                 .padding()
