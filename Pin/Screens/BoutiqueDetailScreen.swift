@@ -20,9 +20,12 @@ struct BoutiqueDetailScreen: View {
             VStack {
                 BannerImageView(image: viewModel.boutiqueLocation.bannerImage)
                     .padding(.bottom)
-// MARK: - App store samples
-//                BannerImageView(image: .AppStoreSample.locationAssetSample)
-//                    .padding(.bottom)
+                
+                /* MARK: - App store samples
+                BannerImageView(image: .AppStoreSample.locationAssetSample)
+                    .padding(.bottom)
+                 */
+                
                 VStack(alignment: .leading, spacing: 10) {
                     HStack(alignment: .top) {
                         FullAddressView(address: viewModel.boutiqueLocation.address,
@@ -81,8 +84,6 @@ struct BoutiqueDetailScreen: View {
         BoutiqueDetailScreen(viewModel: BoutiqueDetailViewModel(boutiqueLocation: UnitedStatesBoutique(record: MockData.boutiqueLocation)))
             .modelContainer(container)
     }
-    
-//    BoutiqueDetailScreen(viewModel: BoutiqueDetailViewModel(boutiqueLocation: UnitedStatesBoutique(record: MockData.boutiqueLocation)))
 }
 
 fileprivate struct NameView: View {
