@@ -125,6 +125,21 @@ fileprivate struct CardStackView: View {
                         BoutiqueCellView(boutiqueLocation: boutique)
                     }
                 }
+// MARK: - App store samples
+//                ForEach(0..<10) { _ in
+//                    LogoView(image: .AppStoreSample.appSample1, frameWidth: 220)
+//                        .clipShape(RoundedRectangle(cornerRadius: 10))
+//                        .shadow(color: .gray, radius: 4, x: 2, y: 2)
+//                    Text("San Diego, California")
+//                        .applyJPBody(.App.accent)
+//                        .padding(.bottom)
+//                    LogoView(image: .AppStoreSample.appSample2, frameWidth: 220)
+//                        .clipShape(RoundedRectangle(cornerRadius: 10))
+//                        .shadow(color: .gray, radius: 4, x: 2, y: 2)
+//                    Text("Queens, New York")
+//                        .applyJPBody(.App.accent)
+//                        .padding(.bottom)
+//                }
                 .scrollTransition { content, phase in
                     content
                         .opacity(phase.isIdentity ? 1 : 0)

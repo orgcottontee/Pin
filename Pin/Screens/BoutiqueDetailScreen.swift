@@ -20,6 +20,9 @@ struct BoutiqueDetailScreen: View {
             VStack {
                 BannerImageView(image: viewModel.boutiqueLocation.bannerImage)
                     .padding(.bottom)
+// MARK: - App store samples
+//                BannerImageView(image: .AppStoreSample.locationAssetSample)
+//                    .padding(.bottom)
                 VStack(alignment: .leading, spacing: 10) {
                     HStack(alignment: .top) {
                         FullAddressView(address: viewModel.boutiqueLocation.address,

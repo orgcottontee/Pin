@@ -12,7 +12,6 @@
 		DE0B4D922BCF2F0200E9CE9D /* BoutiqueDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0B4D912BCF2F0200E9CE9D /* BoutiqueDetailViewModel.swift */; };
 		DE1057D42BE0327F001EA882 /* XDismissButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1057D32BE0327F001EA882 /* XDismissButtonView.swift */; };
 		DE1057D62BE055CA001EA882 /* USStatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1057D52BE055CA001EA882 /* USStatePickerView.swift */; };
-		DE1057D82BE12CA4001EA882 /* fabricFlowing.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DE1057D72BE12CA3001EA882 /* fabricFlowing.mp4 */; };
 		DE1057DE2BE133B3001EA882 /* AppSettings+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1057DD2BE133B3001EA882 /* AppSettings+Helper.swift */; };
 		DE1057EC2BE2B3F4001EA882 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1057EB2BE2B3F4001EA882 /* HapticManager.swift */; };
 		DE1AA63C2BEAB6F100A7FC8B /* AppTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1AA63B2BEAB6F100A7FC8B /* AppTabViewModel.swift */; };
@@ -67,7 +66,6 @@
 		DE0B4D912BCF2F0200E9CE9D /* BoutiqueDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoutiqueDetailViewModel.swift; sourceTree = "<group>"; };
 		DE1057D32BE0327F001EA882 /* XDismissButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XDismissButtonView.swift; sourceTree = "<group>"; };
 		DE1057D52BE055CA001EA882 /* USStatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USStatePickerView.swift; sourceTree = "<group>"; };
-		DE1057D72BE12CA3001EA882 /* fabricFlowing.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = fabricFlowing.mp4; sourceTree = "<group>"; };
 		DE1057DD2BE133B3001EA882 /* AppSettings+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppSettings+Helper.swift"; sourceTree = "<group>"; };
 		DE1057EB2BE2B3F4001EA882 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		DE1AA63B2BEAB6F100A7FC8B /* AppTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabViewModel.swift; sourceTree = "<group>"; };
@@ -277,7 +275,6 @@
 			isa = PBXGroup;
 			children = (
 				DE635B752BBDC51D005D5C8D /* AppFonts.swift */,
-				DE1057D72BE12CA3001EA882 /* fabricFlowing.mp4 */,
 				DEB9AC452BBCD1F400013C92 /* Assets.xcassets */,
 				DE635B732BBDC501005D5C8D /* Baskerville.ttc */,
 				DE635B712BBDC4F2005D5C8D /* UniversLTStd-Light.otf */,
@@ -433,7 +430,6 @@
 				DE81C7C72BCB542D003F4E58 /* PrivacyInfo.xcprivacy in Resources */,
 				DE635B742BBDC501005D5C8D /* Baskerville.ttc in Resources */,
 				DEB9AC492BBCD1F400013C92 /* Preview Assets.xcassets in Resources */,
-				DE1057D82BE12CA4001EA882 /* fabricFlowing.mp4 in Resources */,
 				DEB9AC462BBCD1F400013C92 /* Assets.xcassets in Resources */,
 				DE635B722BBDC4F2005D5C8D /* UniversLTStd-Light.otf in Resources */,
 			);

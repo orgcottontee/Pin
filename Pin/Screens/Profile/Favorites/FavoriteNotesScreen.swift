@@ -65,3 +65,22 @@ struct FavoriteNotesScreen: View {
         favoriteBoutique.savedDate.convertToWeekdayDayMonth()
     }
 }
+
+#Preview {
+    let config = ModelConfiguration(isStoredInMemoryOnly: true)
+    let container = try! ModelContainer(for: FavoriteNote.self, configurations: config)
+
+    
+    return NavigationStack {
+        FavoriteNotesScreen(favoriteBoutique: FavoriteBoutique(boutiqueID: "",
+                                                               name: "MUKAE MÜZ",
+                                                               city: "San Diego",
+                                                               state: "California",
+                                                               savedDated: .now,
+                                                               website: "https://www.mukaemuz.co",
+                                                               shortURL: "mukaemuz.co"))
+                          
+                           
+            .modelContainer(container)
+    }
+}
